@@ -9,5 +9,7 @@ public class Principal {
         System.out.println("DE UNA FERRETERIA");
         // TODO code application logic here
         System.out.println("rama personal, noé");
+        System.out.println("que vende cosas electricas");
+        System.out.println("en tapachula");
     }
 }
