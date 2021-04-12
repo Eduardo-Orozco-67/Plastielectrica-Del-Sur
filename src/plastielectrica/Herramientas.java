@@ -19,9 +19,13 @@ public class Herramientas {
         return Marca;
     }
 
-    
-    
-    
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }  
     
     
     
