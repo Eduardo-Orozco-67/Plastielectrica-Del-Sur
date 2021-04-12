@@ -1,9 +1,7 @@
-
-
 package plastielectrica;
 
 public class Herramientas {
-
+    //atributos de la clase 
     String Articulo;
     String Marca;
     String garantia;
@@ -11,6 +9,7 @@ public class Herramientas {
     int cantidad;
     int Num_Piezas;  
     
+    //metodos set de los atributos de la clase
     public void set_Articulo(String Articulo)
     {
        this.Articulo=Articulo;
@@ -35,12 +34,11 @@ public class Herramientas {
     {
         this.cantidad=cantidad;
     }
-        
+
     public void set_Num_Piezas(int Num_Piezas)
     {
         this.Num_Piezas=Num_Piezas;
     }
-    
     
 
     public String getArticulo() {
@@ -62,10 +60,9 @@ public class Herramientas {
     public int getCantidad() {
         return cantidad;
     }
-
+    
     public int getNum_Piezas() {
         return Num_Piezas;
     }
 
-    
 }

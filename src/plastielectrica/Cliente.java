@@ -2,18 +2,24 @@
 package plastielectrica;
 
 public class Cliente extends Persona {
+    
+    //atributos de la clase Cliente
     String RFC;
     String TipoCliente;
     int NumCliente;
+    
+    //constructor de la clase 
     Cliente()
     {
+        //se usa el super para poder inicializar los atributos heredados de la clase Persona
         super();
         RFC="NULL";
         TipoCliente="NULL";
-        NumCliente=0;
-                
+        NumCliente=0;    
+        
     }
     
+    //metodos set de lops atributos de la clase 
      public void set_RFC(String RFC) {
         this.RFC= RFC;
     }
@@ -26,7 +32,7 @@ public class Cliente extends Persona {
         this.NumCliente= NumCliente;
     }
 
-
+    //metodos get de los atributos de la clase 
     public String get_RFC() {
         return RFC;
     }
