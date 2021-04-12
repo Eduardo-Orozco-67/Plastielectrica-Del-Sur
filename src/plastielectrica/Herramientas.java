@@ -37,7 +37,7 @@ public class Herramientas {
     
     //metodos get de los atributos de la clase
     
-    public String getArticulo() {
+     public String getArticulo() {
         return Articulo;
     }
 
