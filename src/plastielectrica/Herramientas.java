@@ -12,10 +12,5 @@ public class Herramientas {
     int Num_Piezas;  
     
     
-     public void set_Articulo(String Articulo)
-    {
-       this.Articulo=Articulo;
-    }
-    
     
 }
