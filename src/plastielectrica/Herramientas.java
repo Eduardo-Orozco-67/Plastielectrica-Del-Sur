@@ -10,10 +10,7 @@ public class Herramientas {
     int Precio;
     int cantidad;
     int Num_Piezas;   
-    
-    
-
-    
+ 
      public void set_garantia(String garantia)
     {
         this.garantia=garantia;
@@ -23,4 +20,5 @@ public class Herramientas {
     {
         this.Marca=Marca;
     }
+         
 }
