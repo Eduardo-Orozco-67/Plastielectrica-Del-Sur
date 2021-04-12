@@ -20,4 +20,10 @@ public class Herramientas {
     {
         this.garantia=garantia;
     }
+     
+    public void set_precio(int Precio)
+    {
+        this.Precio=Precio;
+    }
+    
 }
