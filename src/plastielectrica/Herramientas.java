@@ -17,4 +17,8 @@ public class Herramientas {
         this.Marca=Marca;
     }
     
+     public void set_garantia(String garantia)
+    {
+        this.garantia=garantia;
+    }
 }
