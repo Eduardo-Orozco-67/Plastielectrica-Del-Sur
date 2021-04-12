@@ -4,13 +4,11 @@ package plastielectrica;
 import java.util.Scanner;
 
 public class Persona {
-    //atributos de la clase 
     String nombre;
     int edad; 
     String direccion;
     String email;
     String telefono;
-    
     
     public void setNom(String nombre) {
         this.nombre = nombre;
