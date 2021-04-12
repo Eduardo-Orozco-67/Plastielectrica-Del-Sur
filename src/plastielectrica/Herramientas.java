@@ -35,6 +35,30 @@ public class Herramientas {
     {
         this.cantidad=cantidad;
     }
+
+    public String getArticulo() {
+        return Articulo;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public String getGarantia() {
+        return garantia;
+    }
+
+    public int getPrecio() {
+        return Precio;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public int getNum_Piezas() {
+        return Num_Piezas;
+    }
     
     
 }
