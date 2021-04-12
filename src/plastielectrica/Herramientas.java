@@ -16,8 +16,4 @@ public class Herramientas {
         this.garantia=garantia;
     }
      
-    public void setMarca(String Marca)
-    {
-        this.Marca = Marca;
-    }
 }
