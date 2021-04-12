@@ -36,5 +36,9 @@ public class Herramientas {
         this.cantidad=cantidad;
     }
     
+    public void set_Num_Piezas(int Num_Piezas)
+    {
+        this.Num_Piezas=Num_Piezas;
+    }
     
 }
