@@ -37,10 +37,6 @@ public class Herramientas {
     
     //metodos get de los atributos de la clase
     
-    public void setNum_Piezas(int Num_Piezas) {
-        this.Num_Piezas = Num_Piezas;
-    }
-
     public String getArticulo() {
         return Articulo;
     }
