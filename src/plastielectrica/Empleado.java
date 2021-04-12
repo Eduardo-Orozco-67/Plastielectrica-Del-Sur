@@ -1,14 +1,16 @@
 
 package plastielectrica;
 
-import java.util.Scanner;
+import java.util.Scanner; //metodo scanner para la lectura de dtaos ingresados desde teclado 
 
 public class Empleado extends Persona{
     
+    //atributos de la clase 
      int ID;
      String RFC;
      String aguinaldo;
      
+    //constructor de la clase 
     Empleado()
     {
         super();
@@ -17,6 +19,7 @@ public class Empleado extends Persona{
         ID=0;      
     }
     
+    //metodos set de los atributos de la clase 
     public void set_RFC(String RFC) {
         this.RFC = RFC;
     }
@@ -29,7 +32,7 @@ public class Empleado extends Persona{
         this.ID= ID;
     }
 
-
+    //metodos get de los atributos de la clase 
     public String get_RFC() {
         return RFC;
     }
