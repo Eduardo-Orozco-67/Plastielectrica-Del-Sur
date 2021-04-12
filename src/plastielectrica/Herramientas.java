@@ -12,13 +12,15 @@ public class Herramientas {
     int Num_Piezas;   
     
     
-    public void set_Marca(String Marca)
-    {
-        this.Marca=Marca;
-    }
+
     
      public void set_garantia(String garantia)
     {
         this.garantia=garantia;
+    }
+     
+         public void set_Marca(String Marca)
+    {
+        this.Marca=Marca;
     }
 }
