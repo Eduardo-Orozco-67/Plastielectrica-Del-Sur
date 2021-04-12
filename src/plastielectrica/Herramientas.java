@@ -31,10 +31,6 @@ public class Herramientas {
     {
         this.Marca=Marca;
     }
-        
-        public void set_Precio(int Precio)
-        {
-            this.Precio=Precio;
-        }
+
     
 }
