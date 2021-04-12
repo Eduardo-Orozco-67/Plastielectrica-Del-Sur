@@ -1,7 +1,8 @@
 
 package plastielectrica;
 
-import java.util.Scanner; //metodo scanner para la lectura de dtaos ingresados desde teclado 
+import java.util.Scanner; 
+//metodo scanner para la lectura de dtaos ingresados desde teclado 
 
 public class Empleado extends Persona{
     
