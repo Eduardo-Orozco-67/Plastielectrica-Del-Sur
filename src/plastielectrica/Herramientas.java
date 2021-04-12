@@ -11,6 +11,7 @@ public class Herramientas {
     int cantidad;
     int Num_Piezas;   
     
+    
     public void set_Marca(String Marca)
     {
         this.Marca=Marca;
