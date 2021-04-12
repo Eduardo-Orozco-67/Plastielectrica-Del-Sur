@@ -26,4 +26,9 @@ public class Herramientas {
         this.Precio=Precio;
     }
     
+        public void set_Marca(String Marca)
+    {
+        this.Marca=Marca;
+    }
+    
 }
