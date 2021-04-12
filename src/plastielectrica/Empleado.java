@@ -17,12 +17,12 @@ public class Empleado extends Persona{
         ID=0;      
     }
     
-    public void set_RFC(String nombre) {
-        this.nombre = nombre;
+    public void set_RFC(String RFC) {
+        this.RFC = RFC;
     }
 
-    public void set_aguinaldo(String direccion) {
-        this.direccion = direccion;
+    public void set_aguinaldo(String aguinaldo) {
+        this.aguinaldo = aguinaldo;
     }
 
     public void setid(int ID) {
@@ -30,17 +30,16 @@ public class Empleado extends Persona{
     }
 
 
-
     public String get_RFC() {
-        return direccion;
+        return RFC;
     }
 
     public String get_aguinaldo() {
-        return telefono;
+        return aguinaldo;
     }
 
     public int get_id() {
-        return edad;
+        return ID;
     }
 
 }
