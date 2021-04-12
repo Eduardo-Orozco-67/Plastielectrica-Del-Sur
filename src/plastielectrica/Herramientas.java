@@ -42,7 +42,7 @@ public class Herramientas {
     }
     
     
-
+    //METODOS GET DE LA CLASE
     public String getArticulo() {
         return Articulo;
     }
