@@ -30,5 +30,11 @@ public class Herramientas {
     {
         this.Marca=Marca;
     }
+        
+    public void set_cantidad(int cantidad)
+    {
+        this.cantidad=cantidad;
+    }
+    
     
 }
