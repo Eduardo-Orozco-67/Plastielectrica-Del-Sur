@@ -17,6 +17,8 @@ public class Principal {
         System.out.println("Este es nuestro proyecto");
         System.out.println("DE UNA FERRETERIA");
         System.out.println("Que vende cosas electricas");
+        
+        System.out.println("A buen precio");
         // TODO code application logic here
     }
 }
