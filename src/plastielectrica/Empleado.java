@@ -25,7 +25,7 @@ public class Empleado extends Persona{
         this.aguinaldo = aguinaldo;
     }
 
-    public void setid(int ID) {
+    public void set_id(int ID) {
         this.ID= ID;
     }
 
@@ -40,6 +40,20 @@ public class Empleado extends Persona{
 
     public int get_id() {
         return ID;
+    }
+    
+    Scanner x = new Scanner(System.in);
+    
+     @Override
+    public void llenado()
+    {
+        System.out.print("Dame el ID ");
+        set_id(x.nextInt());
+        System.out.print("Dame el RFC ");
+        set_RFC(x.next());
+        System.out.print("Dame el tipo de agunaldo");
+        set_aguinaldo(x.next());
+        super.llenado();
     }
 
 }
