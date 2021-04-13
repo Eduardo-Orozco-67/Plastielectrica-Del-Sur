@@ -51,7 +51,7 @@ public class Empleado extends Persona{
         set_id(x.nextInt());
         System.out.print("Dame el RFC ");
         set_RFC(x.next());
-        System.out.print("Dame el tipo de agunaldo");
+        System.out.print("Dame el tipo de aguinaldo");
         set_aguinaldo(x.next());
         super.llenado();
     }
