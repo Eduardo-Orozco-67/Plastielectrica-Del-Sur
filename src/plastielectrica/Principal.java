@@ -1,16 +1,15 @@
-
 package plastielectrica;
 
 public class Principal {
-    
+
     public static void main(String[] args) {
-        System.out.println("Hola Mundo");
-        System.out.println("Este es nuestro proyecto");
-        System.out.println("DE UNA FERRETERIA");
-        System.out.println("Que vende cosas electricas");
-        // TODO code application logic here
-        System.out.println("rama personal, noé");
-        System.out.println("que vende cosas electricas");
-        System.out.println("en tapachula");
+        System.out.println("*************************************");
+        System.out.println("*****\tPlastielectrica Del Sur\t*****");
+        System.out.println("*************************************");
+        System.out.println("Venta en todo tipo de materiales electricos!!\n");
+        System.out.print("Pregunte\n\tPor\n\t\tLo\n\t\t\tQue\n\t\t\t\tNecesite!!\n\n");
+        System.out.println("Email de la empresa: plastielec01@gmail.com\n");
+        System.out.println("Numero telefonico de la empresa: 9624587596\n");
+        System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
     }
 }
