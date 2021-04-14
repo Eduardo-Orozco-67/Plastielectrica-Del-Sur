@@ -1,8 +1,11 @@
 package plastielectrica;
 
-public class Principal {
+import java.util.Scanner;
 
+public class Principal {
+Scanner x = new Scanner(System.in);
     public static void main(String[] args) {
+        
         System.out.println("*************************************");
         System.out.println("*****\tPlastielectrica Del Sur\t*****");
         System.out.println("*************************************");
@@ -11,5 +14,13 @@ public class Principal {
         System.out.println("Email de la empresa: plastielec01@gmail.com\n");
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
+        
+        Herramientas varillas = new Herramientas();
+        varillas.PedirDatosHerramientas();
+        varillas.MostrarDatosHerramientas();
+        
+        
+      
     }
+   
 }
