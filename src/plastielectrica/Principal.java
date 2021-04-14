@@ -19,8 +19,9 @@ Scanner x = new Scanner(System.in);
         varillas.PedirDatosHerramientas();
         varillas.MostrarDatosHerramientas();
         
-        
-      
+        Herramientas pilas = new Herramientas();
+        pilas.PedirDatosHerramientas();
+        pilas.MostrarDatosHerramientas();
     }
    
 }
