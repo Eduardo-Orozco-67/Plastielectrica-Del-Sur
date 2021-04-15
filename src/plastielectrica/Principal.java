@@ -15,6 +15,7 @@ Scanner x = new Scanner(System.in);
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
         
+        
         Herramientas varillas = new Herramientas();
         varillas.PedirDatosHerramientas();
         varillas.MostrarDatosHerramientas();
@@ -64,8 +65,16 @@ Scanner x = new Scanner(System.in);
         lamparas_tubo.MostrarDatosHerramientas();
         
         
-        }
+        //llamada a metodos de empleado
+        Empleado emp1 = new Empleado();//objeto
+        
+        emp1.empQuincenal();
+        emp1.empMensual();
+        
+        emp1.aguinaldoQuin();
+        emp1.aguinaldoMen();
        
        
+    }  
     }
    
