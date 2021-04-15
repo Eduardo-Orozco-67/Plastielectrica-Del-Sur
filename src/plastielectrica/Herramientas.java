@@ -9,7 +9,7 @@ Scanner x = new Scanner(System.in);
     String Articulo;
     String Marca;
     String garantia;
-    float Precio;
+    float Precio;//cambie de int a float
     String cantidad;
     int Num_Piezas;  
     
@@ -73,7 +73,7 @@ void MostrarDatosHerramientas(){//funcion para pedir datos
     System.out.println("Marca: "+ getMarca());
     System.out.println("garantia: "+ getGarantia());
     System.out.println("precio: "+ getPrecio());
-    System.out.println("Cantidad (por ejemplo:kilos,piezas,etc): "+ getCantidad());
+    System.out.println("Cantidad : "+ getCantidad());
     System.out.println("Número de piezas o cantidad: "+ getNum_Piezas());
 }
     public void PedirDatosHerramientas(/*String Articulo,String Marca,String 
@@ -87,7 +87,7 @@ void MostrarDatosHerramientas(){//funcion para pedir datos
         garantia =x.next();
         System.out.println("dame el precio del Articulo.");
         Precio =x.nextFloat();
-        System.out.println("dame la cantidad de este articulo.");//por ejemplo: kilo,piezas
+        System.out.println("dame la cantidad de este articulo (por ejemplo:kilos,piezas,etc)");//por ejemplo: kilo,piezas
         cantidad =x.next();
         System.out.println("dame el numero de piezas o cantidad del Articulo.");
         Num_Piezas =x.nextInt(); 
