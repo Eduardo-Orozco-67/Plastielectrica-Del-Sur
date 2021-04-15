@@ -22,6 +22,50 @@ Scanner x = new Scanner(System.in);
         Herramientas pilas = new Herramientas();
         pilas.PedirDatosHerramientas();
         pilas.MostrarDatosHerramientas();
+        
+        Herramientas pastillas = new Herramientas();
+        pastillas.PedirDatosHerramientas();
+        pastillas.MostrarDatosHerramientas();
+        
+        Herramientas resistencias = new Herramientas();
+        resistencias.PedirDatosHerramientas();
+        resistencias.MostrarDatosHerramientas();
+        
+        Herramientas guantes_aislantes = new Herramientas();
+        guantes_aislantes.PedirDatosHerramientas();
+        guantes_aislantes.MostrarDatosHerramientas();
+        
+        Herramientas clavijas = new Herramientas();
+        clavijas.PedirDatosHerramientas();
+        clavijas.PedirDatosHerramientas();
+        
+        Herramientas grapas =new Herramientas();
+        grapas.PedirDatosHerramientas();
+        grapas.MostrarDatosHerramientas();
+        
+        Herramientas canaletas = new Herramientas();
+        canaletas.PedirDatosHerramientas();
+        canaletas.MostrarDatosHerramientas();
+        
+        Herramientas cinta_ais = new Herramientas();
+        cinta_ais.PedirDatosHerramientas();
+        cinta_ais.MostrarDatosHerramientas();
+        
+        Herramientas transformadores = new Herramientas();
+        transformadores.PedirDatosHerramientas();
+        transformadores.MostrarDatosHerramientas();
+        
+        Herramientas mufa = new Herramientas();
+        mufa.PedirDatosHerramientas();
+        mufa.MostrarDatosHerramientas();
+        
+        Herramientas lamparas_tubo = new Herramientas();
+        lamparas_tubo.PedirDatosHerramientas();
+        lamparas_tubo.MostrarDatosHerramientas();
+        
+        
+        }
+       
+       
     }
    
-}
