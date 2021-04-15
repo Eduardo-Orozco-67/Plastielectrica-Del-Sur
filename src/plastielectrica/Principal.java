@@ -14,7 +14,6 @@ Scanner x = new Scanner(System.in);
         System.out.println("Email de la empresa: plastielec01@gmail.com\n");
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
-        System.out.println("Somos tu mejor opcion");
         
         
         Herramientas varillas = new Herramientas();
