@@ -43,6 +43,14 @@ public class Persona {
         return edad;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     Scanner x = new Scanner(System.in);
 
     //metodo llenado para la recoleccion de datos
@@ -58,6 +66,9 @@ public class Persona {
 
         System.out.println("Dame su edad: ");
         setEdad(x.nextInt());
+        
+        System.out.println("Dame su email: ");
+        setEmail(x.next());
 
     }
     
