@@ -4,6 +4,7 @@ package plastielectrica;
 import java.util.Scanner;
 
 public class Persona {
+    Scanner x = new Scanner(System.in);
     String nombre;
     int edad; 
     String direccion;
@@ -50,26 +51,4 @@ public class Persona {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    Scanner x = new Scanner(System.in);
-
-    //metodo llenado para la recoleccion de datos
-    public void llenado() {
-        System.out.println("Dame su nombre:  ");
-        setNom(x.next());
-
-        System.out.println("Dame su direccion: ");
-        setDirecc(x.next());
-
-        System.out.println("Dame su numero de telefono: ");
-        setTelefono(x.next());
-
-        System.out.println("Dame su edad: ");
-        setEdad(x.nextInt());
-        
-        System.out.println("Dame su email: ");
-        setEmail(x.next());
-
-    }
-    
 }
