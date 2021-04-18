@@ -1,10 +1,13 @@
 package plastielectrica;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
-Scanner x = new Scanner(System.in);
     public static void main(String[] args) {
+        String cant;
+        int ban = 0;
+        Scanner x1 = new Scanner(System.in); 
         
         System.out.println("*************************************");
         System.out.println("*****\tPlastielectrica Del Sur\t*****");
@@ -64,17 +67,82 @@ Scanner x = new Scanner(System.in);
         lamparas_tubo.PedirDatosHerramientas();
         lamparas_tubo.MostrarDatosHerramientas();
         
-        
-        //llamada a metodos de empleado
-        Empleado emp1 = new Empleado();//objeto
-        
-        emp1.empQuincenal();
-        emp1.empMensual();
-        
-        emp1.aguinaldoQuin();
-        emp1.aguinaldoMen();
+  
+        //implementacion de los ArrayList para el empleado quincenal
+        int a,n;
+        ArrayList<Empleado> empQ = new ArrayList<Empleado>();
+        String des;
+        Empleado emp1 = new Empleado();
+        //ALTA DE EMPLEADOS
+       do{
+           Empleado emp = new Empleado();
+           //System.out.println("EMPLEADO No: " + (z+1));
+           System.out.println("Dame su nombre:  ");
+           emp.nombre = x1.next();
+           System.out.println("Dame el ID: ");
+           emp.ID = x1.next();
+           System.out.println("Dame su direccion: ");
+           emp.direccion = x1.next();
+           System.out.println("Dame su numero de telefono: ");
+           emp.telefono = x1.next();
+           System.out.println("Dame su edad: ");
+           emp.edad = x1.nextInt();
+           System.out.println("Dame su email: ");
+           emp.email = x1.next();
+           System.out.println("Ingresar el sueldo del empleado: ");
+           emp.sueldo = x1.nextFloat();
+           System.out.print("Ingresar las faltas acumuladas del empleado : ");
+           emp.faltas = x1.nextInt();
+           System.out.println("Ingresar los retardos del empleado: ");
+           emp.retardos = x1.nextInt();
+           System.out.println("Ingresar el total de HT: ");
+           emp.HT = x1.nextInt();
+           System.out.println("Ingresar el porcentaje el cual se le hace al empleado para pagar el seguro social: ");
+           emp.SS = x1.nextInt();
+           System.out.println("\n");
+           empQ.add(emp);
+           System.out.println("Deseas agregar otro empleado? \n SI o NO");
+           des=x1.next();
+       }while(des.equals("SI"));
        
-       
-    }  
-    }
-   
+        //IMPRESIÓN DE DATOS DE EMPLEADOS
+        for ( n = 0; n < empQ.size(); n++) {
+            System.out.println("Nombre: " + empQ.get(n).nombre + "\t" 
+                    + "ID: " + empQ.get(n).ID + "\t"
+                    +"Dirección: " + empQ.get(n).direccion + "\t" 
+                    +"Telefono: " + empQ.get(n).telefono + "\t" 
+                    +"Edad: " + empQ.get(n).edad + "\t" 
+                    +"Email: " + empQ.get(n).email + "\t" 
+                    +"Sueldo: " + empQ.get(n).sueldo + "\t" 
+                    +"Faltas: " + empQ.get(n).faltas + "\t" 
+                    +"Retardos" + empQ.get(n).retardos + "\t" 
+                    +"HT: " + empQ.get(n).HT +"\t" 
+                    +"SS: " + empQ.get(n).SS);
+        }
+        
+        //BUSQUEDA DE EMPLEADOS
+        System.out.println("dame el ID: ");
+        cant = x1.next();
+        for (n = 0; n < empQ.size(); n++) {
+            if ((empQ.get(n).ID).equals(cant)){
+                ban = 1;
+                break;
+            }
+        }
+        if (ban == 1) {
+            System.out.println("Nombre: " + empQ.get(n).nombre + "\t" 
+            + "ID: " + empQ.get(n).ID + "\t"
+            +"Dirección: " + empQ.get(n).direccion + "\t" 
+            +"Telefono: " + empQ.get(n).telefono + "\t" 
+            +"Edad: " + empQ.get(n).edad + "\t" 
+            +"Email: " + empQ.get(n).email + "\t" 
+            +"Sueldo: " + empQ.get(n).sueldo + "\t" 
+            +"Faltas: " + empQ.get(n).faltas + "\t" 
+            +"Retardos" + empQ.get(n).retardos + "\t" 
+            +"HT: " + empQ.get(n).HT +"\t" 
+            +"SS: " + empQ.get(n).SS);   
+        }else{
+            System.out.println("Vendedor no encontrado:(");
+        }
+    }//main  
+    }//class
