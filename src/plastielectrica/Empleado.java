@@ -141,7 +141,7 @@ public class Empleado extends Persona{
             setFaltas(x.nextInt());
             System.out.println("Ingresar los retardos del empleado: \n");
             setRetardos(x.nextInt());
-            System.out.println("Ingresar el total de HT: \n");
+            System.out.println("Ingresar el total de Hotas Trabajadas: \n");
             setHT(x.nextInt());
             System.out.println("Ingresar el porcentaje el cual se le hace al empleado para pagar el seguro social: \n");
             setSS(x.nextInt());
