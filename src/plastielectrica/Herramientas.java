@@ -1,97 +1,90 @@
-
-
+//clase herramientas, para los articulos que se venden el la ferreteria electrica
 package plastielectrica;
 
-import java.util.Scanner;
-
 public class Herramientas {
-Scanner x = new Scanner(System.in);
-    String Articulo;
-    String Marca;
-    String garantia;
-    float Precio;//cambie de int a float
-    String cantidad;
-    int Num_Piezas;  
-    
-    public void set_Articulo(String Articulo)
-    {
-       this.Articulo=Articulo;
+    //creación de atributos      id= identificador
+    String articulo,tipo,id,marca,unidades;//tipo para dar el tipo de cada producto, ejemplo cable tipocalibre 14
+    int cantidad,garantia;//garantia en dias,unidad en tipo ,por ejemplo kilos,metros,piezas etc.
+    float precio;
+
+    public Herramientas(String articulo, String tipo, String id, String marca, String unidades, int cantidad, int garantia, float precio) {
+        this.articulo = articulo;
+        this.tipo = tipo;
+        this.id = id;
+        this.marca = marca;
+        this.unidades = unidades;
+        this.cantidad = cantidad;
+        this.garantia = garantia;
+        this.precio = precio;
     }
-    
-     public void set_garantia(String garantia)
-    {
-        this.garantia=garantia;
+    Herramientas(){
+        articulo = null; tipo = null; id = null;marca=null;unidades = null;
+        cantidad =0;garantia = 0;
+        precio=0;
     }
-     
-    public void set_precio(float Precio)
-    {
-        this.Precio=Precio;
+    public void setArticulo(String articulo) {
+        this.articulo = articulo;
     }
-    
-        public void set_Marca(String Marca)
-    {
-        this.Marca=Marca;
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-        
-    public void set_cantidad(String cantidad)
-    {
-        this.cantidad=cantidad;
+
+    public void setId(String id) {
+        this.id = id;
     }
-        
-    public void set_Num_Piezas(int Num_Piezas)
-    {
-        this.Num_Piezas=Num_Piezas;
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
-    
-    
-    //METODOS GET DE LA CLASE
+
+    public void setUnidades(String unidades) {
+        this.unidades = unidades;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public void setGarantia(int garantia) {
+        this.garantia = garantia;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
     public String getArticulo() {
-        return Articulo;
+        return articulo;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
-    public String getGarantia() {
+    public String getUnidades() {
+        return unidades;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public int getGarantia() {
         return garantia;
     }
 
     public float getPrecio() {
-        return Precio;
+        return precio;
     }
-
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public int getNum_Piezas() {
-        return Num_Piezas;
-    }
-void MostrarDatosHerramientas(){//funcion para pedir datos
-    System.out.println("Articulo : " + getArticulo());
-    System.out.println("Marca: "+ getMarca());
-    System.out.println("garantia: "+ getGarantia());
-    System.out.println("precio: "+ getPrecio());
-    System.out.println("Cantidad : "+ getCantidad());
-    System.out.println("Número de piezas o cantidad: "+ getNum_Piezas());
-}
-    public void PedirDatosHerramientas(/*String Articulo,String Marca,String 
-     garantia,float Precio, String cantidad, int Num_Piezas/*/){
-        System.out.println("______________________________________________");
-        System.out.println("dame el nombre del Articulo.");
-        Articulo =x.next();
-        System.out.println("dame la marca del Articulo.");
-        Marca =x.next();
-        System.out.println("dame la garantia del Articulo.");
-        garantia =x.next();
-        System.out.println("dame el precio del Articulo.");
-        Precio =x.nextFloat();
-        System.out.println("dame la cantidad de este articulo (por ejemplo:kilos,piezas,etc)");//por ejemplo: kilo,piezas
-        cantidad =x.next();
-        System.out.println("dame el numero de piezas o cantidad del Articulo.");
-        Num_Piezas =x.nextInt(); 
-        System.out.println("______________________________________________");
-        
-}
+    
+    
 }
