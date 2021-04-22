@@ -70,7 +70,8 @@ Scanner x = new Scanner(System.in);
         
         emp1.empQuincenal();
         emp1.empMensual();
-        
+        emp1.mostEmpQuincenal();
+        emp1.mostEmpMensual();
         emp1.aguinaldoQuin();
         emp1.aguinaldoMen();
        
