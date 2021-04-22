@@ -28,19 +28,19 @@ public class Persona {
     }
 
     //metodos GET
-    public String get_Nom() {
+    public String getNom() {
         return nombre;
     }
 
-    public String get_Direccion() {
+    public String getDirecc() {
         return direccion;
     }
 
-    public String get_Telefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public int get_Edad() {
+    public int getEdad() {
         return edad;
     }
 
@@ -68,6 +68,18 @@ public class Persona {
         System.out.println("Dame su email: ");
         setEmail(x.next());
 
-    
+
+    }
+    public void mostrar(){
+        System.out.println("Nombre :" + getNom());
+
+        System.out.println("Direccion: " + getDirecc());
+
+        System.out.println("Telefono: " + getTelefono());
+
+        System.out.println("Dame su edad: " + getEdad());
+
+        System.out.println("Dame su email: " + getEmail());      
     }
 }
+
