@@ -5,7 +5,7 @@ public class Cliente extends Persona {
     String RFC;
     String TipoCliente;
     int NumCliente;
-    double subtotal=0, IVA, descuento, Total;
+    double subtotal, IVA, descuento, Total;
     Cliente()
     {
         super();
