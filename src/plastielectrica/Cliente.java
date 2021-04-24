@@ -5,6 +5,7 @@ public class Cliente extends Persona {
     String RFC;
     String TipoCliente;
     int NumCliente;
+    double subtotal=0, IVA, descuento, Total;
     Cliente()
     {
         super();
@@ -56,8 +57,10 @@ public class Cliente extends Persona {
         /*este descuento es para compras de un volumen no muy grande de compra
         en donde solo se le aplica un 5%, se aplica IVA al 8%
         */
-        
-        
+        IVA=subtotal*0.08;
+        subtotal=subtotal+IVA;
+        descuento=subtotal*0.05;
+        Total=subtotal-descuento;
     }
   
  }      
