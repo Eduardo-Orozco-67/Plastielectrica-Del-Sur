@@ -38,4 +38,16 @@ public class Cliente extends Persona {
     public int get_NumCliente() {
         return NumCliente;
     }
-}
+    
+    @Override
+    public void llenado()
+    {
+        super.llenado();
+        System.out.print("Dame el ID ");
+        set_NumCliente(x.nextInt());
+        System.out.print("Dame el RFC ");
+        set_RFC(x.next());
+    }
+  
+ }      
+
