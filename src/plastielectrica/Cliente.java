@@ -47,6 +47,17 @@ public class Cliente extends Persona {
         set_NumCliente(x.nextInt());
         System.out.print("Dame el RFC ");
         set_RFC(x.next());
+        System.out.println("Dame el tipo de Cliente: Descuento, Credito o mostrador ");
+        set_TipoCliente(x.next());
+    }
+    
+    public void descuento1()
+    {
+        /*este descuento es para compras de un volumen no muy grande de compra
+        en donde solo se le aplica un 5%, se aplica IVA al 8%
+        */
+        
+        
     }
   
  }      
