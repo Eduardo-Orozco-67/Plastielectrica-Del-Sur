@@ -52,7 +52,7 @@ public class Cliente extends Persona {
         set_TipoCliente(x.next());
     }
     
-    public void descuento1()
+    public void descuento()
     {
         /*este descuento es para compras de un volumen no muy grande de compra
         en donde solo se le aplica un 5%, se aplica IVA al 8%
