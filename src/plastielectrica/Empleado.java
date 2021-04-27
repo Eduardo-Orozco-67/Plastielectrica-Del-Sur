@@ -3,8 +3,8 @@ package plastielectrica;
 
 public class Empleado extends Persona{
     //atributos de la clase 
-     String RFC;
-     int faltas, retardos, HT, SS, anti, HE, Cuotas, ID = 0;
+     String RFC, ID;
+     int faltas, retardos, HT, SS, anti, HE, Cuotas;
      float sueldo, aguinaldo;
      
     //metodo empleado 
@@ -13,7 +13,7 @@ public class Empleado extends Persona{
         super();
             RFC = "NULL";
             aguinaldo = 0;
-            ID = 0 ;  
+            ID = "NULL";  
             faltas  = 0;
             retardos = 0 ; 
             HT = 0 ; 
@@ -32,7 +32,7 @@ public class Empleado extends Persona{
         return aguinaldo;
     }
 
-    public int get_id() {
+    public String get_id() {
         return ID;
     }    
 
@@ -100,7 +100,7 @@ public class Empleado extends Persona{
         this.aguinaldo = aguinaldo;
     }
 
-    public void set_id(int ID) {
+    public void set_id(String ID) {
         this.ID= ID;
     }
     
@@ -117,7 +117,7 @@ public class Empleado extends Persona{
     {
         super.llenado();
         System.out.print("Dame el ID ");
-        set_id(x.nextInt());
+        set_id(x.next());
         System.out.print("Dame el RFC ");
     }
 

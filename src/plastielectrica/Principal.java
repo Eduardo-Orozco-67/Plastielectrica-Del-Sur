@@ -23,7 +23,7 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta;
+        String respuesta, num;
         int op, i, res, r1, r2, r3, r4, r5;
         Scanner x = new Scanner(System.in);
         //creamos uestra arraylista para los articulos
@@ -101,8 +101,12 @@ public class Principal {
                                 datosEmp.setDirecc(x.next());
                                 System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
-                                System.out.println("Ingresar el ID del empleado: ");
+
+                                System.out.println("Ingresar de favor el ID del empleado: ");
+                                datosEmp.set_id(x.next());
+                  System.out.println("Ingresar el ID del empleado: ");
                                 datosEmp.set_id(x.nextInt());
+
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
@@ -115,11 +119,30 @@ public class Principal {
 
                         case 3:
                             System.out.println();
+                            //for para mostrar los empleados existentes y sus respectivos ID
+                            for (int j = 0; j < arrayLEmp.size(); j++) {//muestra los datos en el arrayList
+                                System.out.println();
+                                System.out.println("EMPLEADO " + (j + 1));
+                                System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                System.out.println("ID: " + arrayLEmp.get(j).ID);
+                            }
+                            System.out.println();
+                            System.out.println("Ingresar el ID del empleado que desea eliminar: ");
+                            num=x.next();//lectura de datos                              
+                            for (int j = 0; j < arrayLEmp.size(); j++) {
+                                    if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de IN en el arrayList
+                                    arrayLEmp.remove(j);//j es el iterador del for, el cual regula los datos
+                                    System.out.println("empleado eliminado!");  
+                                }else{
+                                    System.out.println("empleado no encontrado");
+                                }                                
+                            }
                             break;
 
                         case 4:
                             System.out.println();
                             for (int j = 0; j < arrayLEmp.size(); j++) {
+                                System.out.println();
                                 System.out.println("EMPLEADO " + (j + 1));
                                 System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
                                 System.out.println("Edad: " + arrayLEmp.get(j).edad);
