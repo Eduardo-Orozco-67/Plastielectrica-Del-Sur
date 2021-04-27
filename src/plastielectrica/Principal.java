@@ -3,6 +3,23 @@ package plastielectrica;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ *
+ * @author < Noe Guillen Gerardo ---- noe.guillen22@unach.mx >
+ * 
+ * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx > 
+ * 
+ * @author < Samuel Sanchez Guzman ---- samuel.sanchez85@unach.mx >
+ * 
+ * @author < Jeannette Sanchez Hernandez ---- jeannette.sanchez79@unach.mx >
+ * 
+ * @author < Francisco Javier Solis Bamaca ---- francisco.solis41@unach.mx >
+ * 
+ * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
+ * 
+ */
+
+
 public class Principal {
 
     public static void main(String[] args) {
@@ -72,20 +89,24 @@ public class Principal {
                             System.out.println();
                             do {
                                 Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
-                                System.out.println("Ingresar de favor el nombre del empleado: ");
+                                System.out.println("Ingresar el nombre del empleado: ");
                                 datosEmp.setNom(x.next());
-                                System.out.println("Ingresar de favor la edad del empleado: ");
+                                System.out.println("Ingresar la edad del empleado: ");
                                 datosEmp.setEdad(x.nextInt());
-                                System.out.println("Ingresar de favor la direccion del empleado: ");
+                                System.out.println("Ingresar la direccion del empleado: ");
                                 datosEmp.setDirecc(x.next());
-                                System.out.println("Ingresar de favor el email del empleado: ");
+                                System.out.println("Ingresar el email del empleado: ");
                                 datosEmp.setEmail(x.next());
-                                System.out.println("Ingresar de favor el numero telefonico del empleado: ");
+                                System.out.println("Ingresar el numero telefonico del empleado: ");
                                 datosEmp.setDirecc(x.next());
-                                System.out.println("Ingresar de favor el RFC del empleado: ");
+                                System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
+
                                 System.out.println("Ingresar de favor el ID del empleado: ");
                                 datosEmp.set_id(x.next());
+                  System.out.println("Ingresar el ID del empleado: ");
+                                datosEmp.set_id(x.nextInt());
+
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
@@ -142,7 +163,7 @@ public class Principal {
                             break;
 
                         case 7:
-                            System.out.println("DE VUELTA AL MENU PRINCIPAAAAL");
+                            
                             break;
 
                     }
