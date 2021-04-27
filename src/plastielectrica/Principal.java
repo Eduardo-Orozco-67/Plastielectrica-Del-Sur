@@ -101,12 +101,8 @@ public class Principal {
                                 datosEmp.setDirecc(x.next());
                                 System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
-
-                                System.out.println("Ingresar de favor el ID del empleado: ");
+                                System.out.println("Ingresar el ID del empleado: ");
                                 datosEmp.set_id(x.next());
-                  System.out.println("Ingresar el ID del empleado: ");
-                                datosEmp.set_id(x.nextInt());
-
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
