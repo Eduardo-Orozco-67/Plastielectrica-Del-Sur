@@ -100,11 +100,11 @@ public class Principal {
                                 System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
                                 System.out.println("Ingresar el ID del empleado: ");
-                                datosEmp.set_id(x.next());
+                                datosEmp.set_id(x.nextInt());
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
-                            } while (respuesta.equals("si"));//equals compara cadenas 
+                            } while (respuesta.equals("si"));//equals comparar cadenas 
                             break;
 
                         case 2:
@@ -174,12 +174,10 @@ public class Principal {
                     System.out.println(" 6.- Ver Por Tipos de Articulos");
                     System.out.println(" 7.- Regresar");
                     r3 = x.nextInt();
-
-                    do {
-
                         switch (r3) {
 
                             case 1:
+                               
                                 do {//ciclo para ingresar arituculosde forma dinámica.
                                     Herramientas articulos = new Herramientas();
                                     System.out.println("Ingrese el nombre de este artículo.");
@@ -253,7 +251,7 @@ public class Principal {
                                 System.out.println();
                                 System.out.println("Ingrese el código de identificación dela heramienta a eliminar");
                                 nid = x.next();
-                                for (i = 0; i < OBH.size(); i++) {//ciclopara verificar todos los objetos
+                                for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
                                     if (nid.equals(OBH.get(i).id)) {//comparación de id con nid
                                         OBH.remove(i);//eliminar el objeto con todos sus atributos
                                         System.out.println("objeto eliminado");
@@ -293,9 +291,7 @@ public class Principal {
                                     mod = x.next();
                                 } while (mod.equals("si"));
 
-                                break;
                         }
-                    } while (r3 != 7);
                     break;
 
                 case 4:
