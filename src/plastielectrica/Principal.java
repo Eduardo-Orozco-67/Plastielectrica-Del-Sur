@@ -23,13 +23,15 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, num;
+        String respuesta, num, Ncliente, cdes;
         int op, i, res, r1, r2, r3, r4, r5;
         Scanner x = new Scanner(System.in);
-        //creamos uestra arraylista para los articulos
+        //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
-        //creación de una arrayList para los empleados 
+        //arrayList para los empleados 
         ArrayList<Empleado> arrayLEmp = new ArrayList<>();
+        //arrayist para clientes
+        ArrayList <Cliente> clientes = new ArrayList<>();
 
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
@@ -58,6 +60,8 @@ public class Principal {
             //switch menu pricipal
             switch (res) {
                 case 1:
+                    
+                    do{
                     //submenu de Cliente
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Anadir Cliente");
@@ -68,9 +72,117 @@ public class Principal {
                     System.out.println(" 6.- Ver Por Tipos de Clientes");
                     System.out.println(" 7.- Regresar");
                     r1 = x.nextInt();
-                    switch (r1) {
+                    
+                    switch (r1) 
+                    {
+                        case 1:
+                            
+                            do {
+                                Cliente llenadocliente = new Cliente();
+                                //objeto que servira como el molde para el llenado de la lista
+                                
+                                System.out.println();
+                                x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
+                                //ponemos este x.nextLine para que se coma los \n
+                                System.out.println("Ingrese el Numero de Registro del Cliente: ");
+                                llenadocliente.set_NumCliente(x.next());
+                                x.nextLine();
+                                System.out.println("Ingrese el Nombre del Cliente: ");
+                                llenadocliente.setNom(x.nextLine());
+                                System.out.println("Ingrese la Edad del Cliente: ");
+                                llenadocliente.setEdad(x.nextInt());
+                                x.nextLine();
+                                System.out.println("Ingrese la Direccion del Cliente: ");
+                                llenadocliente.setDirecc(x.nextLine());
+                                System.out.println("Ingrese el Email del Cliente: ");
+                                llenadocliente.setEmail(x.nextLine());
+                                System.out.println("Ingrese el Numero Telefonico del Cliente: ");
+                                llenadocliente.setTelefono(x.nextLine());
+                                System.out.println("Ingrese el RFC del Cliente: ");
+                                llenadocliente.set_RFC(x.nextLine());
+                                System.out.println("Ingrese el Tipo de Pago del Cliente: ");
+                                llenadocliente.set_TipoCliente(x.nextLine());
+                                clientes.add(llenadocliente);
+                                
+                                //Preguntamos si desea un nuevo cliente
+                                System.out.println("¿Deseas ingresar otro Cliente?(Si/No)");
+                                respuesta = x.next();
+                                
+                                
+                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI"));
+                              
+                            break;
 
+                        case 2:
+                            System.out.println();
+                            System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
+                            Ncliente=x.next();//lectura de datos                              
+                            for (int y = 0; y < clientes.size(); y++) 
+                            {
+                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
+                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                                        System.out.println("Cliente encontrado");
+                                    }
+                            }
+                            break;
+
+                        case 3:
+                            
+                            System.out.println();
+                            System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
+                            Ncliente=x.next();//lectura de datos                              
+                            for (int y = 0; y < clientes.size(); y++) 
+                            {
+                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
+                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                                        System.out.println("Cliente encontrado");
+                                        System.out.println("Esta seguro de Eliminar");
+                                        cdes=x.next();
+                                        if(cdes.equals("SI")||cdes.equals("Si")||cdes.equals("si"))
+                                        {
+                                            clientes.remove(y);//y sera el que indique el valor de posicion
+                                            System.out.println("Cliente eliminado!");  
+                                        }
+                                    }
+                                    else
+                                    {
+                                      System.out.println("Cliente no encontrado");
+                                    }                                
+                            }
+                            break;
+
+                        case 4:
+                            System.out.println();
+                            for (int q = 0; q < clientes.size(); q++) 
+                            {
+                                
+                                System.out.println();
+                                System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
+                                System.out.println("Nombre: " + clientes.get(q).nombre);
+                                System.out.println("Edad: " + clientes.get(q).edad);
+                                System.out.println("Dirección: " + clientes.get(q).direccion);
+                                System.out.println("Email: " + clientes.get(q).email);
+                                System.out.println("Telefono: " + clientes.get(q).telefono);
+                                System.out.println("RFC: " + clientes.get(q).RFC);
+                                System.out.println("Tipo de Pago: " +clientes.get(q).TipoCliente);
+                                
+                            }
+                            break;
+
+                        case 5:
+                            System.out.println();
+                            break;
+
+                        case 6:
+                            System.out.println();
+                            break;
+                            
+                        case 7:
+                            break;
+                            
+                        default: 
                     }
+                    }while(r1!=7);
                     break;
 
                 case 2:
@@ -89,24 +201,24 @@ public class Principal {
                             System.out.println();
                             do {
                                 Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
-                                System.out.println("Ingresar el nombre del empleado: ");
+                                System.out.println("Ingrese el nombre del empleado: ");
                                 datosEmp.setNom(x.next());
-                                System.out.println("Ingresar la edad del empleado: ");
+                                System.out.println("Ingrese la edad del empleado: ");
                                 datosEmp.setEdad(x.nextInt());
-                                System.out.println("Ingresar la direccion del empleado: ");
+                                System.out.println("Ingrese la direccion del empleado: ");
                                 datosEmp.setDirecc(x.next());
-                                System.out.println("Ingresar el email del empleado: ");
+                                System.out.println("Ingrese el email del empleado: ");
                                 datosEmp.setEmail(x.next());
-                                System.out.println("Ingresar el numero telefonico del empleado: ");
+                                System.out.println("Ingrese el numero telefonico del empleado: ");
                                 datosEmp.setDirecc(x.next());
-                                System.out.println("Ingresar el RFC del empleado: ");
+                                System.out.println("Ingrese el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
-                                System.out.println("Ingresar el ID del empleado: ");
+                                System.out.println("Ingrese el ID del empleado: ");
                                 datosEmp.set_id(x.next());
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
-                            } while (respuesta.equals("si"));//equals compara cadenas 
+                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI"));//equals compara cadenas 
                             break;
 
                         case 2:
@@ -204,7 +316,7 @@ public class Principal {
 
                                     System.out.println("¿desea ingresar otra herramienta?(si/no)");
                                     respuesta = x.next();
-                                } while (respuesta.equals("si"));//condición para agregar o no otro articulo
+                                } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI"));//condición para agregar o no otro articulo
                                 break;
 
                             case 4://impresión de herramientas
