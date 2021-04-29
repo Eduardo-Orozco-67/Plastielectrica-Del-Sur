@@ -109,7 +109,7 @@ public class Principal {
                                 respuesta = x.next();
                                 
                                 
-                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI"));
+                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI")||respuesta.equals("sI"));
                               
                             break;
 
@@ -117,22 +117,22 @@ public class Principal {
                             
                             Cliente edicioncliente = new Cliente();
                             System.out.println();
-                            System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
+                            System.out.println("Ingresar el Numero del Cliente que desea editar: ");
                             Ncliente=x.next();//lectura de datos                              
                             for (int y = 0; y < clientes.size(); y++) 
                             {
                                     if (Ncliente.equals(clientes.get(y).NumCliente)) 
                                     { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
-                                        System.out.println("El Num de Cliente no se puede modificar");
-                                        System.out.println(clientes.get(y).NumCliente);
+                                        System.out.println("El Num de Cliente no se puede modificar:");
+                                        System.out.print(clientes.get(y).NumCliente);
                                         System.out.println("Ingrese el Nombre del Cliente: ");
                                         x.nextLine();
                                         clientes.get(y).setNom(x.nextLine());
-                                        System.out.println("Ingrese la Edad del Cliente: ");
+                                        System.out.print("\nIngrese la Edad del Cliente: ");
                                         clientes.get(y).setEdad(x.nextInt());
                                         x.nextLine();
-                                        System.out.println("Ingrese la Direccion del Cliente: ");
+                                        System.out.print("Ingrese la Direccion del Cliente: ");
                                         clientes.get(y).setDirecc(x.nextLine());
                                         System.out.println("Ingrese el Email del Cliente: ");
                                         clientes.get(y).setEmail(x.next());
