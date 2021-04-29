@@ -3,7 +3,7 @@ package plastielectrica;
 
 public class Empleado extends Persona{
     //atributos de la clase 
-     String RFC, ID;
+     String RFC, ID, tipoEmpleado;
      int faltas, retardos, HT, SS, anti, HE, Cuotas;
      float sueldo, aguinaldo;
      
@@ -21,9 +21,16 @@ public class Empleado extends Persona{
             anti = 0 ;
             HE = 0 ; 
             Cuotas = 0 ; 
+            tipoEmpleado = "NULL";
         }
     
     //GETTERS
+
+    public String getTipoEmpleado() {
+        return tipoEmpleado;
+    }
+    
+    
     public String get_RFC() {
         return RFC;
     }
@@ -111,6 +118,11 @@ public class Empleado extends Persona{
     public void setHT(int HT) {
         this.HT = HT;
     }
+
+    public void setTipoEmpleado(String tipoEmpleado) {
+        this.tipoEmpleado = tipoEmpleado;
+    }
+    
     
      @Override
     public void llenado()
