@@ -4,39 +4,39 @@ package plastielectrica;
 public class Cliente extends Persona {
     String RFC;
     String TipoCliente;
-    int NumCliente;
+    String NumCliente;
     double subtotal, IVA, descuento, Total;
     Cliente()
     {
         super();
-        RFC="NULL";
-        TipoCliente="NULL";
-        NumCliente=0;
+        RFC=" ";
+        TipoCliente=" ";
+        NumCliente=" ";
                 
     }
     
-     public void set_RFC(String RFC) {
+     public void setRFC(String RFC) {
         this.RFC= RFC;
     }
 
-    public void set_TipoCliente(String TipoCliente) {
+    public void setTipoCliente(String TipoCliente) {
         this.TipoCliente = TipoCliente;
     }
 
-    public void set_NumCliente(int NumCliente) {
+    public void setNumCliente(String NumCliente) {
         this.NumCliente= NumCliente;
     }
 
 
-    public String get_RFC() {
+    public String getRFC() {
         return RFC;
     }
 
-    public String get_TipoCliente() {
+    public String getTipoCliente() {
         return TipoCliente;
     }
 
-    public int get_NumCliente() {
+    public String getNumCliente() {
         return NumCliente;
     }
     
@@ -45,11 +45,11 @@ public class Cliente extends Persona {
     {
         super.llenado();
         System.out.print("Dame el ID ");
-        set_NumCliente(x.nextInt());
+        setNumCliente(x.next());
         System.out.print("Dame el RFC ");
-        set_RFC(x.next());
+        setRFC(x.next());
         System.out.println("Dame el tipo de Cliente: Descuento, Credito o mostrador ");
-        set_TipoCliente(x.next());
+        setTipoCliente(x.next());
     }
     
     public void descuento()

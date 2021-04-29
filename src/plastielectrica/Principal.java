@@ -85,7 +85,7 @@ public class Principal {
                                 x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
                                 //ponemos este x.nextLine para que se coma los \n
                                 System.out.println("Ingrese el Numero de Registro del Cliente: ");
-                                llenadocliente.set_NumCliente(x.next());
+                                llenadocliente.setNumCliente(x.next());
                                 x.nextLine();
                                 System.out.println("Ingrese el Nombre del Cliente: ");
                                 llenadocliente.setNom(x.nextLine());
@@ -99,9 +99,9 @@ public class Principal {
                                 System.out.println("Ingrese el Numero Telefonico del Cliente: ");
                                 llenadocliente.setTelefono(x.nextLine());
                                 System.out.println("Ingrese el RFC del Cliente: ");
-                                llenadocliente.set_RFC(x.nextLine());
+                                llenadocliente.setRFC(x.nextLine());
                                 System.out.println("Ingrese el Tipo de Pago del Cliente: ");
-                                llenadocliente.set_TipoCliente(x.nextLine());
+                                llenadocliente.setTipoCliente(x.nextLine());
                                 clientes.add(llenadocliente);
                                 
                                 //Preguntamos si desea un nuevo cliente
@@ -114,6 +114,8 @@ public class Principal {
                             break;
 
                         case 2:
+                            
+                            Cliente edicioncliente = new Cliente();
                             System.out.println();
                             System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
                             Ncliente=x.next();//lectura de datos                              
@@ -122,6 +124,25 @@ public class Principal {
                                     if (Ncliente.equals(clientes.get(y).NumCliente)) 
                                     { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
+                                        System.out.println("El Num de Cliente no se puede modificar");
+                                        System.out.println(clientes.get(y).NumCliente);
+                                        System.out.println("Ingrese el Nombre del Cliente: ");
+                                        x.nextLine();
+                                        clientes.get(y).setNom(x.nextLine());
+                                        System.out.println("Ingrese la Edad del Cliente: ");
+                                        clientes.get(y).setEdad(x.nextInt());
+                                        x.nextLine();
+                                        System.out.println("Ingrese la Direccion del Cliente: ");
+                                        clientes.get(y).setDirecc(x.nextLine());
+                                        System.out.println("Ingrese el Email del Cliente: ");
+                                        clientes.get(y).setEmail(x.next());
+                                        System.out.println("Ingrese el Numero Telefonico del Cliente: ");
+                                        clientes.get(y).setTelefono(x.next());
+                                        System.out.println("Ingrese el RFC del Cliente: ");
+                                        clientes.get(y).setRFC(x.next());
+                                        System.out.println("Ingrese el Tipo de Pago del Cliente: ");
+                                        clientes.get(y).setTipoCliente(x.next());
+
                                     }
                             }
                             break;
