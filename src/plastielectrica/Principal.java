@@ -21,8 +21,8 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, mod, num, nid;
-        int op, i, res, r1, r2, r3, r4, r5, ind;
+        String respuesta, num, nid;
+        int op, i, res, r1, r2, r3, r4, r5, ind = 0;
         Scanner x = new Scanner(System.in);
         //creamos nuestra arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -100,7 +100,7 @@ public class Principal {
                                 System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
                                 System.out.println("Ingresar el ID del empleado: ");
-                                datosEmp.set_id(x.nextInt());
+                                datosEmp.set_id(x.next());
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
@@ -164,20 +164,20 @@ public class Principal {
                     break;
 
                 case 3:
-                    //submenu de Articulos
-                    System.out.println("\n-----Que deseas hacer?-----");
-                    System.out.println(" 1.- Anadir Articulo");
-                    System.out.println(" 2.- Editar Articulo");
-                    System.out.println(" 3.- Eliminar Articulo");
-                    System.out.println(" 4.- Ver todos los Articulos");
-                    System.out.println(" 5.- Ver 1 Articulo");
-                    System.out.println(" 6.- Ver Por Tipos de Articulos");
-                    System.out.println(" 7.- Regresar");
-                    r3 = x.nextInt();
+                    do {
+                        //submenu de Articulos
+                        System.out.println("\n-----Que deseas hacer?-----");
+                        System.out.println(" 1.- Anadir Articulo");
+                        System.out.println(" 2.- Editar Articulo");
+                        System.out.println(" 3.- Eliminar Articulo");
+                        System.out.println(" 4.- Ver todos los Articulos");
+                        System.out.println(" 5.- Ver 1 Articulo");
+                        System.out.println(" 6.- Ver Por Tipos de Articulos");
+                        System.out.println(" 7.- Regresar");
+                        r3 = x.nextInt();
                         switch (r3) {
 
                             case 1:
-                               
                                 do {//ciclo para ingresar arituculosde forma dinámica.
                                     Herramientas articulos = new Herramientas();
                                     System.out.println("Ingrese el nombre de este artículo.");
@@ -230,7 +230,7 @@ public class Principal {
                                             //OBH.get(i).marca=ent.next();
                                             break;
                                         } else {
-                                            System.out.println("Articulo no encontrad");
+                                            System.out.println("Articulo no encontrado");
                                         }
                                         /*if (ind == 1) {
                                             for (i = 0; i < OBH.size(); i++) {
@@ -242,8 +242,8 @@ public class Principal {
 
                                     }
                                     System.out.println("¿Desea modificar otro articulo?(si/no)");
-                                    mod = x.next();
-                                } while (mod.equals("si"));//equals compara cadenas 
+                                    respuesta = x.next();
+                                } while (respuesta.equals("si"));//equals compara cadenas 
 
                                 break;
 
@@ -263,7 +263,7 @@ public class Principal {
 
                             case 4://impresión de herramientas
                                 for (i = 0; i < OBH.size(); i++) {
-                                    System.out.println("________________________________________");
+                                    
                                     System.out.println("Articulo " + OBH.get(i).articulo);
                                     System.out.println("Tipo: " + OBH.get(i).tipo);
                                     System.out.println("Codigo de identificación: " + OBH.get(i).id);
@@ -278,20 +278,44 @@ public class Principal {
                                 do {
                                     System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
                                     nid = x.next();
-                                    for (i = 0; i < OBH.size(); i++) {
-                                        if ((OBH.get(i).id).equals(nid)) {
-                                            ind = 1;
-                                            System.out.println(OBH.get(i).articulo + "\t" + OBH.get(i).tipo + "\t" + OBH.get(i).id + "\t" + OBH.get(i).marca + "\t" + OBH.get(i).unidades + "\t" + OBH.get(i).cantidad + "\t" + OBH.get(i).garantia + "\t" + OBH.get(i).precio);
-                                        } else {
-                                            System.out.println("Articulo no encontrado");
+                                    try {
+                                        for (i = 0; i < OBH.size(); i++) {
+                                            if ((OBH.get(i).id).equals(nid)) {
+                                                ind = 1;
+                                                break;
+                                            }
                                         }
-                                    }
-                                    
-                                    System.out.println("¿Deseas ver otro articulo?(si/no)");
-                                    mod = x.next();
-                                } while (mod.equals("si"));
 
+                                        if (ind == 1) {     
+                                            System.out.println("");
+                                            System.out.println("Articulo " + OBH.get(i).articulo);
+                                            System.out.println("Tipo: " + OBH.get(i).tipo);
+                                            System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                            System.out.println("Marca: " + OBH.get(i).marca);
+                                            System.out.println("Unidad: " + OBH.get(i).unidades);
+                                            System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                            System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                            System.out.println("Precio: $" + OBH.get(i).precio);
+                                        }
+                                    } catch (Exception e) {
+                                        System.out.println("\nArticulo no encontrado");
+                                    }
+
+                                    System.out.println("\n¿Deseas ver otro articulo?(si/no)");
+                                    respuesta = x.next();
+                                } while (respuesta.equals("si"));
+
+                                break;
+
+                            case 6:
+
+                                break;
+
+                            case 7:
+
+                                break;
                         }
+                    } while (r3 != 7);
                     break;
 
                 case 4:
