@@ -6,24 +6,24 @@ import java.util.Scanner;
 /**
  *
  * @author < Noe Guillen Gerardo ---- noe.guillen22@unach.mx >
- * 
- * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx > 
- * 
+ *
+ * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx >
+ *
  * @author < Samuel Sanchez Guzman ---- samuel.sanchez85@unach.mx >
- * 
+ *
  * @author < Jeannette Sanchez Hernandez ---- jeannette.sanchez79@unach.mx >
- * 
+ *
  * @author < Francisco Javier Solis Bamaca ---- francisco.solis41@unach.mx >
- * 
+ *
  * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
- * 
+ *
  */
 
 
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, num;
+        String respuesta, num, tipeEmp, tipeEmp2;
         int op, i, res, r1, r2, r3, r4, r5;
         Scanner x = new Scanner(System.in);
         //creamos uestra arraylista para los articulos
@@ -76,7 +76,7 @@ public class Principal {
                 case 2:
                     //submenu de Empleados
                     System.out.println("\n-----Que deseas hacer?-----");
-                    System.out.println(" 1.- Anadir Empleado");
+                    System.out.println(" 1.- Anadir Empleado"); 
                     System.out.println(" 2.- Editar Empleado");
                     System.out.println(" 3.- Eliminar Empleado");
                     System.out.println(" 4.- Ver todos los Empleados");
@@ -85,7 +85,7 @@ public class Principal {
                     System.out.println(" 7.- Regresar");
                     r2 = x.nextInt();
                     switch (r2) {
-                        case 1:
+                        case 1://registro de empleados
                             System.out.println();
                             do {
                                 Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
@@ -98,22 +98,24 @@ public class Principal {
                                 System.out.println("Ingresar el email del empleado: ");
                                 datosEmp.setEmail(x.next());
                                 System.out.println("Ingresar el numero telefonico del empleado: ");
-                                datosEmp.setDirecc(x.next());
+                                datosEmp.setTelefono(x.next());
                                 System.out.println("Ingresar el RFC del empleado: ");
                                 datosEmp.set_RFC(x.next());
                                 System.out.println("Ingresar el ID del empleado: ");
                                 datosEmp.set_id(x.next());
+                                System.out.println("Ingresar el tipo de empleado(quincenal/mensual)");
+                                datosEmp.setTipoEmpleado(x.next());
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
                             } while (respuesta.equals("si"));//equals compara cadenas 
                             break;
 
-                        case 2:
+                        case 2://edicion de datos de empleados 
                             System.out.println();
                             break;
 
-                        case 3:
+                        case 3://eliminar empleados
                             System.out.println();
                             //for para mostrar los empleados existentes y sus respectivos ID
                             for (int j = 0; j < arrayLEmp.size(); j++) {//muestra los datos en el arrayList
@@ -121,21 +123,22 @@ public class Principal {
                                 System.out.println("EMPLEADO " + (j + 1));
                                 System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
                                 System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                System.out.println("Tipo de enpleado: "  + arrayLEmp.get(j).tipoEmpleado);
                             }
                             System.out.println();
                             System.out.println("Ingresar el ID del empleado que desea eliminar: ");
-                            num=x.next();//lectura de datos                              
+                            num = x.next();//lectura de datos                              
                             for (int j = 0; j < arrayLEmp.size(); j++) {
-                                    if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de IN en el arrayList
+                                if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de ID en el arrayList
                                     arrayLEmp.remove(j);//j es el iterador del for, el cual regula los datos
-                                    System.out.println("empleado eliminado!");  
-                                }else{
+                                    System.out.println("empleado eliminado!");
+                                } else {
                                     System.out.println("empleado no encontrado");
-                                }                                
+                                }
                             }
                             break;
 
-                        case 4:
+                        case 4://impresion de todos los empleados actuales
                             System.out.println();
                             for (int j = 0; j < arrayLEmp.size(); j++) {
                                 System.out.println();
@@ -147,19 +150,72 @@ public class Principal {
                                 System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
                                 System.out.println("RFC: " + arrayLEmp.get(j).RFC);
                                 System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                System.out.println("Tipo de Empleado: " + arrayLEmp.get(j).tipoEmpleado);
                             }
                             break;
 
-                        case 5:
+                        case 5://mostrar solo un empleado
                             System.out.println();
+                            System.out.println("Ingresar el ID del empleado que desea ver: ");
+                            num = x.next();//lectura de datos                              
+                            for (int j = 0; j < arrayLEmp.size(); j++) {
+                                if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de ID en el arrayList
+                                    System.out.println("");                      
+                                    System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                    System.out.println("Edad: " + arrayLEmp.get(j).edad);
+                                    System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
+                                    System.out.println("Email: " + arrayLEmp.get(j).email);
+                                    System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
+                                    System.out.println("RFC: " + arrayLEmp.get(j).RFC);
+                                    System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                    System.out.println("Tipo de Empleado: " + arrayLEmp.get(j).tipoEmpleado);
+                                    System.out.println("");                            
+                                } else {
+                                    System.out.println("empleado no encontrado");
+                                }
+                            }
                             break;
 
-                        case 6:
-                            System.out.println();
-                            break;
+                        case 6://mostrar empleados por medio del tipo de contrato
+                            tipeEmp = "quincenal";
+                            tipeEmp2 = "mensual";
+                            //for para mostar los empleados del tipo quincenal
+                            for (int m = 0; m < arrayLEmp.size(); m++) {
+                            if(tipeEmp.equals(arrayLEmp.get(m).tipoEmpleado)) {
+                                //se compara el dato guardado en num con los datos de IN en el arrayList
+                                System.out.println("Empleados QUINCENALES");
+                                System.out.println("");
+                                System.out.println("Nombre: " + arrayLEmp.get(m).nombre);
+                                System.out.println("Edad: " + arrayLEmp.get(m).edad);
+                                System.out.println("Dirección: " + arrayLEmp.get(m).direccion);
+                                System.out.println("Email: " + arrayLEmp.get(m).email);
+                                System.out.println("Telefono: " + arrayLEmp.get(m).telefono);
+                                System.out.println("RFC: " + arrayLEmp.get(m).RFC);
+                                System.out.println("ID: " + arrayLEmp.get(m).ID);
+                                System.out.println("Tipo de Empleado: " + arrayLEmp.get(m).tipoEmpleado);
+                                System.out.println("");
+                                } 
+                            }
+                            //for para mostar los empleados del tipo mensual
+                            for (int n = 0; n < arrayLEmp.size(); n++) {
+                                if(tipeEmp2.equals(arrayLEmp.get(n).tipoEmpleado)){
+                                    System.out.println("Empleados MENSUALES");
+                                    System.out.println("");                      
+                                    System.out.println("Nombre: " + arrayLEmp.get(n).nombre);
+                                    System.out.println("Edad: " + arrayLEmp.get(n).edad);
+                                    System.out.println("Dirección: " + arrayLEmp.get(n).direccion);
+                                    System.out.println("Email: " + arrayLEmp.get(n).email);
+                                    System.out.println("Telefono: " + arrayLEmp.get(n).telefono);
+                                    System.out.println("RFC: " + arrayLEmp.get(n).RFC);
+                                    System.out.println("ID: " + arrayLEmp.get(n).ID);
+                                    System.out.println("Tipo de Empleado: " + arrayLEmp.get(n).tipoEmpleado);
+                                    System.out.println("");
+                                }
+                            }
+                        break;
 
-                        case 7:
-                            
+                        case 7://regresar 
+                            System.out.println("Regresando al menu principal:)");
                             break;
 
                     }
@@ -250,8 +306,8 @@ public class Principal {
 
                     }
                     break;
-                
-                case 6: 
+
+                case 6:
                     System.out.println("Gracias por usar nustro sistema, saludos cordiales de parte de todo el equipo de desarrollo!");
                     break;
             }
