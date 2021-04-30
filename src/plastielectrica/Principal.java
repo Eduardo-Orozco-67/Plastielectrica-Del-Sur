@@ -21,7 +21,7 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, num, nid;
+        String respuesta, num, nid,tipo;
         int op, i, res, r1, r2, r3, r4, r5, ind = 0;
         Scanner x = new Scanner(System.in);
         //creamos nuestra arraylist para los articulos
@@ -314,7 +314,34 @@ public class Principal {
                                 }
                                 break;
 
-                            case 6:
+                            case 6:  if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else { 
+                                    do{
+                                        System.out.println("ingrese el tipo de herramientas que desea ver ");
+                                        tipo= x.next();
+                                        try{
+                                        for (i=0;i<OBH.size();i++){
+                                           if (tipo.equals(OBH.get(i).tipo)){
+                                          System.out.println("");
+                                                System.out.println("Articulo " + OBH.get(i).articulo);
+                                                System.out.println("Tipo: " + OBH.get(i).tipo);
+                                                System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                                System.out.println("Marca: " + OBH.get(i).marca);
+                                                System.out.println("Unidad: " + OBH.get(i).unidades);
+                                                System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                                System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                                System.out.println("Precio: $" + OBH.get(i).precio);  
+                                        }
+                                        }
+                                        } catch (Exception e) {
+                                            System.out.println("\nTipo no encontrado.");
+                                        }
+                                          System.out.println("¿desea buscar otro tipo de herramientas?");
+                                          respuesta = x.next();
+                                    }while(respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
+                                    
+                                }
 
                                 break;
 
