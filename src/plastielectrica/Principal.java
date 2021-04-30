@@ -199,112 +199,119 @@ public class Principal {
                                     OBH.add(articulos);
                                     System.out.println("¿Desea ingresar otra herramienta?(si/no)");
                                     respuesta = x.next();
-                                } while (respuesta.equals("si"));//condición para agregar o no otro articulo
+                                } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para agregar o no otro articulo
                                 break;
 
                             case 2:
-                                int modif;
-                                do {
-                                    System.out.println("Ingrese el codigo de identificacion de la herramienta que desea modificar: ");
-                                    nid = x.next();
-                                    for (i = 0; i < OBH.size(); i++) {
-                                        if ((OBH.get(i).id).equals(nid)) {
-                                            ind = 1;
-                                            //System.out.println("valor de ind: "+ind); si lo encontró
-                                            do {
-                                                //menu de lo que se desea actualizar
-                                                System.out.println("Menu de actualizacion de datos");
-                                                System.out.println("1.- Articulo\n2.- Tipo\n3.- ID\n4.-Marca\n5.-Unidad\n6.-Cantidad\n7.-Garantia\n8.-Precio");
-                                                modif = x.nextInt();
-                                                switch (modif) {
-                                                    case 1:
-                                                        //OBH.remove(i).articulo.get(i);
-                                                        System.out.println("Ingrese el articulo correcto");
-                                                        OBH.get(i).articulo = x.next();
-
-                                                        break;
-                                                }
-                                            } while (modif != 8);
-
-                                            //System.out.println("Dame el dato correcto:");
-                                            //OBH.get(i).marca=ent.next();
-                                            break;
-                                        } else {
-                                            System.out.println("Articulo no encontrado");
-                                        }
-                                        /*if (ind == 1) {
-                                            for (i = 0; i < OBH.size(); i++) {
-                                                System.out.println(OBH.get(i).articulo + "\t" + OBH.get(i).tipo + "\t" + OBH.get(i).id + "\t" + OBH.get(i).marca + "\t" + OBH.get(i).unidades + "\t" + OBH.get(i).cantidad + "\t" + OBH.get(i).garantia + "\t" + OBH.get(i).precio);
+                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    do {
+                                        //Edicion de herramienta
+                                        Herramientas modifher = new Herramientas();
+                                        System.out.println("Ingrese el código de identificación dela heramienta a modificar");
+                                        nid = x.next();
+                                        for (i = 0; i < OBH.size(); i++) {
+                                            if (nid.equals(OBH.get(i).id)) {
+                                                System.out.println("Articulo encontrado");
+                                                System.out.println("El código de identificación no es posible modificarlo: " + OBH.get(i).id);
+                                                System.out.println("Ingrese el nombre de este artículo.");
+                                                x.nextLine();
+                                                OBH.get(i).setArticulo(x.nextLine());
+                                                System.out.println("Ingrese el  tipo de este articulo (ejemplo: cable tipo cobre).");
+                                                OBH.get(i).setTipo(x.nextLine());
+                                                System.out.println("Ingrese la marca de este artículo.");
+                                                OBH.get(i).setMarca(x.nextLine());
+                                                System.out.println("Ingrese el tipo de unidad de este artículo.(ejemplo: kilos, metros piezas,etc)");
+                                                OBH.get(i).setUnidades(x.nextLine());
+                                                System.out.println("Ingrese la cantidad de este  artículo.");
+                                                OBH.get(i).setCantidad(x.nextInt());
+                                                System.out.println("Ingrese la garantia (en días) de este artículo.");
+                                                OBH.get(i).setGarantia(x.nextInt());
+                                                System.out.println("Ingrese el precio de este artículo.");
+                                                OBH.get(i).setPrecio(x.nextFloat());
                                             }
-                                        } else {
-                                            System.out.println("Articulo no encontrado");
-                                        }*/
-
-                                    }
-                                    System.out.println("¿Desea modificar otro articulo?(si/no)");
-                                    respuesta = x.next();
-                                } while (respuesta.equals("si"));//equals compara cadenas 
-
+                                        }
+                                        System.out.println("¿Desea modifcar otra herramienta?(si/no)");
+                                        respuesta = x.next();
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para modifcar o no otro articulo
+                                }
                                 break;
 
-                            case 3: //eliminación de herramientas   
-                                System.out.println();
-                                System.out.println("Ingrese el código de identificación dela heramienta a eliminar");
-                                nid = x.next();
-                                for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
-                                    if (nid.equals(OBH.get(i).id)) {//comparación de id con nid
-                                        OBH.remove(i);//eliminar el objeto con todos sus atributos
-                                        System.out.println("objeto eliminado");
-                                    } else {
-                                        System.out.println("Este código no pertenece a ningún artículo.");
-                                    }
+                            case 3: //eliminación de herramientas  
+                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    do {
+                                        System.out.println();
+                                        System.out.println("Ingrese el código de identificación de la heramienta a eliminar");
+                                        nid = x.next();
+                                        for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
+                                            if (nid.equals(OBH.get(i).id)) {//comparación de id con nid
+                                                OBH.remove(i);//eliminar el objeto con todos sus atributos
+                                                System.out.println("objeto eliminado");
+                                            } else {
+                                                System.out.println("Este código no pertenece a ningún artículo.");
+                                            }
+                                        }
+                                        System.out.println("¿Desea eliminar otra herramienta?(si/no)");
+                                        respuesta = x.next();
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para eliminar o no otro articulo
                                 }
                                 break;
 
                             case 4://impresión de herramientas
-                                for (i = 0; i < OBH.size(); i++) {
-                                    
-                                    System.out.println("Articulo " + OBH.get(i).articulo);
-                                    System.out.println("Tipo: " + OBH.get(i).tipo);
-                                    System.out.println("Codigo de identificación: " + OBH.get(i).id);
-                                    System.out.println("Marca: " + OBH.get(i).marca);
-                                    System.out.println("Unidad: " + OBH.get(i).unidades);
-                                    System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
-                                    System.out.println("Garantia: " + OBH.get(i).garantia + " días");
-                                    System.out.println("Precio: $" + OBH.get(i).precio);
+                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    for (i = 0; i < OBH.size(); i++) {
+                                        System.out.println("________________________________________");
+                                        System.out.println("Articulo " + OBH.get(i).articulo);
+                                        System.out.println("Tipo: " + OBH.get(i).tipo);
+                                        System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                        System.out.println("Marca: " + OBH.get(i).marca);
+                                        System.out.println("Unidad: " + OBH.get(i).unidades);
+                                        System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                        System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                        System.out.println("Precio: $" + OBH.get(i).precio);
+                                    }
                                 }
                                 break;
                             case 5:
-                                do {
-                                    System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
-                                    nid = x.next();
-                                    try {
-                                        for (i = 0; i < OBH.size(); i++) {
-                                            if ((OBH.get(i).id).equals(nid)) {
-                                                ind = 1;
-                                                break;
+                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    do {
+                                        System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
+                                        nid = x.next();
+                                        try {
+                                            for (i = 0; i < OBH.size(); i++) {
+                                                if ((OBH.get(i).id).equals(nid)) {
+                                                    ind = 1;
+                                                    System.out.println("Articulo encontrado");
+                                                    break;
+                                                }
                                             }
+
+                                            if (ind == 1) {
+                                                System.out.println("");
+                                                System.out.println("Articulo " + OBH.get(i).articulo);
+                                                System.out.println("Tipo: " + OBH.get(i).tipo);
+                                                System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                                System.out.println("Marca: " + OBH.get(i).marca);
+                                                System.out.println("Unidad: " + OBH.get(i).unidades);
+                                                System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                                System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                                System.out.println("Precio: $" + OBH.get(i).precio);
+                                            }
+                                        } catch (Exception e) {
+                                            System.out.println("\nArticulo no encontrado.");
                                         }
 
-                                        if (ind == 1) {     
-                                            System.out.println("");
-                                            System.out.println("Articulo " + OBH.get(i).articulo);
-                                            System.out.println("Tipo: " + OBH.get(i).tipo);
-                                            System.out.println("Codigo de identificación: " + OBH.get(i).id);
-                                            System.out.println("Marca: " + OBH.get(i).marca);
-                                            System.out.println("Unidad: " + OBH.get(i).unidades);
-                                            System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
-                                            System.out.println("Garantia: " + OBH.get(i).garantia + " días");
-                                            System.out.println("Precio: $" + OBH.get(i).precio);
-                                        }
-                                    } catch (Exception e) {
-                                        System.out.println("\nArticulo no encontrado");
-                                    }
-
-                                    System.out.println("\n¿Deseas ver otro articulo?(si/no)");
-                                    respuesta = x.next();
-                                } while (respuesta.equals("si"));
-
+                                        System.out.println("\n¿Deseas ver otro articulo?(si/no)");
+                                        respuesta = x.next();
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
+                                }
                                 break;
 
                             case 6:
@@ -312,6 +319,7 @@ public class Principal {
                                 break;
 
                             case 7:
+                                System.out.println("\nVolviendo a menú principal...");
 
                                 break;
                         }
