@@ -54,6 +54,7 @@ public class Principal {
             System.out.println(" 5.- Estadisticas");
             System.out.println(" 6.- Salir");
             System.out.println();
+            System.out.print("Teclee Opcion: ");
             res = x.nextInt();
             System.out.println();
 
