@@ -26,6 +26,8 @@ public class Principal {
         String respuesta, num, Ncliente, cdes;
         int op, i, res, r1, r2, r3, r4, r5;
         Scanner x = new Scanner(System.in);
+        boolean ban = false;
+        
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
         //arrayList para los empleados 
@@ -191,7 +193,33 @@ public class Principal {
                             break;
 
                         case 5:
-                            System.out.println();
+                            System.out.println("Ingrese el número de cliente que desee ver: ");
+                            Ncliente=x.next();
+                            
+                            for(int z =0; z < clientes.size(); z++){
+                                if((clientes.get(z).NumCliente).equals(Ncliente)){
+                                    
+                                    ban = true; //Cliente encontrado
+                                    break;  
+                                }
+                                
+                                if(ban == true){
+                                System.out.println("Imprimiendo datos del cliente solicitado: ");
+                                System.out.println(clientes.get(z).NumCliente); 
+                                System.out.println("Nombre: " + clientes.get(z).nombre);
+                                System.out.println("Edad: " + clientes.get(z).edad);
+                                System.out.println("Dirección: " + clientes.get(z).direccion);
+                                System.out.println("Email: " + clientes.get(z).email);
+                                System.out.println("Telefono: " + clientes.get(z).telefono);
+                                System.out.println("RFC: " + clientes.get(z).RFC);
+                                System.out.println("Tipo de Pago: " +clientes.get(z).TipoCliente);
+                            }
+                                
+                            else{
+                                System.out.println("Cliente no localizado...");
+                                }
+                            }        
+                            
                             break;
 
                         case 6:
