@@ -4,6 +4,7 @@ package plastielectrica;
 import java.util.Scanner;
 
 public class Persona {
+    Scanner x = new Scanner(System.in);
     String nombre;
     int edad; 
     String direccion;
@@ -27,26 +28,31 @@ public class Persona {
     }
 
     //metodos GET
-    public String get_Nom() {
+    public String getNom() {
         return nombre;
     }
 
-    public String get_Direccion() {
+    public String getDirecc() {
         return direccion;
     }
 
-    public String get_Telefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public int get_Edad() {
+    public int getEdad() {
         return edad;
     }
 
-    Scanner x = new Scanner(System.in);
+    public String getEmail() {
+        return email;
+    }
 
-    //metodo llenado para la recoleccion de datos
-    public void llenado() {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public void llenado(){
         System.out.println("Dame su nombre:  ");
         setNom(x.next());
 
@@ -59,6 +65,21 @@ public class Persona {
         System.out.println("Dame su edad: ");
         setEdad(x.nextInt());
 
+        System.out.println("Dame su email: ");
+        setEmail(x.next());
+
+
     }
-    
+    public void mostrar(){
+        System.out.println("Nombre :" + getNom());
+
+        System.out.println("Direccion: " + getDirecc());
+
+        System.out.println("Telefono: " + getTelefono());
+
+        System.out.println("Dame su edad: " + getEdad());
+
+        System.out.println("Dame su email: " + getEmail());      
+    }
 }
+
