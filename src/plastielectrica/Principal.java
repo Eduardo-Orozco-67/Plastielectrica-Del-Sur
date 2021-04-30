@@ -1,37 +1,36 @@
 package plastielectrica;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
  * @author < Noe Guillen Gerardo ---- noe.guillen22@unach.mx >
- * 
- * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx > 
- * 
+ *
+ * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx >
+ *
  * @author < Samuel Sanchez Guzman ---- samuel.sanchez85@unach.mx >
- * 
+ *
  * @author < Jeannette Sanchez Hernandez ---- jeannette.sanchez79@unach.mx >
- * 
+ *
  * @author < Francisco Javier Solis Bamaca ---- francisco.solis41@unach.mx >
- * 
+ *
  * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
- * 
+ *
  */
 
 
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, num, Ncliente, cdes,tipo,nid;
-        int op, i, res, r1, r2, r3, r4, r5,ind=0;
+        String respuesta, num, Ncliente, cdes, tipo, nid;
+        int op, i, res, r1, r2, r3, r4, r5, ind = 0;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
         //arrayList para los empleados 
         ArrayList<Empleado> arrayLEmp = new ArrayList<>();
         //arrayist para clientes
-        ArrayList <Cliente> clientes = new ArrayList<>();
+        ArrayList<Cliente> clientes = new ArrayList<>();
 
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
@@ -61,69 +60,65 @@ public class Principal {
             //switch menu pricipal
             switch (res) {
                 case 1:
-                    
-                    do{
-                    //submenu de Cliente
-                    System.out.println("\n-----Que deseas hacer?-----");
-                    System.out.println(" 1.- Anadir Cliente");
-                    System.out.println(" 2.- Editar Cliente");
-                    System.out.println(" 3.- Eliminar Cliente");
-                    System.out.println(" 4.- Ver todos los Clientes");
-                    System.out.println(" 5.- Ver 1 Cliente");
-                    System.out.println(" 6.- Ver Por Tipos de Clientes");
-                    System.out.println(" 7.- Regresar");
-                    r1 = x.nextInt();
-                    
-                    switch (r1) 
-                    {
-                        case 1:
-                            
-                            do {
-                                Cliente llenadocliente = new Cliente();
-                                //objeto que servira como el molde para el llenado de la lista
-                                
-                                System.out.println();
-                                x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
-                                //ponemos este x.nextLine para que se coma los \n
-                                System.out.println("Ingrese el Numero de Registro del Cliente: ");
-                                llenadocliente.setNumCliente(x.next());
-                                x.nextLine();
-                                System.out.println("Ingrese el Nombre del Cliente: ");
-                                llenadocliente.setNom(x.nextLine());
-                                System.out.println("Ingrese la Edad del Cliente: ");
-                                llenadocliente.setEdad(x.nextInt());
-                                x.nextLine();
-                                System.out.println("Ingrese la Direccion del Cliente: ");
-                                llenadocliente.setDirecc(x.nextLine());
-                                System.out.println("Ingrese el Email del Cliente: ");
-                                llenadocliente.setEmail(x.nextLine());
-                                System.out.println("Ingrese el Numero Telefonico del Cliente: ");
-                                llenadocliente.setTelefono(x.nextLine());
-                                System.out.println("Ingrese el RFC del Cliente: ");
-                                llenadocliente.setRFC(x.nextLine());
-                                System.out.println("Ingrese el Tipo de Pago del Cliente: ");
-                                llenadocliente.setTipoCliente(x.nextLine());
-                                clientes.add(llenadocliente);
-                                
-                                //Preguntamos si desea un nuevo cliente
-                                System.out.println("¿Deseas ingresar otro Cliente?(Si/No)");
-                                respuesta = x.next();
-                                
-                                
-                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI")||respuesta.equals("sI"));
-                              
-                            break;
 
-                        case 2:
-                            
-                            Cliente edicioncliente = new Cliente();
-                            System.out.println();
-                            System.out.println("Ingresar el Numero del Cliente que desea editar: ");
-                            Ncliente=x.next();//lectura de datos                              
-                            for (int y = 0; y < clientes.size(); y++) 
-                            {
-                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
-                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                    do {
+                        //submenu de Cliente
+                        System.out.println("\n-----Que deseas hacer?-----");
+                        System.out.println(" 1.- Anadir Cliente");
+                        System.out.println(" 2.- Editar Cliente");
+                        System.out.println(" 3.- Eliminar Cliente");
+                        System.out.println(" 4.- Ver todos los Clientes");
+                        System.out.println(" 5.- Ver 1 Cliente");
+                        System.out.println(" 6.- Ver Por Tipos de Clientes");
+                        System.out.println(" 7.- Regresar");
+                        r1 = x.nextInt();
+
+                        switch (r1) {
+                            case 1:
+
+                                do {
+                                    Cliente llenadocliente = new Cliente();
+                                    //objeto que servira como el molde para el llenado de la lista
+
+                                    System.out.println();
+                                    x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
+                                    //ponemos este x.nextLine para que se coma los \n
+                                    System.out.println("Ingrese el Numero de Registro del Cliente: ");
+                                    llenadocliente.setNumCliente(x.next());
+                                    x.nextLine();
+                                    System.out.println("Ingrese el Nombre del Cliente: ");
+                                    llenadocliente.setNom(x.nextLine());
+                                    System.out.println("Ingrese la Edad del Cliente: ");
+                                    llenadocliente.setEdad(x.nextInt());
+                                    x.nextLine();
+                                    System.out.println("Ingrese la Direccion del Cliente: ");
+                                    llenadocliente.setDirecc(x.nextLine());
+                                    System.out.println("Ingrese el Email del Cliente: ");
+                                    llenadocliente.setEmail(x.nextLine());
+                                    System.out.println("Ingrese el Numero Telefonico del Cliente: ");
+                                    llenadocliente.setTelefono(x.nextLine());
+                                    System.out.println("Ingrese el RFC del Cliente: ");
+                                    llenadocliente.setRFC(x.nextLine());
+                                    System.out.println("Ingrese el Tipo de Pago del Cliente: ");
+                                    llenadocliente.setTipoCliente(x.nextLine());
+                                    clientes.add(llenadocliente);
+
+                                    //Preguntamos si desea un nuevo cliente
+                                    System.out.println("¿Deseas ingresar otro Cliente?(Si/No)");
+                                    respuesta = x.next();
+
+                                } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
+
+                                break;
+
+                            case 2:
+
+                                Cliente edicioncliente = new Cliente();
+                                System.out.println();
+                                System.out.println("Ingresar el Numero del Cliente que desea editar: ");
+                                Ncliente = x.next();//lectura de datos                              
+                                for (int y = 0; y < clientes.size(); y++) {
+                                    if (Ncliente.equals(clientes.get(y).NumCliente)) { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
                                         System.out.println("El Num de Cliente no se puede modificar:");
                                         System.out.print(clientes.get(y).NumCliente);
@@ -145,66 +140,60 @@ public class Principal {
                                         clientes.get(y).setTipoCliente(x.next());
 
                                     }
-                            }
-                            break;
+                                }
+                                break;
 
-                        case 3:
-                            
-                            System.out.println();
-                            System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
-                            Ncliente=x.next();//lectura de datos                              
-                            for (int y = 0; y < clientes.size(); y++) 
-                            {
-                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
-                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                            case 3:
+
+                                System.out.println();
+                                System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
+                                Ncliente = x.next();//lectura de datos                              
+                                for (int y = 0; y < clientes.size(); y++) {
+                                    if (Ncliente.equals(clientes.get(y).NumCliente)) { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
                                         System.out.println("Esta seguro de Eliminar");
-                                        cdes=x.next();
-                                        if(cdes.equals("SI")||cdes.equals("Si")||cdes.equals("si"))
-                                        {
+                                        cdes = x.next();
+                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) {
                                             clientes.remove(y);//y sera el que indique el valor de posicion
-                                            System.out.println("Cliente eliminado!");  
+                                            System.out.println("Cliente eliminado!");
                                         }
+                                    } else {
+                                        System.out.println("Cliente no encontrado");
                                     }
-                                    else
-                                    {
-                                      System.out.println("Cliente no encontrado");
-                                    }                                
-                            }
-                            break;
+                                }
+                                break;
 
-                        case 4:
-                            System.out.println();
-                            for (int q = 0; q < clientes.size(); q++) 
-                            {
-                                
+                            case 4:
                                 System.out.println();
-                                System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
-                                System.out.println("Nombre: " + clientes.get(q).nombre);
-                                System.out.println("Edad: " + clientes.get(q).edad);
-                                System.out.println("Dirección: " + clientes.get(q).direccion);
-                                System.out.println("Email: " + clientes.get(q).email);
-                                System.out.println("Telefono: " + clientes.get(q).telefono);
-                                System.out.println("RFC: " + clientes.get(q).RFC);
-                                System.out.println("Tipo de Pago: " +clientes.get(q).TipoCliente);
-                                
-                            }
-                            break;
+                                for (int q = 0; q < clientes.size(); q++) {
 
-                        case 5:
-                            System.out.println();
-                            break;
+                                    System.out.println();
+                                    System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
+                                    System.out.println("Nombre: " + clientes.get(q).nombre);
+                                    System.out.println("Edad: " + clientes.get(q).edad);
+                                    System.out.println("Dirección: " + clientes.get(q).direccion);
+                                    System.out.println("Email: " + clientes.get(q).email);
+                                    System.out.println("Telefono: " + clientes.get(q).telefono);
+                                    System.out.println("RFC: " + clientes.get(q).RFC);
+                                    System.out.println("Tipo de Pago: " + clientes.get(q).TipoCliente);
 
-                        case 6:
-                            System.out.println();
-                            break;
-                            
-                        case 7:
-                            break;
-                            
-                        default: 
-                    }
-                    }while(r1!=7);
+                                }
+                                break;
+
+                            case 5:
+                                System.out.println();
+                                break;
+
+                            case 6:
+                                System.out.println();
+                                break;
+
+                            case 7:
+                                break;
+
+                            default:
+                        }
+                    } while (r1 != 7);
                     break;
 
                 case 2:
@@ -240,7 +229,7 @@ public class Principal {
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
-                            } while (respuesta.equals("si")||respuesta.equals("Si")||respuesta.equals("SI"));//equals compara cadenas 
+                            } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI"));//equals compara cadenas 
                             break;
 
                         case 2:
@@ -258,14 +247,14 @@ public class Principal {
                             }
                             System.out.println();
                             System.out.println("Ingresar el ID del empleado que desea eliminar: ");
-                            num=x.next();//lectura de datos                              
+                            num = x.next();//lectura de datos                              
                             for (int j = 0; j < arrayLEmp.size(); j++) {
-                                    if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de IN en el arrayList
+                                if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de IN en el arrayList
                                     arrayLEmp.remove(j);//j es el iterador del for, el cual regula los datos
-                                    System.out.println("empleado eliminado!");  
-                                }else{
+                                    System.out.println("empleado eliminado!");
+                                } else {
                                     System.out.println("empleado no encontrado");
-                                }                                
+                                }
                             }
                             break;
 
@@ -293,22 +282,22 @@ public class Principal {
                             break;
 
                         case 7:
-                            
+
                             break;
 
                     }
                     break;
 
                 case 3:
-do {
+                    do {
                         //submenu de Articulos
                         System.out.println("\n-----Que deseas hacer?-----");
-                        System.out.println(" 1.- Anadir Articulo");
-                        System.out.println(" 2.- Editar Articulo");
-                        System.out.println(" 3.- Eliminar Articulo");
-                        System.out.println(" 4.- Ver todos los Articulos");
-                        System.out.println(" 5.- Ver 1 Articulo");
-                        System.out.println(" 6.- Ver Por Tipos de Articulos");
+                        System.out.println(" 1.- Anadir articulo");
+                        System.out.println(" 2.- Editar articulo");
+                        System.out.println(" 3.- Eliminar articulo");
+                        System.out.println(" 4.- Ver todos los articulos");
+                        System.out.println(" 5.- Ver 1 articulo");
+                        System.out.println(" 6.- Ver por tipos de articulos");
                         System.out.println(" 7.- Regresar");
                         r3 = x.nextInt();
                         switch (r3) {
@@ -400,7 +389,7 @@ do {
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
-                                    for (i = 0; i < OBH.size(); i++) {
+                                    for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
                                         System.out.println("________________________________________");
                                         System.out.println("Articulo " + OBH.get(i).articulo);
                                         System.out.println("Tipo: " + OBH.get(i).tipo);
@@ -413,6 +402,7 @@ do {
                                     }
                                 }
                                 break;
+                                
                             case 5://busqueda de 1 herramienta .
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
@@ -420,16 +410,16 @@ do {
                                     do {
                                         System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
                                         nid = x.next();
-                                        try {
-                                            for (i = 0; i < OBH.size(); i++) {
-                                                if ((OBH.get(i).id).equals(nid)) {
+                                        try {//Inicio de la excepcion 
+                                            for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
+                                                if ((OBH.get(i).id).equals(nid)) {//comparación de id con nid
                                                     ind = 1;
                                                     System.out.println("Articulo encontrado");
                                                     break;
                                                 }
                                             }
 
-                                            if (ind == 1) {
+                                            if (ind == 1) {////comparación de nid con su valor de salida
                                                 System.out.println("");
                                                 System.out.println("Articulo " + OBH.get(i).articulo);
                                                 System.out.println("Tipo: " + OBH.get(i).tipo);
@@ -440,7 +430,7 @@ do {
                                                 System.out.println("Garantia: " + OBH.get(i).garantia + " días");
                                                 System.out.println("Precio: $" + OBH.get(i).precio);
                                             }
-                                        } catch (Exception e) {
+                                        } catch (Exception e) {//fin de la excepcion
                                             System.out.println("\nArticulo no encontrado.");
                                         }
 
@@ -453,31 +443,30 @@ do {
                             case 6: //busqueda de herramientas por tipo 
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else { 
-                                    do{
-                                        System.out.println("ingrese el tipo de herramientas que desea ver ");
-                                        tipo= x.next();
-                                        try{
-                                        for (i=0;i<OBH.size();i++){
-                                           if (tipo.equals(OBH.get(i).tipo)){
-                                          System.out.println("");
-                                                System.out.println("Articulo " + OBH.get(i).articulo);
-                                                System.out.println("Tipo: " + OBH.get(i).tipo);
-                                                System.out.println("Codigo de identificación: " + OBH.get(i).id);
-                                                System.out.println("Marca: " + OBH.get(i).marca);
-                                                System.out.println("Unidad: " + OBH.get(i).unidades);
-                                                System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
-                                                System.out.println("Garantia: " + OBH.get(i).garantia + " días");
-                                                System.out.println("Precio: $" + OBH.get(i).precio);  
-                                        }
-                                        }
-                                        } catch (Exception e) {
+                                } else {
+                                    do {
+                                        System.out.println("Ingrese el tipo de herramientas que desea ver ");
+                                        tipo = x.next();
+                                        try {//Inicio de la excepcion 
+                                            for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
+                                                if (tipo.equals(OBH.get(i).tipo)) {//comparación del tipo requerido con el registrado
+                                                    System.out.println("");
+                                                    System.out.println("Articulo " + OBH.get(i).articulo);
+                                                    System.out.println("Tipo: " + OBH.get(i).tipo);
+                                                    System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                                    System.out.println("Marca: " + OBH.get(i).marca);
+                                                    System.out.println("Unidad: " + OBH.get(i).unidades);
+                                                    System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                                    System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                                    System.out.println("Precio: $" + OBH.get(i).precio);
+                                                }
+                                            }
+                                        } catch (Exception e) {//fin de la excepcion
                                             System.out.println("\nTipo no encontrado.");
                                         }
-                                          System.out.println("¿desea buscar otro tipo de herramientas?");
-                                          respuesta = x.next();
-                                    }while(respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
-                                    
+                                        System.out.println("¿Desea buscar otro tipo de herramientas?");
+                                        respuesta = x.next();
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
                                 }
 
                                 break;
@@ -487,7 +476,7 @@ do {
 
                                 break;
                         }
-                    } while (r3 != 7);                   
+                    } while (r3 != 7);
                     break;
 
                 case 4:
@@ -516,13 +505,12 @@ do {
 
                     }
                     break;
-                
-                case 6: 
+
+                case 6:
                     System.out.println("Gracias por usar nustro sistema, saludos cordiales de parte de todo el equipo de desarrollo!");
                     break;
             }
-
         } while (res != 6);
-
     }
 }
+
