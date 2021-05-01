@@ -174,7 +174,7 @@ public class Principal {
                                     if (Ncliente.equals(clientes.get(y).NumCliente)) 
                                     { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
-                                        System.out.println("Esta seguro de Eliminar");
+                                        System.out.println("Esta seguro de Eliminar a el cliente");
                                         cdes = x.next();
                                         if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) 
                                         {
