@@ -22,8 +22,9 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) {
-        String respuesta, num, Ncliente, cdes, tipo, nid;
-        int op, i, res, r1, r2, r3, r4, r5, ind = 0;
+        String respuesta, num, Ncliente, cdes, tipo, nid, exe;
+        int op, i, res = 0, r1, r2, r3, r4, r5, ind = 0;
+        boolean ban = false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -42,7 +43,11 @@ public class Principal {
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
 
-        do {
+        
+        
+         do {
+            
+            
             //menu principal 
             System.out.println("\n-----MENU-----");
             System.out.println("\n-----Elige una opcion-----");
@@ -112,8 +117,16 @@ public class Principal {
                                 break;
 
                             case 2:
-
-                                Cliente edicioncliente = new Cliente();
+                                
+                                if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
+                                
                                 System.out.println();
                                 System.out.println("Ingresar el Numero del Cliente que desea editar: ");
                                 Ncliente = x.next();//lectura de datos                              
@@ -141,10 +154,18 @@ public class Principal {
 
                                     }
                                 }
+                                }
                                 break;
 
                             case 3:
-
+                                if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
                                 System.out.println();
                                 System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
                                 Ncliente = x.next();//lectura de datos                              
@@ -161,9 +182,19 @@ public class Principal {
                                         System.out.println("Cliente no encontrado");
                                     }
                                 }
+                                }
                                 break;
 
                             case 4:
+                                
+                                if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
                                 System.out.println();
                                 for (int q = 0; q < clientes.size(); q++) {
 
@@ -178,10 +209,42 @@ public class Principal {
                                     System.out.println("Tipo de Pago: " + clientes.get(q).TipoCliente);
 
                                 }
+                                }
                                 break;
 
                             case 5:
-                                System.out.println();
+                                   System.out.println();
+                                   System.out.println("Ingrese el número de cliente que desee ver: ");
+                                   Ncliente=x.next();
+
+                                   for(int z =0; z < clientes.size(); z++)
+                                   {
+                                       if((clientes.get(z).NumCliente).equals(Ncliente))
+                                       {
+
+                                          ban = true; //Cliente encontrado
+                                          break;  
+                                        }
+                                       
+                                
+                                        if(ban == true)
+                                        {
+                                          System.out.println("Imprimiendo datos del cliente solicitado: ");
+                                          System.out.println(clientes.get(z).NumCliente); 
+                                          System.out.println("Nombre: " + clientes.get(z).nombre);
+                                          System.out.println("Edad: " + clientes.get(z).edad);
+                                          System.out.println("Dirección: " + clientes.get(z).direccion);
+                                          System.out.println("Email: " + clientes.get(z).email);
+                                          System.out.println("Telefono: " + clientes.get(z).telefono);
+                                          System.out.println("RFC: " + clientes.get(z).RFC);
+                                          System.out.println("Tipo de Pago: " +clientes.get(z).TipoCliente);
+                                        }
+
+                                        else
+                                        {
+                                           System.out.println("Cliente no localizado...");
+                                        }
+                                    }
                                 break;
 
                             case 6:
@@ -510,7 +573,9 @@ public class Principal {
                     System.out.println("Gracias por usar nustro sistema, saludos cordiales de parte de todo el equipo de desarrollo!");
                     break;
             }
+            
         } while (res != 6);
+        
     }
 }
 
