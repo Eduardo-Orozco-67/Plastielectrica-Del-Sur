@@ -169,16 +169,21 @@ public class Principal {
                                 System.out.println();
                                 System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
                                 Ncliente = x.next();//lectura de datos                              
-                                for (int y = 0; y < clientes.size(); y++) {
-                                    if (Ncliente.equals(clientes.get(y).NumCliente)) { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                                for (int y = 0; y < clientes.size(); y++) 
+                                {
+                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
+                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
                                         System.out.println("Esta seguro de Eliminar");
                                         cdes = x.next();
-                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) {
+                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) 
+                                        {
                                             clientes.remove(y);//y sera el que indique el valor de posicion
                                             System.out.println("Cliente eliminado!");
                                         }
-                                    } else {
+                                    } 
+                                    else 
+                                    {
                                         System.out.println("Cliente no encontrado");
                                     }
                                 }
