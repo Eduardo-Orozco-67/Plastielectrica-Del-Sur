@@ -130,7 +130,8 @@ public class Principal {
                                 System.out.println();
                                 System.out.println("Ingresar el Numero del Cliente que desea editar: ");
                                 Ncliente = x.next();//lectura de datos                              
-                                for (int y = 0; y < clientes.size(); y++) {
+                                for (int y = 0; y < clientes.size(); y++) 
+                                {
                                     if (Ncliente.equals(clientes.get(y).NumCliente)) { //se compara el dato guardado con los datos de NumCliente en el arrayList
                                         System.out.println("Cliente encontrado");
                                         System.out.println("El Num de Cliente no se puede modificar:");
