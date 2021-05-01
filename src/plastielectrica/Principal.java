@@ -292,7 +292,7 @@ public class Principal {
                                 arrayLEmp.add(datosEmp);
                                 System.out.println("¿Deseas ingresar otro empleado?(si/no)");
                                 respuesta = x.next();
-                            } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI"));//equals compara cadenas 
+                            } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI")||respuesta.equals("sI"));//equals compara cadenas 
                             break;
 
                         case 2:
@@ -563,10 +563,12 @@ public class Principal {
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
                     System.out.println(" 2.- Ver Articulo Menos Vendido");
                     System.out.println(" 3.- Ver Ventas Totales");
-                    r2 = x.nextInt();
-                    switch (r2) {
+                    r5 = x.nextInt();
+                      
+                    switch (r5) 
+                    {
 
-                    }
+                    }  
                     break;
 
                 case 6:
