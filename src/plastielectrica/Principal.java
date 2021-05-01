@@ -24,7 +24,7 @@ public class Principal {
     public static void main(String[] args) {
         String respuesta, num, Ncliente, cdes, tipo, nid, exe;
         int op, i, res = 0, r1, r2, r3, r4, r5, ind = 0;
-        boolean ban = false;
+        boolean ban = false, clnoenco=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -180,13 +180,24 @@ public class Principal {
                                         {
                                             clientes.remove(y);//y sera el que indique el valor de posicion en el arraylist
                                             System.out.println("Cliente eliminado!");
+                                            clnoenco=false;
                                         }
-                                    } 
-                                    else 
-                                    {
-                                        System.out.println("Cliente no encontrado");
+                                        else 
+                                        {
+                                            System.out.println("No se borro nada");
+                                        }
                                     }
+                                    else
+                                    {
+                                        clnoenco=true;
+                                    }
+                                    
                                 }
+                                    if(clnoenco==true)
+                                    {
+                                     System.out.println("Cliente no encontrado");
+                                    }
+                                    
                                 }
                                 break;
 
