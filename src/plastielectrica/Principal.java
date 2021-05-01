@@ -158,7 +158,7 @@ public class Principal {
                                 break;
 
                             case 3:
-                                if (clientes.isEmpty())
+                                if (clientes.isEmpty())//verificamos si la lista no esta vacia
                                 {
                                     System.out.println();
                                     System.out.println("No hay datos registradoas aun");
@@ -168,7 +168,7 @@ public class Principal {
                                 {
                                 System.out.println();
                                 System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
-                                Ncliente = x.next();//lectura de datos                              
+                                Ncliente = x.next();//lectura de dato                          
                                 for (int y = 0; y < clientes.size(); y++) 
                                 {
                                     if (Ncliente.equals(clientes.get(y).NumCliente)) 
@@ -178,7 +178,7 @@ public class Principal {
                                         cdes = x.next();
                                         if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) 
                                         {
-                                            clientes.remove(y);//y sera el que indique el valor de posicion
+                                            clientes.remove(y);//y sera el que indique el valor de posicion en el arraylist
                                             System.out.println("Cliente eliminado!");
                                         }
                                     } 
