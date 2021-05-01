@@ -176,7 +176,7 @@ public class Principal {
                                         System.out.println("Cliente encontrado");
                                         System.out.println("Esta seguro de Eliminar a el cliente");
                                         cdes = x.next();
-                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")) 
+                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")||cdes.equals("sI")) 
                                         {
                                             clientes.remove(y);//y sera el que indique el valor de posicion en el arraylist
                                             System.out.println("Cliente eliminado!");
