@@ -15,6 +15,7 @@ public class Cliente extends Persona {
                 
     }
     
+    //metodos set
      public void setRFC(String RFC) {
         this.RFC= RFC;
     }
@@ -40,17 +41,7 @@ public class Cliente extends Persona {
         return NumCliente;
     }
     
-    @Override
-    public void llenado()
-    {
-        super.llenado();
-        System.out.print("Dame el ID ");
-        setNumCliente(x.next());
-        System.out.print("Dame el RFC ");
-        setRFC(x.next());
-        System.out.println("Dame el tipo de Cliente: Descuento, Credito o mostrador ");
-        setTipoCliente(x.next());
-    }
+
     
     public void descuento()
     {
