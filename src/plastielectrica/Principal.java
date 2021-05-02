@@ -452,7 +452,6 @@ public class Principal {
                                 } else {
                                     do {
                                         //Edicion de herramienta
-                                        Herramientas modifher = new Herramientas();
                                         System.out.println("Ingrese el código de identificación dela heramienta a modificar");
                                         nid = x.next();
                                         for (i = 0; i < OBH.size(); i++) {
@@ -602,6 +601,7 @@ public class Principal {
 
                 case "4":
                     //submenu de Notas
+                    do{
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Nueva Nota");
                     System.out.println(" 2.- Editar Nota");
@@ -612,9 +612,16 @@ public class Principal {
                     System.out.println();
                     System.out.print("Teclee Opcion: ");
                     r4 = x.next();
-                    switch (r4) {
-
+                    switch (r4) 
+                    {
+                       
+                        
+                        
+                         
                     }
+                    
+                    }while(!"6".equals(r4));
+                    
                     break;
 
                 case "5":
@@ -622,7 +629,7 @@ public class Principal {
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
                     System.out.println(" 2.- Ver Articulo Menos Vendido");
-                    System.out.println(" 3.- Ver Ventas Totales");
+                    System.out.println(" 3.- Ver Total de Articulos Vendidos");
                     System.out.println(" 4-. Regresar");
                     System.out.println();
                     System.out.print("Teclee Opcion: ");
