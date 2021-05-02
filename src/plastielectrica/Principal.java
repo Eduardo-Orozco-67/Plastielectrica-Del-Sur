@@ -23,7 +23,8 @@ public class Principal {
 
     public static void main(String[] args) {
         String respuesta, num, Ncliente, cdes, tipo, nid, exe;
-        int op, i, res = 0, r1, r2, r3, r4, r5, ind = 0;
+        int  i,  ind = 0;
+        String res , r1, r2, r3, r4, r5, op;
         boolean ban = false, clnoenco=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
@@ -59,12 +60,12 @@ public class Principal {
             System.out.println(" 6.- Salir");
             System.out.println();
             System.out.print("Teclee Opcion: ");
-            res = x.nextInt();
+            res = x.next();
             System.out.println();
 
             //switch menu pricipal
             switch (res) {
-                case 1:
+                case "1":
 
                     do {
                         //submenu de Cliente
@@ -76,10 +77,10 @@ public class Principal {
                         System.out.println(" 5.- Ver 1 Cliente");
                         System.out.println(" 6.- Ver Por Tipos de Clientes");
                         System.out.println(" 7.- Regresar");
-                        r1 = x.nextInt();
+                        r1 = x.next();
 
                         switch (r1) {
-                            case 1:
+                            case "1":
 
                                 do {
                                     Cliente llenadocliente = new Cliente();
@@ -116,7 +117,7 @@ public class Principal {
 
                                 break;
 
-                            case 2:
+                            case "2":
                                 
                                 if (clientes.isEmpty())
                                 {
@@ -158,7 +159,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case 3:
+                            case "3":
                                 if (clientes.isEmpty())//verificamos si la lista no esta vacia
                                 {
                                     System.out.println();
@@ -202,7 +203,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case 4:
+                            case "4":
                                 
                                 if (clientes.isEmpty())
                                 {
@@ -229,7 +230,17 @@ public class Principal {
                                 }
                                 break;
 
-                            case 5:
+                            case "5":
+                                
+                               
+                                 if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
                                    System.out.println();
                                    System.out.println("Ingrese el número de cliente que desee ver: ");
                                    Ncliente=x.next();
@@ -262,21 +273,22 @@ public class Principal {
                                            System.out.println("Cliente no localizado...");
                                         }
                                     }
+                                }
                                 break;
 
-                            case 6:
+                            case "6":
                                 System.out.println();
                                 break;
 
-                            case 7:
+                            case "7":
                                 break;
 
                             default:
                         }
-                    } while (r1 != 7);
+                    } while (!"7".equals(r1));
                     break;
 
-                case 2:
+                case "2":
                     //submenu de Empleados
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Anadir Empleado");
@@ -286,9 +298,9 @@ public class Principal {
                     System.out.println(" 5.- Ver 1 Empleado");
                     System.out.println(" 6.- Ver Por Tipos de Empleados");
                     System.out.println(" 7.- Regresar");
-                    r2 = x.nextInt();
+                    r2 = x.next();
                     switch (r2) {
-                        case 1:
+                        case "1":
                             System.out.println();
                             do {
                                 Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
@@ -312,11 +324,11 @@ public class Principal {
                             } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI")||respuesta.equals("sI"));//equals compara cadenas 
                             break;
 
-                        case 2:
+                        case "2":
                             System.out.println();
                             break;
 
-                        case 3:
+                        case "3":
                             System.out.println();
                             //for para mostrar los empleados existentes y sus respectivos ID
                             for (int j = 0; j < arrayLEmp.size(); j++) {//muestra los datos en el arrayList
@@ -338,7 +350,7 @@ public class Principal {
                             }
                             break;
 
-                        case 4:
+                        case "4":
                             System.out.println();
                             for (int j = 0; j < arrayLEmp.size(); j++) {
                                 System.out.println();
@@ -353,22 +365,24 @@ public class Principal {
                             }
                             break;
 
-                        case 5:
+                        case "5":
                             System.out.println();
                             break;
 
-                        case 6:
+                        case "6":
                             System.out.println();
                             break;
 
-                        case 7:
+                        case "7":
 
                             break;
+                            
+                        default:
 
                     }
                     break;
 
-                case 3:
+                case "3":
                     do {
                         //submenu de Articulos
                         System.out.println("\n-----Que deseas hacer?-----");
@@ -379,10 +393,10 @@ public class Principal {
                         System.out.println(" 5.- Ver 1 articulo");
                         System.out.println(" 6.- Ver por tipos de articulos");
                         System.out.println(" 7.- Regresar");
-                        r3 = x.nextInt();
+                        r3 = x.next();
                         switch (r3) {
 
-                            case 1:
+                            case "1":
                                 do {//ciclo para ingresar arituculosde forma dinámica.
                                     Herramientas articulos = new Herramientas();
                                     System.out.println("Ingrese el nombre de este artículo.");
@@ -407,7 +421,7 @@ public class Principal {
                                 } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para agregar o no otro articulo
                                 break;
 
-                            case 2:
+                            case "2":
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
@@ -443,7 +457,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case 3: //eliminación de herramientas  
+                            case "3": //eliminación de herramientas  
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
@@ -465,7 +479,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case 4://impresión de herramientas
+                            case "4"://impresión de herramientas
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
@@ -483,7 +497,7 @@ public class Principal {
                                 }
                                 break;
                                 
-                            case 5://busqueda de 1 herramienta .
+                            case "5"://busqueda de 1 herramienta .
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
@@ -520,7 +534,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case 6: //busqueda de herramientas por tipo 
+                            case "6": //busqueda de herramientas por tipo 
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else {
@@ -551,15 +565,15 @@ public class Principal {
 
                                 break;
 
-                            case 7:
+                            case "7":
                                 System.out.println("\nVolviendo a menú principal...");
 
                                 break;
                         }
-                    } while (r3 != 7);
+                    } while (!"7".equals(r3));
                     break;
 
-                case 4:
+                case "4":
                     //submenu de Notas
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Nueva Nota");
@@ -568,19 +582,19 @@ public class Principal {
                     System.out.println(" 4.- Ver Todas Las Notas");
                     System.out.println(" 5.- Ver 1 Nota");
                     System.out.println(" 6.- Regresar");
-                    r4 = x.nextInt();
+                    r4 = x.next();
                     switch (r4) {
 
                     }
                     break;
 
-                case 5:
+                case "5":
                     //submenu de Estadisticas 
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
                     System.out.println(" 2.- Ver Articulo Menos Vendido");
                     System.out.println(" 3.- Ver Ventas Totales");
-                    r5 = x.nextInt();
+                    r5 = x.next();
                       
                     switch (r5) 
                     {
@@ -588,12 +602,14 @@ public class Principal {
                     }  
                     break;
 
-                case 6:
+                case "6":
                     System.out.println("Gracias por usar nustro sistema, saludos cordiales de parte de todo el equipo de desarrollo!");
                     break;
+                    
+                default:
             }
             
-        } while (res != 6);
+        } while (!"6".equals(res));
         
     }
 }
