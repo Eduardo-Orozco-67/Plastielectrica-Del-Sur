@@ -1,4 +1,5 @@
 package plastielectrica;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -21,7 +22,7 @@ import java.util.Scanner;
 
 public class Principal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         String respuesta, num, Ncliente, cdes, tipo, nid, exe;
         int  i,  ind = 0;
         String res , r1, r2, r3, r4, r5, op;
@@ -77,7 +78,10 @@ public class Principal {
                         System.out.println(" 5.- Ver 1 Cliente");
                         System.out.println(" 6.- Ver Por Tipos de Clientes");
                         System.out.println(" 7.- Regresar");
+                        System.out.println();
+                        System.out.print("Teclee Opcion: ");
                         r1 = x.next();
+                        System.out.println("");
 
                         switch (r1) {
                             case "1":
@@ -89,28 +93,29 @@ public class Principal {
                                     System.out.println();
                                     x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
                                     //ponemos este x.nextLine para que se coma los \n
-                                    System.out.println("Ingrese el Numero de Registro del Cliente: ");
+                                    System.out.print("Ingrese el Numero de Registro del Cliente: ");
                                     llenadocliente.setNumCliente(x.next());
                                     x.nextLine();
-                                    System.out.println("Ingrese el Nombre del Cliente: ");
+                                    System.out.print("Ingrese el Nombre del Cliente: ");
                                     llenadocliente.setNom(x.nextLine());
-                                    System.out.println("Ingrese la Edad del Cliente: ");
+                                    System.out.print("Ingrese la Edad del Cliente: ");
                                     llenadocliente.setEdad(x.nextInt());
                                     x.nextLine();
-                                    System.out.println("Ingrese la Direccion del Cliente: ");
+                                    System.out.print("Ingrese la Direccion del Cliente: ");
                                     llenadocliente.setDirecc(x.nextLine());
-                                    System.out.println("Ingrese el Email del Cliente: ");
+                                    System.out.print("Ingrese el Email del Cliente: ");
                                     llenadocliente.setEmail(x.nextLine());
-                                    System.out.println("Ingrese el Numero Telefonico del Cliente: ");
+                                    System.out.print("Ingrese el Numero Telefonico del Cliente: ");
                                     llenadocliente.setTelefono(x.nextLine());
-                                    System.out.println("Ingrese el RFC del Cliente: ");
+                                    System.out.print("Ingrese el RFC del Cliente: ");
                                     llenadocliente.setRFC(x.nextLine());
-                                    System.out.println("Ingrese el Tipo de Pago del Cliente: ");
+                                    System.out.print("Ingrese el Tipo de Pago del Cliente: ");
                                     llenadocliente.setTipoCliente(x.nextLine());
                                     clientes.add(llenadocliente);
 
-                                    //Preguntamos si desea un nuevo cliente
-                                    System.out.println("¿Deseas ingresar otro Cliente?(Si/No)");
+                                    //Preguntamos si desea un nuevo cliente   
+                                    System.out.println("");
+                                    System.out.println("¿Desea ingresar otro Cliente?(Si/No)");
                                     respuesta = x.next();
 
                                 } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
@@ -127,35 +132,41 @@ public class Principal {
                                 }
                                 else 
                                 {
+                                    
+                                 do{
+                                      System.out.println();
+                                      System.out.println("Ingresar el Numero del Cliente que desea editar: ");
+                                      Ncliente = x.next();//lectura de datos                              
                                 
-                                System.out.println();
-                                System.out.println("Ingresar el Numero del Cliente que desea editar: ");
-                                Ncliente = x.next();//lectura de datos                              
-                                for (int y = 0; y < clientes.size(); y++) 
-                                {
-                                    if (Ncliente.equals(clientes.get(y).NumCliente)) { //se compara el dato guardado con los datos de NumCliente en el arrayList
-                                        System.out.println("Cliente encontrado");
-                                        System.out.println("El Num de Cliente no se puede modificar:");
-                                        System.out.print(clientes.get(y).NumCliente);
-                                        System.out.println("Ingrese el Nombre del Cliente: ");
-                                        x.nextLine();
-                                        clientes.get(y).setNom(x.nextLine());
-                                        System.out.print("\nIngrese la Edad del Cliente: ");
-                                        clientes.get(y).setEdad(x.nextInt());
-                                        x.nextLine();
-                                        System.out.print("Ingrese la Direccion del Cliente: ");
-                                        clientes.get(y).setDirecc(x.nextLine());
-                                        System.out.println("Ingrese el Email del Cliente: ");
-                                        clientes.get(y).setEmail(x.next());
-                                        System.out.println("Ingrese el Numero Telefonico del Cliente: ");
-                                        clientes.get(y).setTelefono(x.next());
-                                        System.out.println("Ingrese el RFC del Cliente: ");
-                                        clientes.get(y).setRFC(x.next());
-                                        System.out.println("Ingrese el Tipo de Pago del Cliente: ");
-                                        clientes.get(y).setTipoCliente(x.next());
-
+                                      for (int y = 0; y < clientes.size(); y++) 
+                                       {
+                                         if (Ncliente.equals(clientes.get(y).NumCliente))  //se compara el dato guardado con los datos de NumCliente en el arrayList
+                                         {
+                                            System.out.println("Cliente encontrado");
+                                            System.out.println("El Num de Cliente no se puede modificar:");
+                                            System.out.println(clientes.get(y).NumCliente);
+                                            System.out.print("Ingrese el Nombre del Cliente: ");
+                                            x.nextLine();
+                                            clientes.get(y).setNom(x.nextLine());
+                                            System.out.print("\nIngrese la Edad del Cliente: ");
+                                            clientes.get(y).setEdad(x.nextInt());
+                                            x.nextLine();
+                                            System.out.print("Ingrese la Direccion del Cliente: ");
+                                            clientes.get(y).setDirecc(x.nextLine());
+                                            System.out.print("Ingrese el Email del Cliente: ");
+                                            clientes.get(y).setEmail(x.next());
+                                            System.out.print("Ingrese el Numero Telefonico del Cliente: ");
+                                            clientes.get(y).setTelefono(x.next());
+                                            System.out.print("Ingrese el RFC del Cliente: ");
+                                            clientes.get(y).setRFC(x.next());
+                                            System.out.print("Ingrese el Tipo de Pago del Cliente: ");
+                                            clientes.get(y).setTipoCliente(x.next());
+                                        }
                                     }
-                                }
+                                     System.out.println("");
+                                     System.out.println("¿Desea Editar otro Cliente?(Si/No)");
+                                     respuesta = x.next();
+                                    }while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
                                 }
                                 break;
 
@@ -168,38 +179,44 @@ public class Principal {
                                 }
                                 else 
                                 {
-                                System.out.println();
-                                System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
-                                Ncliente = x.next();//lectura de dato                          
-                                for (int y = 0; y < clientes.size(); y++) 
-                                {
-                                    if (Ncliente.equals(clientes.get(y).NumCliente)) 
-                                    { //se compara el dato guardado con los datos de NumCliente en el arrayList
-                                        System.out.println("Cliente encontrado");
-                                        System.out.println("Esta seguro de Eliminar a el cliente");
-                                        cdes = x.next();
-                                        if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")||cdes.equals("sI")) 
-                                        {
-                                            clientes.remove(y);//y sera el que indique el valor de posicion en el arraylist
-                                            System.out.println("Cliente eliminado!");
-                                            clnoenco=false;
+                                  do{
+                                      System.out.println();
+                                      System.out.println("Ingresar el Numero del Cliente que desea eliminar: ");
+                                      Ncliente = x.next();//lectura de dato                          
+                                        
+                                       for (int y = 0; y < clientes.size(); y++) 
+                                       {
+                                          if (Ncliente.equals(clientes.get(y).NumCliente)) 
+                                             { //se compara el dato guardado con los datos de NumCliente en el arrayList
+                                                System.out.println("Cliente encontrado");
+                                                System.out.println("Esta seguro de Eliminar a el cliente");
+                                                cdes = x.next();
+                                                 
+                                                if (cdes.equals("SI") || cdes.equals("Si") || cdes.equals("si")||cdes.equals("sI")) 
+                                                 {
+                                                    clientes.remove(y);//y sera el que indique el valor de posicion en el arraylist
+                                                    System.out.println("Cliente eliminado!");
+                                                    clnoenco=false;
+                                                }
+                                                else 
+                                                {
+                                                   System.out.println("No se borro nada");
+                                                }
+                                             }
+                                          else
+                                             {
+                                               clnoenco=true;
+                                              }
                                         }
-                                        else 
+                                        if(clnoenco==true)
                                         {
-                                            System.out.println("No se borro nada");
+                                           System.out.println("Cliente no encontrado");
                                         }
-                                    }
-                                    else
-                                    {
-                                        clnoenco=true;
-                                    }
                                     
-                                }
-                                    if(clnoenco==true)
-                                    {
-                                     System.out.println("Cliente no encontrado");
-                                    }
-                                    
+                                       System.out.println("");
+                                       System.out.println("¿Desea Eliminar otro Cliente?(Si/No)");
+                                       respuesta = x.next();
+                                    }while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
                                 }
                                 break;
 
@@ -241,39 +258,43 @@ public class Principal {
                                 }
                                 else 
                                 {
-                                   System.out.println();
-                                   System.out.println("Ingrese el número de cliente que desee ver: ");
-                                   Ncliente=x.next();
+                                   do{
+                                       System.out.println();
+                                       System.out.println("Ingrese el número de cliente que desee ver: ");
+                                       Ncliente=x.next();
 
-                                   for(int z =0; z < clientes.size(); z++)
-                                   {
-                                       if((clientes.get(z).NumCliente).equals(Ncliente))
+                                       for(int z =0; z < clientes.size(); z++)
                                        {
+                                          if((clientes.get(z).NumCliente).equals(Ncliente))
+                                           {
+                                              ban = true; //Cliente encontrado
+                                              System.out.println("Cliente encontrado");
+                                              break;
+                                           }
 
-                                          ban = true; //Cliente encontrado
-                                          break;  
-                                        }
-                                       
-                                
-                                        if(ban == true)
-                                        {
-                                          System.out.println("Imprimiendo datos del cliente solicitado: ");
-                                          System.out.println(clientes.get(z).NumCliente); 
-                                          System.out.println("Nombre: " + clientes.get(z).nombre);
-                                          System.out.println("Edad: " + clientes.get(z).edad);
-                                          System.out.println("Dirección: " + clientes.get(z).direccion);
-                                          System.out.println("Email: " + clientes.get(z).email);
-                                          System.out.println("Telefono: " + clientes.get(z).telefono);
-                                          System.out.println("RFC: " + clientes.get(z).RFC);
-                                          System.out.println("Tipo de Pago: " +clientes.get(z).TipoCliente);
-                                        }
+                                           if(ban == true)
+                                            {
+                                              System.out.println("Imprimiendo datos del cliente solicitado: ");
+                                              System.out.println(clientes.get(z).NumCliente); 
+                                              System.out.println("Nombre: " + clientes.get(z).nombre);
+                                              System.out.println("Edad: " + clientes.get(z).edad);
+                                              System.out.println("Dirección: " + clientes.get(z).direccion);
+                                              System.out.println("Email: " + clientes.get(z).email);
+                                              System.out.println("Telefono: " + clientes.get(z).telefono);
+                                              System.out.println("RFC: " + clientes.get(z).RFC);
+                                              System.out.println("Tipo de Pago: " +clientes.get(z).TipoCliente);
+                                            }
 
-                                        else
-                                        {
-                                           System.out.println("Cliente no localizado...");
-                                        }
-                                    }
-                                }
+                                            else
+                                            {
+                                              System.out.println("Cliente no localizado...");
+                                            }
+                                        } 
+                                      System.out.println("");
+                                      System.out.println("¿Desea ver otro Cliente?(Si/No)");
+                                      respuesta = x.next();
+                                    }while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
+                                }  
                                 break;
 
                             case "6":
@@ -298,6 +319,8 @@ public class Principal {
                     System.out.println(" 5.- Ver 1 Empleado");
                     System.out.println(" 6.- Ver Por Tipos de Empleados");
                     System.out.println(" 7.- Regresar");
+                    System.out.println();
+                    System.out.print("Teclee Opcion: ");
                     r2 = x.next();
                     switch (r2) {
                         case "1":
@@ -393,6 +416,8 @@ public class Principal {
                         System.out.println(" 5.- Ver 1 articulo");
                         System.out.println(" 6.- Ver por tipos de articulos");
                         System.out.println(" 7.- Regresar");
+                        System.out.println();
+                        System.out.print("Teclee Opcion: ");
                         r3 = x.next();
                         switch (r3) {
 
@@ -566,9 +591,11 @@ public class Principal {
                                 break;
 
                             case "7":
-                                System.out.println("\nVolviendo a menú principal...");
+                                
 
                                 break;
+                                
+                            default:
                         }
                     } while (!"7".equals(r3));
                     break;
@@ -582,6 +609,8 @@ public class Principal {
                     System.out.println(" 4.- Ver Todas Las Notas");
                     System.out.println(" 5.- Ver 1 Nota");
                     System.out.println(" 6.- Regresar");
+                    System.out.println();
+                    System.out.print("Teclee Opcion: ");
                     r4 = x.next();
                     switch (r4) {
 
@@ -594,6 +623,9 @@ public class Principal {
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
                     System.out.println(" 2.- Ver Articulo Menos Vendido");
                     System.out.println(" 3.- Ver Ventas Totales");
+                    System.out.println(" 4-. Regresar");
+                    System.out.println();
+                    System.out.print("Teclee Opcion: ");
                     r5 = x.next();
                       
                     switch (r5) 
