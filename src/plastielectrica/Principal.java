@@ -31,7 +31,7 @@ public class Principal {
         ArrayList<Herramientas> OBH = new ArrayList<>();
         //arrayList para los empleados 
         ArrayList<Empleado> arrayLEmp = new ArrayList<>();
-        //arrayist para clientes
+        //arrayist para los clientes
         ArrayList<Cliente> clientes = new ArrayList<>();
 
         //INFORMACION DE BIENVENIDA 
