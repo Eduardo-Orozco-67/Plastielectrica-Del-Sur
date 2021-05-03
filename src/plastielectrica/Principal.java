@@ -23,10 +23,10 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) throws IOException {
-        String respuesta, num, Ncliente, cdes, tipo, nid, exe;
-        int  i,  ind = 0;
+        String respuesta, num, Ncliente, cdes, tipo, nid, exe, elimar;
+        int  i;
         String res , r1, r2, r3, r4, r5, op;
-        boolean ban = false, clnoenco=false;
+        boolean ban = false, clnoenco=false, ind = false, artel = false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -481,24 +481,43 @@ public class Principal {
                                 }
                                 break;
 
-                            case "3": //eliminación de herramientas  
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+ case "3": //eliminación de herramientas  
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
+                                } else 
+                                {
                                     do {
                                         System.out.println();
                                         System.out.println("Ingrese el código de identificación de la heramienta a eliminar");
                                         nid = x.next();
                                         for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
-                                            if (nid.equals(OBH.get(i).id)) {//comparación de id con nid
-                                                OBH.remove(i);//eliminar el objeto con todos sus atributos
-                                                System.out.println("objeto eliminado");
-                                            } else {
-                                                System.out.println("Este código no pertenece a ningún artículo.");
+                                            if (nid.equals(OBH.get(i).id)) 
+                                            {//comparación de id con nid
+                                                System.out.println("Articulo encontrado");
+                                                System.out.println("Esta seguro que desea elimiar este articulo");
+                                                elimar = x.next();
+
+                                                if (elimar.equals("si") || elimar.equals("Si") || elimar.equals("SI") || elimar.equals("sI")) {//condición para ver o no otro articulo
+                                                    OBH.remove(i);//eliminar el objeto con todos sus atributos
+                                                    System.out.println("Articulo eliminado");
+                                                    artel = false;
+                                                } else {
+                                                    System.out.println("Articulo NO eliminado");
+                                                }
+                                            } 
+                                            else 
+                                            {
+                                                artel = true;
                                             }
                                         }
+                                        if (artel == true) {
+                                            System.out.println("Articulo no encontrado");
+                                        }
+
                                         System.out.println("¿Desea eliminar otra herramienta?(si/no)");
                                         respuesta = x.next();
+
                                     } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para eliminar o no otro articulo
                                 }
                                 break;
@@ -520,7 +539,7 @@ public class Principal {
                                     }
                                 }
                                 break;
-                                
+
                             case "5"://busqueda de 1 herramienta .
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
@@ -531,13 +550,13 @@ public class Principal {
                                         try {//Inicio de la excepcion 
                                             for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
                                                 if ((OBH.get(i).id).equals(nid)) {//comparación de id con nid
-                                                    ind = 1;
+                                                    ind = true;
                                                     System.out.println("Articulo encontrado");
                                                     break;
                                                 }
                                             }
 
-                                            if (ind == 1) {////comparación de nid con su valor de salida
+                                            if (ind == true) {////comparación de nid con su valor de salida
                                                 System.out.println("");
                                                 System.out.println("Articulo " + OBH.get(i).articulo);
                                                 System.out.println("Tipo: " + OBH.get(i).tipo);
@@ -556,7 +575,7 @@ public class Principal {
                                         respuesta = x.next();
                                     } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
                                 }
-                                break;
+                                break; 
 
                             case "6": //busqueda de herramientas por tipo 
                                 if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
