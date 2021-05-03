@@ -23,7 +23,7 @@ import java.util.Scanner;
 public class Principal {
 
     public static void main(String[] args) throws IOException {
-        String respuesta, num, Ncliente, cdes, tipo, nid, exe, elimar;
+        String respuesta, num, Ncliente, cdes, tipo, nid, exe, elimar, respuesta2, TCliente;
         int  i;
         String res , r1, r2, r3, r4, r5, op;
         boolean ban = false, clnoenco=false, ind = false, artel = false;
@@ -298,7 +298,101 @@ public class Principal {
                                 break;
 
                             case "6":
-                                System.out.println();
+                                   int w;
+                                 //Mostrar a los clientes y todos sus datos dependiendo del tipo de pago que los clientes sean
+                           
+                                 do{
+                                      System.out.println("Escriba el tipo de pago los clientes a visualizar: ");
+                                      System.out.println("Tipos de Clientes \n Descuento \n Credito \n Mostrador ");
+                                      TCliente=x.next();
+                            
+                                       if(TCliente.equals("Descuento")||TCliente.equals("descuento")||TCliente.equals("DESCUENTO"))
+                                       {
+                                          //Mostrar datos del tipo cliente descuento 
+                                          System.out.println("Datos de clientes con tipo de pago en descuento");
+                                          for(w =0; w < clientes.size(); w++)
+                                          {
+                                    
+                                              if((clientes.get(w).TipoCliente).equals("Descuento")||(clientes.get(w).TipoCliente).equals("descuento")||(clientes.get(w).TipoCliente).equals("DESCUENTO"))
+                                              {
+                                                 System.out.println(clientes.get(w).NumCliente); 
+                                                 System.out.println("Nombre: " + clientes.get(w).nombre);
+                                                 System.out.println("Edad: " + clientes.get(w).edad);
+                                                 System.out.println("Dirección: " + clientes.get(w).direccion);
+                                                 System.out.println("Email: " + clientes.get(w).email);
+                                                 System.out.println("Telefono: " + clientes.get(w).telefono);
+                                                 System.out.println("RFC: " + clientes.get(w).RFC);
+                                                 System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
+                                               }
+                                             else
+                                              {
+                                                 System.out.println("No se encontraron clientes con este tipo de pago a descuento...");
+                                              }
+                                           }//Fin ciclo for
+                                       }//Fin del if clientes a descuento
+                                      
+                                       else
+                                        {
+                                             if(TCliente.equals("Credito")||TCliente.equals("credito")||TCliente.equals("CREDITO"))
+                                             {
+                                                 //Mostrar datos de tipo cliente Credito
+                                                 System.out.println("Datos de clientes con tipo de pago a credito");
+                                                 
+                                                for(w=0; w< clientes.size(); w++)
+                                                {
+                                        
+                                                      if((clientes.get(w).TipoCliente).equals("Credito")||(clientes.get(w).TipoCliente).equals("credito")||(clientes.get(w).TipoCliente).equals("CREDITO"))
+                                                      {
+                                                         System.out.println(clientes.get(w).NumCliente); 
+                                                         System.out.println("Nombre: " + clientes.get(w).nombre);
+                                                         System.out.println("Edad: " + clientes.get(w).edad);
+                                                         System.out.println("Dirección: " + clientes.get(w).direccion);
+                                                         System.out.println("Email: " + clientes.get(w).email);
+                                                         System.out.println("Telefono: " + clientes.get(w).telefono);
+                                                         System.out.println("RFC: " + clientes.get(w).RFC);
+                                                         System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
+                                                      }         
+                                                      else 
+                                                      {
+                                                         System.out.println("No se encontraron clientes con este tipo de pago a credito...");
+                                                      }
+                                                }
+                                             }//Fin del if clientes a credito
+                                             else
+                                             {
+                                                 
+                                                 if(TCliente.equals("Mostrador")||TCliente.equals("mostrador")||TCliente.equals("MOSTRADOR"))
+                                                 {
+                                                     //Mostrar datos de tipo cliente mostrador
+                                                    System.out.println("Datos de clientes con tipo de pago mostrador");
+                                                     
+                                                    for(w=0; w < clientes.size(); w++)
+                                                    {
+                                            
+                                                        if((clientes.get(w).TipoCliente).equals("Mostrador")||(clientes.get(w).TipoCliente).equals("Mostrador")||TCliente.equals("MOSTRADOR")) 
+                                                        {
+                                                            System.out.println(clientes.get(w).NumCliente); 
+                                                            System.out.println("Nombre: " + clientes.get(w).nombre);
+                                                            System.out.println("Edad: " + clientes.get(w).edad);
+                                                            System.out.println("Dirección: " + clientes.get(w).direccion);
+                                                            System.out.println("Email: " + clientes.get(w).email);
+                                                            System.out.println("Telefono: " + clientes.get(w).telefono);
+                                                            System.out.println("RFC: " + clientes.get(w).RFC);
+                                                            System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
+                                                        }
+                                                       else
+                                                        {
+                                                            System.out.println("No se encontraron clientes con este tipo de pago mostrador...");
+                                                        }
+                                                    }
+                                                }//Fin del if clientes mostrador
+                                    
+                                           }//Fin 2do else
+                                       }//Fin 1er else
+                                
+                                       System.out.println("¿Desea visualizar mas tipos de Cliente?(Si/No)");
+                                       respuesta2 = x.next();
+                                    }while(respuesta2.equals("si")||respuesta2.equals("Si")||respuesta2.equals("SI"));
                                 break;
 
                             case "7":
@@ -481,7 +575,7 @@ public class Principal {
                                 }
                                 break;
 
- case "3": //eliminación de herramientas  
+                            case "3": //eliminación de herramientas  
                                 if (OBH.isEmpty()) 
                                 { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
