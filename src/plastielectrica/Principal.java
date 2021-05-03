@@ -715,23 +715,23 @@ public class Principal {
                 case "4":
                     //submenu de Notas
                     do{
-                    System.out.println("\n-----Que deseas hacer?-----");
-                    System.out.println(" 1.- Nueva Nota");
-                    System.out.println(" 2.- Editar Nota");
-                    System.out.println(" 3.- Eliminar Nota");
-                    System.out.println(" 4.- Ver Todas Las Notas");
-                    System.out.println(" 5.- Ver 1 Nota");
-                    System.out.println(" 6.- Regresar");
-                    System.out.println();
-                    System.out.print("Teclee Opcion: ");
-                    r4 = x.next();
-                    switch (r4) 
-                    {
+                        System.out.println("\n-----Que deseas hacer?-----");
+                        System.out.println(" 1.- Nueva Nota");
+                        System.out.println(" 2.- Editar Nota");
+                        System.out.println(" 3.- Eliminar Nota");
+                        System.out.println(" 4.- Ver Todas Las Notas");
+                        System.out.println(" 5.- Ver 1 Nota");
+                        System.out.println(" 6.- Regresar");
+                        System.out.println();
+                        System.out.print("Teclee Opcion: ");
+                        r4 = x.next();
+                        
+                        switch (r4) 
+                        {
                        
                         
-                        
                          
-                    }
+                        }
                     
                     }while(!"6".equals(r4));
                     
