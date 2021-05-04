@@ -30,7 +30,7 @@ public class Principal {
         int  i;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
-        boolean ban = false, clnoenco=false, ind = false, artel = false;
+        boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -254,7 +254,6 @@ public class Principal {
 
                             case "5":
                                 
-                               
                                  if (clientes.isEmpty())
                                 {
                                     System.out.println();
@@ -305,99 +304,136 @@ public class Principal {
                             case "6":
                                    int w;
                                  //Mostrar a los clientes y todos sus datos dependiendo del tipo de pago que los clientes sean
-                           
+                                 if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
                                  do{
+                                      
+                                      System.out.println("");
                                       System.out.println("Escriba el tipo de pago los clientes a visualizar: ");
-                                      System.out.println("Tipos de Clientes \n Descuento \n Credito \n Mostrador ");
+                                      System.out.println("Tipos de Clientes \n Descuento \n Credito \n Mostrador \n");
+                                      System.out.print("Teclee la busqueda: ");
                                       TCliente=x.next();
                             
                                        if(TCliente.equals("Descuento")||TCliente.equals("descuento")||TCliente.equals("DESCUENTO"))
                                        {
                                           //Mostrar datos del tipo cliente descuento 
+                                          System.out.println("");
                                           System.out.println("Datos de clientes con tipo de pago en descuento");
+                                          System.out.println("");
                                           for(w =0; w < clientes.size(); w++)
                                           {
                                     
                                               if((clientes.get(w).TipoCliente).equals("Descuento")||(clientes.get(w).TipoCliente).equals("descuento")||(clientes.get(w).TipoCliente).equals("DESCUENTO"))
-                                              {
-                                                 System.out.println(clientes.get(w).NumCliente); 
+                                               {
+                                                 ban2=true;
+                                                 ban3=false;
+                                               }
+                                               
+                                               if (ban2==true)
+                                               {
+                                                 System.out.println("Numero de Cliente: "+clientes.get(w).NumCliente); 
                                                  System.out.println("Nombre: " + clientes.get(w).nombre);
                                                  System.out.println("Edad: " + clientes.get(w).edad);
                                                  System.out.println("Dirección: " + clientes.get(w).direccion);
                                                  System.out.println("Email: " + clientes.get(w).email);
                                                  System.out.println("Telefono: " + clientes.get(w).telefono);
                                                  System.out.println("RFC: " + clientes.get(w).RFC);
-                                                 System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
+                                                 System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente); 
+                                                 ban2=false;
                                                }
-                                             else
-                                              {
-                                                 System.out.println("No se encontraron clientes con este tipo de pago a descuento...");
-                                              }
+                                       
                                            }//Fin ciclo for
+                                           if(ban3==true)
+                                                {
+                                                    System.out.println("No se encontraron clientes con este tipo de pago descuento...");
+                                                }
+
                                        }//Fin del if clientes a descuento
                                       
-                                       else
+
+                                       if(TCliente.equals("Mostrador")||TCliente.equals("mostrador")||TCliente.equals("MOSTRADOR"))
                                         {
-                                             if(TCliente.equals("Credito")||TCliente.equals("credito")||TCliente.equals("CREDITO"))
-                                             {
-                                                 //Mostrar datos de tipo cliente Credito
-                                                 System.out.println("Datos de clientes con tipo de pago a credito");
-                                                 
-                                                for(w=0; w< clientes.size(); w++)
-                                                {
-                                        
-                                                      if((clientes.get(w).TipoCliente).equals("Credito")||(clientes.get(w).TipoCliente).equals("credito")||(clientes.get(w).TipoCliente).equals("CREDITO"))
-                                                      {
-                                                         System.out.println(clientes.get(w).NumCliente); 
-                                                         System.out.println("Nombre: " + clientes.get(w).nombre);
-                                                         System.out.println("Edad: " + clientes.get(w).edad);
-                                                         System.out.println("Dirección: " + clientes.get(w).direccion);
-                                                         System.out.println("Email: " + clientes.get(w).email);
-                                                         System.out.println("Telefono: " + clientes.get(w).telefono);
-                                                         System.out.println("RFC: " + clientes.get(w).RFC);
-                                                         System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
-                                                      }         
-                                                      else 
-                                                      {
-                                                         System.out.println("No se encontraron clientes con este tipo de pago a credito...");
-                                                      }
-                                                }
-                                             }//Fin del if clientes a credito
-                                             else
-                                             {
-                                                 
-                                                 if(TCliente.equals("Mostrador")||TCliente.equals("mostrador")||TCliente.equals("MOSTRADOR"))
-                                                 {
-                                                     //Mostrar datos de tipo cliente mostrador
-                                                    System.out.println("Datos de clientes con tipo de pago mostrador");
-                                                     
-                                                    for(w=0; w < clientes.size(); w++)
-                                                    {
-                                            
-                                                        if((clientes.get(w).TipoCliente).equals("Mostrador")||(clientes.get(w).TipoCliente).equals("Mostrador")||TCliente.equals("MOSTRADOR")) 
-                                                        {
-                                                            System.out.println(clientes.get(w).NumCliente); 
-                                                            System.out.println("Nombre: " + clientes.get(w).nombre);
-                                                            System.out.println("Edad: " + clientes.get(w).edad);
-                                                            System.out.println("Dirección: " + clientes.get(w).direccion);
-                                                            System.out.println("Email: " + clientes.get(w).email);
-                                                            System.out.println("Telefono: " + clientes.get(w).telefono);
-                                                            System.out.println("RFC: " + clientes.get(w).RFC);
-                                                            System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente);
-                                                        }
-                                                       else
-                                                        {
-                                                            System.out.println("No se encontraron clientes con este tipo de pago mostrador...");
-                                                        }
-                                                    }
-                                                }//Fin del if clientes mostrador
+                                            //mostrar datos de clientes mostrador
+                                            System.out.println("");
+                                            System.out.println("Datos de clientes con tipo de pago en Mostrador");
+                                            System.out.println("");
+                                            for(w =0; w < clientes.size(); w++)
+                                            {
                                     
-                                           }//Fin 2do else
-                                       }//Fin 1er else
-                                
+                                              if((clientes.get(w).TipoCliente).equals("Mostrador")||(clientes.get(w).TipoCliente).equals("mostrador")||(clientes.get(w).TipoCliente).equals("MOSTRADOR"))
+                                               {
+                                                 ban2=true;
+                                                 ban3=false;
+                                               }
+                                               
+                                               if (ban2==true)
+                                               {
+                                                 System.out.println("Numero de Cliente: "+clientes.get(w).NumCliente); 
+                                                 System.out.println("Nombre: " + clientes.get(w).nombre);
+                                                 System.out.println("Edad: " + clientes.get(w).edad);
+                                                 System.out.println("Dirección: " + clientes.get(w).direccion);
+                                                 System.out.println("Email: " + clientes.get(w).email);
+                                                 System.out.println("Telefono: " + clientes.get(w).telefono);
+                                                 System.out.println("RFC: " + clientes.get(w).RFC);
+                                                 System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente); 
+                                                 ban2=false;
+                                               }
+                        
+                                            }//Fin ciclo for
+                                           if(ban3==true)
+                                                {
+                                                    System.out.println("No se encontraron clientes con este tipo de pago mostrador...");
+                                                }
+                                        }//Fin del if clientes a mostrador
+
+                                                 
+                                        if(TCliente.equals("Credito")||TCliente.equals("credito")||TCliente.equals("CREDITO"))
+                                        {
+                                            System.out.println("");
+                                            System.out.println("Datos de clientes con tipo de pago en credito");
+                                            System.out.println("");
+                                            for(w =0; w < clientes.size(); w++)
+                                           {
+                                    
+                                              if((clientes.get(w).TipoCliente).equals("Credito")||(clientes.get(w).TipoCliente).equals("credito")||(clientes.get(w).TipoCliente).equals("CREDITO"))
+                                               {
+                                                 ban2=true;
+                                                 ban3=false;
+                                               }
+                                               
+                                               if (ban2==true)
+                                               {
+                                                 System.out.println("Numero de Cliente: "+clientes.get(w).NumCliente); 
+                                                 System.out.println("Nombre: " + clientes.get(w).nombre);
+                                                 System.out.println("Edad: " + clientes.get(w).edad);
+                                                 System.out.println("Dirección: " + clientes.get(w).direccion);
+                                                 System.out.println("Email: " + clientes.get(w).email);
+                                                 System.out.println("Telefono: " + clientes.get(w).telefono);
+                                                 System.out.println("RFC: " + clientes.get(w).RFC);
+                                                 System.out.println("Tipo de Pago del cliente: " +clientes.get(w).TipoCliente); 
+                                                 ban2=false;
+                                               }
+                                       
+                                           }//Fin ciclo for
+                                           if(ban3==true)
+                                                {
+                                                    System.out.println("No se encontraron clientes con este tipo de pago descuento...");
+                                                }
+                                                     
+                                        }    
+                                    
+                                       System.out.println("");
                                        System.out.println("¿Desea visualizar mas tipos de Cliente?(Si/No)");
+                                       System.out.println("");
                                        respuesta2 = x.next();
                                     }while(respuesta2.equals("si")||respuesta2.equals("Si")||respuesta2.equals("SI"));
+                                }
                                 break;
 
                             case "7":
@@ -472,6 +508,7 @@ public class Principal {
                                         datosEmp.setHE(x.nextInt());  
                                     }
                                     arrayLEmp.add(datosEmp);
+                                    System.out.println("");
                                     System.out.print("¿Deseas ingresar otro empleado?(si/no)");
                                     respuesta = x.next();
                                 } while (respuesta.equals("si") || respuesta.equals("SI") || respuesta.equals("Si") || respuesta.equals("sI"));//equals compara cadenas 
@@ -521,7 +558,8 @@ public class Principal {
                                                   System.out.println("empleado no encontrado");
                                                 }
                                             }
-                                            System.out.println("¿Desea modifcar otro empleado ?(si/no)");
+                                            System.out.println("");
+                                            System.out.print("¿Desea modifcar otro empleado ?(si/no)");
                                             respuesta = x.next();
                                         } while (nid.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para modifcar o no otro articulo
                                  }
@@ -570,7 +608,7 @@ public class Principal {
                                            {
                                              System.out.println("Empleado no encontrado");
                                            }
-
+                                          System.out.println("");
                                           System.out.println("¿Desea eliminar otro empleado?(si/no)");
                                           respuesta = x.next();
 
@@ -642,7 +680,7 @@ public class Principal {
                                     if(tipeEmpleado.equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL"))
                                     {
                                       //Mostrar datos del tipo quincenal 
-                                      System.out.println("Datos de clientes con tipo quiincenal");
+                                      System.out.println("Datos de empleados con tipo quincenal");
                                       
                                       for(int n = 0; n < arrayLEmp.size(); n++)
                                        {
@@ -664,9 +702,7 @@ public class Principal {
                                            }
                                        }//Fin ciclo for
                                     }//Fin del if de empleados quincenales
-                                    
-                                    else
-                                    {
+
                                         if(tipeEmpleado.equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL"))
                                         {
                                            //Mostrar datos de tipo cliente Credito
@@ -692,7 +728,6 @@ public class Principal {
                                                }
                                             }   
                                         }//Fin del if clientes a credito
-                                    }//Fin 2do else
 
                                    System.out.println("¿Desea visualizar mas tipos de Cliente?(Si/No)");
                                    ress = x.next();
@@ -941,7 +976,7 @@ public class Principal {
                         switch (r4) 
                         {
                        
-                        
+                         
                          
                         }
                     
@@ -967,7 +1002,9 @@ public class Principal {
                     break;
 
                 case "6":
+                    System.out.println("");
                     System.out.println("Gracias por usar nustro sistema, saludos cordiales de parte de todo el equipo de desarrollo!");
+                    System.out.println("");
                     break;
                     
                 default:
