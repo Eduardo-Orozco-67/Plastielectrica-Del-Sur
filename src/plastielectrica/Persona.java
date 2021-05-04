@@ -70,16 +70,6 @@ public class Persona {
 
 
     }
-    public void mostrar(){
-        System.out.println("Nombre :" + getNom());
 
-        System.out.println("Direccion: " + getDirecc());
-
-        System.out.println("Telefono: " + getTelefono());
-
-        System.out.println("Dame su edad: " + getEdad());
-
-        System.out.println("Dame su email: " + getEmail());      
-    }
 }
 
