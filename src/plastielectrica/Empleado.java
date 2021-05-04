@@ -123,15 +123,6 @@ public class Empleado extends Persona{
         this.tipoEmpleado = tipoEmpleado;
     }
     
-    
-     @Override
-    public void llenado()
-    {
-        super.llenado();
-        System.out.print("Dame el ID ");
-        set_id(x.next());
-        System.out.print("Dame el RFC ");
-    }
 
     //metodos para calcular los respectivos pagos de los empleados
     public void calpagoQ(){
