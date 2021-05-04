@@ -22,10 +22,14 @@ import java.util.Scanner;
 
 public class Principal {
 
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
-        String respuesta, num, Ncliente, cdes, tipo, nid, exe, elimar, respuesta2, TCliente;
+        
+        //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
+        String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress;
         int  i;
-        String res , r1, r2, r3, r4, r5, op;
+        //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
+        String res , r1, r2, r3, r4, r5;
         boolean ban = false, clnoenco=false, ind = false, artel = false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
@@ -404,6 +408,7 @@ public class Principal {
                     break;
 
                 case "2":
+                  do{
                     //submenu de Empleados
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Anadir Empleado");
@@ -419,10 +424,256 @@ public class Principal {
                     
                     switch (r2) 
                     {
-                       
+                        case "1":
+                                   do {
+                                    Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
+                                    x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
+                                    //ponemos este x.nextLine para que se coma los \n
+                                    System.out.print("Ingresar el ID del empleado: ");
+                                    datosEmp.set_id(x.next());
+                                    x.nextLine();
+                                    System.out.print("Ingresar el nombre del empleado: ");
+                                    datosEmp.setNom(x.nextLine());
+                                    System.out.print("Ingresar la edad del empleado: ");
+                                    datosEmp.setEdad(x.nextInt());
+                                    x.nextLine();
+                                    System.out.print("Ingresar la direccion del empleado: ");
+                                    datosEmp.setDirecc(x.nextLine());
+                                    System.out.print("Ingresar el email del empleado: ");
+                                    datosEmp.setEmail(x.nextLine());
+                                    System.out.print("Ingresar el numero telefonico del empleado: ");
+                                    datosEmp.setTelefono(x.nextLine());
+                                    System.out.print("Ingresar el RFC del empleado: ");
+                                    datosEmp.set_RFC(x.nextLine());
+                                    System.out.print("Ingresar el tipo de empleado(quincenal/mensual)");
+                                    datosEmp.setTipoEmpleado(x.next());
+                                    if(datosEmp.getTipoEmpleado().equals("quincenal") || datosEmp.getTipoEmpleado().equals("Quincenal") || datosEmp.getTipoEmpleado().equals("QUINCENAL")){
+                                        System.out.print("Ingresar faltas: ");
+                                        datosEmp.setFaltas(x.nextInt());
+                                        System.out.print("Ingresar retardos:");
+                                        datosEmp.setRetardos(x.nextInt());
+                                    }
+                                    
+                                    if(datosEmp.getTipoEmpleado().equals("mensual") || datosEmp.getTipoEmpleado().equals("Mensual") || datosEmp.getTipoEmpleado().equals("MENSUAL")){
+                                        System.out.print("Ingresar faltas: ");
+                                        datosEmp.setFaltas(x.nextInt());
+                                        System.out.print("Ingresar retardos:");
+                                        datosEmp.setRetardos(x.nextInt());
+                                        System.out.print("Ingresar las horas extras trabajadas: ");
+                                        datosEmp.setHE(x.nextInt());  
+                                    }
+                                    arrayLEmp.add(datosEmp);
+                                    System.out.print("¿Deseas ingresar otro empleado?(si/no)");
+                                    respuesta = x.next();
+                                } while (respuesta.equals("si") || respuesta.equals("SI") || respuesta.equals("Si") || respuesta.equals("sI"));//equals compara cadenas 
+                        break;
+
+                        case "2": //editar empleados
+                            System.out.println();
+                                if (arrayLEmp.isEmpty()) { //Validar si el arreglo
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    do {
+                                        System.out.println("Ingrese el ID del empleado a editar");
+                                        nid = x.next();
+                                        System.out.println();                             
+                                        for (int j = 0; j < arrayLEmp.size(); j++) {
+                                            if (nid.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de ID en el arrayList
+                                                System.out.println("Empleado encontrado");
+                                                System.out.println("El ID del empleado no se puede modificar:");
+                                                System.out.println(arrayLEmp.get(j).ID);
+                                                System.out.print("Ingrese el Nombre del empleado: ");
+                                                x.nextLine();
+                                                arrayLEmp.get(j).setNom(x.nextLine());
+                                                System.out.print("\nIngrese la Edad del empleado: ");
+                                                arrayLEmp.get(j).setEdad(x.nextInt());
+                                                x.nextLine();
+                                                System.out.print("Ingrese la Direccion del empleado: ");
+                                                arrayLEmp.get(j).setDirecc(x.nextLine());
+                                                System.out.print("Ingrese el Email del empleado: ");
+                                                arrayLEmp.get(j).setEmail(x.next());
+                                                System.out.print("Ingrese el Numero de telefono del empleado: ");
+                                                arrayLEmp.get(j).setTelefono(x.next());
+                                                System.out.print("Ingrese el RFC del empleado: ");
+                                                arrayLEmp.get(j).set_RFC(x.next());
+                                                System.out.print("Ingrese el Tipo de contrato del empleado: ");
+                                                arrayLEmp.get(j).setTipoEmpleado(x.next());
+                                                } else {
+                                                    System.out.println("empleado no encontrado");
+                                                }
+                                            }
+                                        System.out.println("¿Desea modifcar otro empleado ?(si/no)");
+                                        respuesta = x.next();
+                                    } while (nid.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para modifcar o no otro articulo
+                                }
+                        break;
+
+                        case "3": //eliminar empleados
+                                if (arrayLEmp.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else 
+                                {
+                                    do {
+                                        for (int j = 0; j < arrayLEmp.size(); j++) {//for para listar los empleados
+                                            System.out.println(" ");
+                                            System.out.println("______________________________________________________________________________");
+                                            System.out.println("");
+                                            System.out.println("EMPLEADO " + (j + 1));
+                                            System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                            System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                            System.out.println("Tipo de contrato: " + arrayLEmp.get(j).tipoEmpleado);
+                                            System.out.println();
+                                        }//fin for
+                                        System.out.println("Ingrese el ID del empleado a eliminar");
+                                        System.out.println("");
+                                        nid = x.next();
+                                        
+                                        for (i = 0; i < arrayLEmp.size(); i++) {//ciclo para verificar todos los objetos
+                                            if (nid.equals(arrayLEmp.get(i).ID)) 
+                                            {//comparación de id con nid
+                                                System.out.println("Empleado existente");
+                                                System.out.println("Esta seguro que desea eliminar este empleado?");
+                                                elimar = x.next();
+
+                                                if (elimar.equals("si") || elimar.equals("Si") || elimar.equals("SI") || elimar.equals("sI")) {//condición para ver o no otro articulo
+                                                    arrayLEmp.remove(i);//eliminar el objeto con todos sus atributos
+                                                    System.out.println("Empleado eliminado");
+                                                    artel = false;
+                                                } else {
+                                                    System.out.println("Empleado NO eliminado");
+                                                }
+                                            } 
+                                            else 
+                                            {
+                                                artel = true;
+                                            }
+                                        }
+                                        if (artel == true) {
+                                            System.out.println("Empleado no encontrado");
+                                        }
+
+                                        System.out.println("¿Desea eliminar otro empleado?(si/no)");
+                                        respuesta = x.next();
+
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para eliminar o no otro articulo
+                                }
+                        break;
+                                
+                        case "4": //ver todos los empleados
+                            System.out.println();
+                            for (int j = 0; j < arrayLEmp.size(); j++) {
+                                System.out.println("______________________________________________________________________________");
+                                System.out.println("");
+                                System.out.println("EMPLEADO " + (j + 1));
+                                System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                System.out.println("Tipo de contrato: " + arrayLEmp.get(j).tipoEmpleado);
+                                System.out.println("Edad: " + arrayLEmp.get(j).edad);
+                                System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
+                                System.out.println("Email: " + arrayLEmp.get(j).email);
+                                System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
+                                System.out.println("RFC: " + arrayLEmp.get(j).RFC);
+                                System.out.println("");
+                            }
+                            System.out.println("______________________________________________________________________________");
+                        break;
+
+                        case "5": //ver solo un empleado
+                            System.out.println();
+                            System.out.print("Ingresar el ID del empleado que desea ver: ");
+                            num = x.next();//lectura de datos                              
+                            for (int j = 0; j < arrayLEmp.size(); j++) {
+                                if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de ID en el arrayList
+                                    System.out.println("");
+                                    System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                    System.out.println("Edad: " + arrayLEmp.get(j).edad);
+                                    System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
+                                    System.out.println("Email: " + arrayLEmp.get(j).email);
+                                    System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
+                                    System.out.println("RFC: " + arrayLEmp.get(j).RFC);
+                                    System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                    System.out.println("Tipo de Empleado: " + arrayLEmp.get(j).tipoEmpleado);
+                                    System.out.println("");
+                                } else {
+                                    System.out.println("empleado no encontrado");
+                                }
+                            }
+                        break;
+
+                        case "6": //ver por tipos de contrato
+                            System.out.println();
+                            //Mostrar a los clientes y todos sus datos dependiendo del tipo de pago que los clientes sean
+                            do{
+                                System.out.println("Escriba el tipo de contrato los empleados: ");
+                                System.out.println("Tipos de Empleados \n Quincenal \n Mensual");
+                                tipeEmpleado=x.next();
                             
+                                if(tipeEmpleado.equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL")){
+                                //Mostrar datos del tipo quincenal 
+                                System.out.println("Datos de clientes con tipo quiincenal");
+                                for(int n = 0; n < arrayLEmp.size(); n++){
+                                    
+                                    if((arrayLEmp.get(n).tipoEmpleado).equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL")){
+                                        System.out.println(arrayLEmp.get(n).ID); 
+                                        System.out.println("Nombre: " + arrayLEmp.get(n).nombre);
+                                        System.out.println("Edad: " + arrayLEmp.get(n).edad);
+                                        System.out.println("Dirección: " + arrayLEmp.get(n).direccion);
+                                        System.out.println("Email: " + arrayLEmp.get(n).email);
+                                        System.out.println("Telefono: " + arrayLEmp.get(n).telefono);
+                                        System.out.println("RFC: " + arrayLEmp.get(n).RFC);
+                                        System.out.println("Tipo de Pago del cliente: " +arrayLEmp.get(n).tipoEmpleado);
+                                        }
+                                        else{
+                                            System.out.println("No se encontraron empleados de tipo quincenal...");
+                                        }
+                                    }//Fin ciclo for
+                                }//Fin del if de empleados quincenales
+                                else{
+                                    if(tipeEmpleado.equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL")){
+                                    //Mostrar datos de tipo cliente Credito
+                                    System.out.println("Datos de clientes con tipo de pago a credito");
+                                    for(int m = 0; m< arrayLEmp.size(); m++){
+                                        
+                                        if((arrayLEmp.get(m).tipoEmpleado).equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL")){
+                                            System.out.println(arrayLEmp.get(m).ID); 
+                                            System.out.println("Nombre: " + arrayLEmp.get(m).nombre);
+                                            System.out.println("Edad: " + arrayLEmp.get(m).edad);
+                                            System.out.println("Dirección: " + arrayLEmp.get(m).direccion);
+                                            System.out.println("Email: " + arrayLEmp.get(m).email);
+                                            System.out.println("Telefono: " + arrayLEmp.get(m).telefono);
+                                            System.out.println("RFC: " + arrayLEmp.get(m).RFC);
+                                            System.out.println("Tipo de Pago del cliente: " + arrayLEmp.get(m).tipoEmpleado);
+                                            }
+                                        else{
+                                            System.out.println("No se encontraron clientes con este tipo de pago a credito...");
+                                            }
+                                        }
+                                    
+                                    }//Fin del if clientes a credito
+
+                                    }//Fin 2do else
+
+                                System.out.println("¿Desea visualizar mas tipos de Cliente?(Si/No)");
+                                ress = x.next();
+                                
+                            }while(ress.equals("si")||ress.equals("Si")||ress.equals("SI"));
+                                
+                            break;                            
+
+                        case "7": //salida
+                            System.out.println("");
+                            System.out.println("Regresando al submenú");
+                        break;
+                            
+                        default:
+                            System.out.println("Elegir una de las opciuones ofrecidas");
+                        break;
+
                     }
-                    break;
+                   } while (!"7".equals(r2));
+            
+                    break;//Regresa al submenu
 
                 case "3":
                     do {
@@ -685,7 +936,6 @@ public class Principal {
                     
                 default:
             }
-            
         } while (!"6".equals(res));
         
     }
