@@ -416,86 +416,11 @@ public class Principal {
                     System.out.println();
                     System.out.print("Teclee Opcion: ");
                     r2 = x.next();
-                    switch (r2) {
-                        case "1":
-                            System.out.println();
-                            do {
-                                Empleado datosEmp = new Empleado();//objeto creado para hacer uso de los setters
-                                System.out.println("Ingrese el nombre del empleado: ");
-                                datosEmp.setNom(x.next());
-                                System.out.println("Ingrese la edad del empleado: ");
-                                datosEmp.setEdad(x.nextInt());
-                                System.out.println("Ingrese la direccion del empleado: ");
-                                datosEmp.setDirecc(x.next());
-                                System.out.println("Ingrese el email del empleado: ");
-                                datosEmp.setEmail(x.next());
-                                System.out.println("Ingrese el numero telefonico del empleado: ");
-                                datosEmp.setDirecc(x.next());
-                                System.out.println("Ingrese el RFC del empleado: ");
-                                datosEmp.set_RFC(x.next());
-                                System.out.println("Ingrese el ID del empleado: ");
-                                datosEmp.set_id(x.next());
-                                arrayLEmp.add(datosEmp);
-                                System.out.println("¿Deseas ingresar otro empleado?(si/no)");
-                                respuesta = x.next();
-                            } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI")||respuesta.equals("sI"));//equals compara cadenas 
-                            break;
-
-                        case "2":
-                            System.out.println();
-                            break;
-
-                        case "3":
-                            System.out.println();
-                            //for para mostrar los empleados existentes y sus respectivos ID
-                            for (int j = 0; j < arrayLEmp.size(); j++) {//muestra los datos en el arrayList
-                                System.out.println();
-                                System.out.println("EMPLEADO " + (j + 1));
-                                System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
-                                System.out.println("ID: " + arrayLEmp.get(j).ID);
-                            }
-                            System.out.println();
-                            System.out.println("Ingresar el ID del empleado que desea eliminar: ");
-                            num = x.next();//lectura de datos                              
-                            for (int j = 0; j < arrayLEmp.size(); j++) {
-                                if (num.equals(arrayLEmp.get(j).ID)) { //se compara el dato guardado en num con los datos de IN en el arrayList
-                                    arrayLEmp.remove(j);//j es el iterador del for, el cual regula los datos
-                                    System.out.println("empleado eliminado!");
-                                } else {
-                                    System.out.println("empleado no encontrado");
-                                }
-                            }
-                            break;
-
-                        case "4":
-                            System.out.println();
-                            for (int j = 0; j < arrayLEmp.size(); j++) {
-                                System.out.println();
-                                System.out.println("EMPLEADO " + (j + 1));
-                                System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
-                                System.out.println("Edad: " + arrayLEmp.get(j).edad);
-                                System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
-                                System.out.println("Email: " + arrayLEmp.get(j).email);
-                                System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
-                                System.out.println("RFC: " + arrayLEmp.get(j).RFC);
-                                System.out.println("ID: " + arrayLEmp.get(j).ID);
-                            }
-                            break;
-
-                        case "5":
-                            System.out.println();
-                            break;
-
-                        case "6":
-                            System.out.println();
-                            break;
-
-                        case "7":
-
-                            break;
+                    
+                    switch (r2) 
+                    {
+                       
                             
-                        default:
-
                     }
                     break;
 
