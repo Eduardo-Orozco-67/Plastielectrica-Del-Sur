@@ -52,24 +52,7 @@ public class Persona {
         this.email = email;
     }
     
-    public void llenado(){
-        System.out.println("Dame su nombre:  ");
-        setNom(x.next());
 
-        System.out.println("Dame su direccion: ");
-        setDirecc(x.next());
-
-        System.out.println("Dame su numero de telefono: ");
-        setTelefono(x.next());
-
-        System.out.println("Dame su edad: ");
-        setEdad(x.nextInt());
-
-        System.out.println("Dame su email: ");
-        setEmail(x.next());
-
-
-    }
 
 }
 
