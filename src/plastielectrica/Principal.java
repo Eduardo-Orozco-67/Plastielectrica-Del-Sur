@@ -508,6 +508,7 @@ public class Principal {
                                         datosEmp.setHE(x.nextInt());  
                                     }
                                     arrayLEmp.add(datosEmp);
+                                    System.out.println("");
                                     System.out.print("¿Deseas ingresar otro empleado?(si/no)");
                                     respuesta = x.next();
                                 } while (respuesta.equals("si") || respuesta.equals("SI") || respuesta.equals("Si") || respuesta.equals("sI"));//equals compara cadenas 
@@ -557,7 +558,8 @@ public class Principal {
                                                   System.out.println("empleado no encontrado");
                                                 }
                                             }
-                                            System.out.println("¿Desea modifcar otro empleado ?(si/no)");
+                                            System.out.println("");
+                                            System.out.print("¿Desea modifcar otro empleado ?(si/no)");
                                             respuesta = x.next();
                                         } while (nid.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para modifcar o no otro articulo
                                  }
@@ -606,7 +608,7 @@ public class Principal {
                                            {
                                              System.out.println("Empleado no encontrado");
                                            }
-
+                                          System.out.println("");
                                           System.out.println("¿Desea eliminar otro empleado?(si/no)");
                                           respuesta = x.next();
 
