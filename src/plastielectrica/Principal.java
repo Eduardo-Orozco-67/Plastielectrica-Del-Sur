@@ -38,7 +38,8 @@ public class Principal {
         ArrayList<Empleado> arrayLEmp = new ArrayList<>();
         //arrayist para los clientes
         ArrayList<Cliente> clientes = new ArrayList<>();
-
+        //arrayist para las Notas
+        ArrayList<Nota> Notas = new ArrayList<>();
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
         System.out.println("*****\tPlastielectrica Del Sur\t*****");
@@ -975,7 +976,25 @@ public class Principal {
                         
                         switch (r4) 
                         {
-                       
+                            case "1":
+
+                                do {
+                                    Nota llenadonota = new Nota();
+                                    //objeto que servira como el molde para el llenado de la lista
+
+                                    System.out.println();
+                                    x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
+                                    //ponemos este x.nextLine para que se coma los \n
+                                    
+
+                                    //Preguntamos si desea un nuevo cliente   
+                                    System.out.println("");
+                                    System.out.println("¿Desea ingresar otro Cliente?(Si/No)");
+                                    respuesta = x.next();
+
+                                } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
+
+                                break;
                          
                          
                         }
@@ -997,7 +1016,7 @@ public class Principal {
                       
                     switch (r5) 
                     {
-
+                       
                     }  
                     break;
 
