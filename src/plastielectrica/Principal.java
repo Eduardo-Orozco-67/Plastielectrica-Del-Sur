@@ -1,6 +1,9 @@
 package plastielectrica;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -26,11 +29,11 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         
         //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
-        String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress;
-        int  i;
+        String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
+        int  i,ñ,v=0,t=1;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
-        boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true;
+        boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -39,7 +42,10 @@ public class Principal {
         //arrayist para los clientes
         ArrayList<Cliente> clientes = new ArrayList<>();
         //arrayist para las Notas
-        ArrayList<Nota> Notas = new ArrayList<>();
+        List<Map<Integer, Nota>> lisNota = new ArrayList<>();
+        
+        
+        
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
         System.out.println("*****\tPlastielectrica Del Sur\t*****");
@@ -212,7 +218,7 @@ public class Principal {
                                           else
                                              {
                                                clnoenco=true;
-                                              }
+                                             }
                                         }
                                         if(clnoenco==true)
                                         {
@@ -236,20 +242,20 @@ public class Principal {
                                 }
                                 else 
                                 {
-                                System.out.println();
-                                for (int q = 0; q < clientes.size(); q++) {
-
                                     System.out.println();
-                                    System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
-                                    System.out.println("Nombre: " + clientes.get(q).nombre);
-                                    System.out.println("Edad: " + clientes.get(q).edad);
-                                    System.out.println("Dirección: " + clientes.get(q).direccion);
-                                    System.out.println("Email: " + clientes.get(q).email);
-                                    System.out.println("Telefono: " + clientes.get(q).telefono);
-                                    System.out.println("RFC: " + clientes.get(q).RFC);
-                                    System.out.println("Tipo de Pago: " + clientes.get(q).TipoCliente);
+                                    for (int q = 0; q < clientes.size(); q++) 
+                                    {
 
-                                }
+                                       System.out.println();
+                                       System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
+                                       System.out.println("Nombre: " + clientes.get(q).nombre);
+                                       System.out.println("Edad: " + clientes.get(q).edad);
+                                       System.out.println("Dirección: " + clientes.get(q).direccion);
+                                       System.out.println("Email: " + clientes.get(q).email);
+                                       System.out.println("Telefono: " + clientes.get(q).telefono);
+                                       System.out.println("RFC: " + clientes.get(q).RFC);
+                                       System.out.println("Tipo de Pago: " + clientes.get(q).TipoCliente);
+                                    }
                                 }
                                 break;
 
@@ -351,9 +357,9 @@ public class Principal {
                                        
                                            }//Fin ciclo for
                                            if(ban3==true)
-                                                {
-                                                    System.out.println("No se encontraron clientes con este tipo de pago descuento...");
-                                                }
+                                            {
+                                                System.out.println("No se encontraron clientes con este tipo de pago descuento...");
+                                            }
 
                                        }//Fin del if clientes a descuento
                                       
@@ -883,9 +889,12 @@ public class Principal {
                                 break;
 
                             case "5"://busqueda de 1 herramienta .
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
+                                } 
+                                else 
+                                {
                                     do {
                                         System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
                                         nid = x.next();
@@ -951,7 +960,7 @@ public class Principal {
                                 break;
 
                             case "7":
-
+                                    
 
                                 break;
                                 
@@ -978,22 +987,74 @@ public class Principal {
                         {
                             case "1":
 
-                                do {
+                                
                                     Nota llenadonota = new Nota();
                                     //objeto que servira como el molde para el llenado de la lista
+                                    if (OBH.isEmpty()) 
+                                    { //Validar si el arreglo tiene datos
+                                        System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                    } 
+                                    else 
+                                    {
+                                      do 
+                                       {
+                                           System.out.println("Ingrese el codigo de identificacion de la herramienta que desea agregar: ");
+                                           nid2 = x.next();
+                                           //Inicio de la excepcion 
+                                               for ( ñ = 0; ñ < OBH.size(); ñ++) 
+                                               {//ciclo para verificar todos los objetos
+                                                  if ((OBH.get(ñ).id).equals(nid2)) 
+                                                   {//comparación de id con nid
+                                                      ind2 = true;
+                                                      System.out.println("Articulo encontrado");
+                                                      break;
+                                                   }
+                                                }   
 
-                                    System.out.println();
-                                    x.nextLine();//aqui usamos nextLine en vez de Next para poder leer espacios
-                                    //ponemos este x.nextLine para que se coma los \n
-                                    
+                                                if (ind2 == true) 
+                                                {////comparación de nid con su valor de salida
+                                                   llenadonota.setId(OBH.get(ñ).id);
+                                                   llenadonota.setArticulo(OBH.get(ñ).articulo);
+                                                   llenadonota.setTipo(OBH.get(ñ).tipo);
+                                                   llenadonota.setMarca(OBH.get(ñ).marca);
+                                                   llenadonota.setUnidades(OBH.get(ñ).unidades);
+                                                   llenadonota.setCantidad(OBH.get(ñ).cantidad);
+                                                   llenadonota.setGarantia(OBH.get(ñ).garantia);
+                                                   llenadonota.setPrecio(OBH.get(ñ).precio);
+                                                   Map<Integer, Nota> mapIndex = new HashMap<>();
+                                                   mapIndex.put(t,llenadonota);
+                                                   lisNota.add(v , mapIndex);
+                                                   t++;
+                                                }
+                                                else 
+                                                {//fin de la excepcion
+                                                  System.out.println("\nArticulo no encontrado.");
+                                                }
 
-                                    //Preguntamos si desea un nuevo cliente   
-                                    System.out.println("");
-                                    System.out.println("¿Desea ingresar otro Cliente?(Si/No)");
-                                    respuesta = x.next();
+                                            System.out.println("\n¿Deseas ver otro articulo?(si/no)");
+                                           respuesta = x.next();
+                                        } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
+                                         v=v+1;  
+                                    }  
 
-                                } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));
-
+                                break;
+                                
+                             case "4"://impresión de herramientas
+                                if (lisNota.isEmpty()) { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } else {
+                                    for (i = 0; i < lisNota.size(); i++) {//ciclo para verificar todos los objetos
+                                        System.out.println("________________________________________");
+                                        System.out.println("Articulo " + lisNota.get(i).get(v).articulo);
+                                        System.out.println("Tipo: " + lisNota.get(i).get(v).tipo);
+                                        System.out.println("Codigo de identificación: " + lisNota.get(i).get(v).id);
+                                        System.out.println("Marca: " + lisNota.get(i).get(v).marca);
+                                        System.out.println("Unidad: " + lisNota.get(i).get(v).unidades);
+                                        System.out.println("Cantidad: " + lisNota.get(i).get(v).cantidad + " " + lisNota.get(i).get(v).unidades);
+                                        System.out.println("Garantia: " + lisNota.get(i).get(v).garantia);
+                                        System.out.println("Precio: $" + lisNota.get(i).get(v).precio);
+                                    }
+                                }
                                 break;
                          
                          
