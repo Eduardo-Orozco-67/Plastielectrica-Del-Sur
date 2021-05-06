@@ -1,10 +1,9 @@
 package plastielectrica;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
+
+// System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
 
 /**
  *
@@ -795,15 +794,21 @@ public class Principal {
                                 break;
 
                             case "2":
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
-                                    do {
+                                } 
+                                else 
+                                {
+                                    do 
+                                    {
                                         //Edicion de herramienta
                                         System.out.println("Ingrese el código de identificación dela heramienta a modificar");
                                         nid = x.next();
-                                        for (i = 0; i < OBH.size(); i++) {
-                                            if (nid.equals(OBH.get(i).id)) {
+                                        for (i = 0; i < OBH.size(); i++) 
+                                        {
+                                            if (nid.equals(OBH.get(i).id)) 
+                                            {
                                                 System.out.println("Articulo encontrado");
                                                 System.out.println("El código de identificación no es posible modificarlo: " + OBH.get(i).id);
                                                 System.out.println("Ingrese el nombre de este artículo.");
@@ -986,9 +991,7 @@ public class Principal {
                         switch (r4) 
                         {
                             case "1":
-
-                                
-                                    
+      
                                     //objeto que servira como el molde para el llenado de la lista
                                     if (OBH.isEmpty()) 
                                     { //Validar si el arreglo tiene datos
