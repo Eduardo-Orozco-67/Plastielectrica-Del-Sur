@@ -66,6 +66,9 @@ public class Nota extends Herramientas {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+    
+    
+    
 
     @Override
     public String getArticulo() {
