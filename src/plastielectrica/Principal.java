@@ -42,7 +42,7 @@ public class Principal {
         //arrayist para los clientes
         ArrayList<Cliente> clientes = new ArrayList<>();
         //arrayist para las Notas
-        List<Map<Integer, Nota>> lisNota = new ArrayList<>();
+        ArrayList< Nota > lisNota = new ArrayList<>();
         
         
         
@@ -988,7 +988,7 @@ public class Principal {
                             case "1":
 
                                 
-                                    Nota llenadonota = new Nota();
+                                    
                                     //objeto que servira como el molde para el llenado de la lista
                                     if (OBH.isEmpty()) 
                                     { //Validar si el arreglo tiene datos
@@ -998,6 +998,7 @@ public class Principal {
                                     {
                                       do 
                                        {
+                                           Nota llenadonota = new Nota();
                                            System.out.println("Ingrese el codigo de identificacion de la herramienta que desea agregar: ");
                                            nid2 = x.next();
                                            //Inicio de la excepcion 
@@ -1007,6 +1008,7 @@ public class Principal {
                                                    {//comparación de id con nid
                                                       ind2 = true;
                                                       System.out.println("Articulo encontrado");
+                                                      System.out.println(ñ);
                                                       break;
                                                    }
                                                 }   
@@ -1021,20 +1023,17 @@ public class Principal {
                                                    llenadonota.setCantidad(OBH.get(ñ).cantidad);
                                                    llenadonota.setGarantia(OBH.get(ñ).garantia);
                                                    llenadonota.setPrecio(OBH.get(ñ).precio);
-                                                   Map<Integer, Nota> mapIndex = new HashMap<>();
-                                                   mapIndex.put(t,llenadonota);
-                                                   lisNota.add(v , mapIndex);
-                                                   t++;
+                                                   lisNota.add(llenadonota);
                                                 }
                                                 else 
-                                                {//fin de la excepcion
+                                                {
                                                   System.out.println("\nArticulo no encontrado.");
                                                 }
 
-                                            System.out.println("\n¿Deseas ver otro articulo?(si/no)");
-                                           respuesta = x.next();
+                                             System.out.println("\n¿Deseas ver otro articulo?(si/no)");
+                                             respuesta = x.next();
                                         } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
-                                         v=v+1;  
+                                     
                                     }  
 
                                 break;
@@ -1045,14 +1044,14 @@ public class Principal {
                                 } else {
                                     for (i = 0; i < lisNota.size(); i++) {//ciclo para verificar todos los objetos
                                         System.out.println("________________________________________");
-                                        System.out.println("Articulo " + lisNota.get(i).get(v).articulo);
-                                        System.out.println("Tipo: " + lisNota.get(i).get(v).tipo);
-                                        System.out.println("Codigo de identificación: " + lisNota.get(i).get(v).id);
-                                        System.out.println("Marca: " + lisNota.get(i).get(v).marca);
-                                        System.out.println("Unidad: " + lisNota.get(i).get(v).unidades);
-                                        System.out.println("Cantidad: " + lisNota.get(i).get(v).cantidad + " " + lisNota.get(i).get(v).unidades);
-                                        System.out.println("Garantia: " + lisNota.get(i).get(v).garantia);
-                                        System.out.println("Precio: $" + lisNota.get(i).get(v).precio);
+                                        System.out.println("Articulo " + lisNota.get(i).articulo);
+                                        System.out.println("Tipo: " + lisNota.get(i).tipo);
+                                        System.out.println("Codigo de identificación: " + lisNota.get(i).id);
+                                        System.out.println("Marca: " + lisNota.get(i).marca);
+                                        System.out.println("Unidad: " + lisNota.get(i).unidades);
+                                        System.out.println("Cantidad: " + lisNota.get(i).cantidad + " " + lisNota.get(i).unidades);
+                                        System.out.println("Garantia: " + lisNota.get(i).garantia);
+                                        System.out.println("Precio: $" + lisNota.get(i).precio);
                                     }
                                 }
                                 break;
