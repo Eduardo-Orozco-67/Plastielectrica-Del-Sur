@@ -6,6 +6,9 @@ public class Nota extends Herramientas {
     
     double subtotal, total;
     String fecha;
+    String NumCliente;
+    String TipoCliente;
+    String ID;
    
     Nota()
     {      
@@ -18,15 +21,46 @@ public class Nota extends Herramientas {
         this.fecha= fecha;
     }
 
-
-
     public String getfecha() 
     {
         return fecha;
     }
 
     
+   public void setNumCliente(String NumCliente)
+    {
+        this.NumCliente= NumCliente;
+    }
     
+   public String getNumCliente()
+    {
+        return NumCliente;
+    }
+   
+   
+   public void setTipoCliente(String TipoCliente) 
+    {
+        this.TipoCliente = TipoCliente;
+    }
+   
+   public String getTipoCliente() 
+    {
+        return TipoCliente;
+    }
+   
+   
+   public void set_id(String ID) 
+    {
+        this.ID= ID;
+    }
+   
+   public String get_id() 
+    {
+        return ID;
+    }   
+   
+
+   
     @Override
     public void setArticulo(String articulo) {
         this.articulo = articulo;
@@ -66,7 +100,6 @@ public class Nota extends Herramientas {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    
     
     
 
