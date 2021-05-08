@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
 
 /**
  *
