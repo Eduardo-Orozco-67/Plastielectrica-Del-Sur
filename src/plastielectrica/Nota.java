@@ -5,10 +5,14 @@ package plastielectrica;
 public class Nota extends Herramientas {
     
     double subtotal, total;
+    String numnota;
     String fecha;
     String NumCliente;
     String TipoCliente;
     String ID;
+    String idemp;
+    String NomCliente;
+    String Nomemp;
    
     Nota()
     {      
@@ -25,6 +29,16 @@ public class Nota extends Herramientas {
     {
         return fecha;
     }
+    
+    public void setnumnota(String numnota) 
+    {
+        this.numnota= numnota;
+    }
+
+    public String getnumnota() 
+    {
+        return numnota;
+    }
 
     
    public void setNumCliente(String NumCliente)
@@ -35,6 +49,17 @@ public class Nota extends Herramientas {
    public String getNumCliente()
     {
         return NumCliente;
+    }
+   
+   
+    public void setNomCliente(String NomCliente)
+    {
+        this.NomCliente= NomCliente;
+    }
+    
+   public String getNomCliente()
+    {
+        return NomCliente;
     }
    
    
@@ -59,6 +84,26 @@ public class Nota extends Herramientas {
         return ID;
     }   
    
+   
+    public void setidempl(String idemp) 
+    {
+        this.idemp= idemp;
+    }
+
+    public String getidempl() 
+    {
+        return idemp;
+    }
+    
+   public void setNomemp(String Nomemp)
+    {
+        this.Nomemp= Nomemp;
+    }
+    
+   public String getNomemp()
+    {
+        return Nomemp;
+    }
 
    
     @Override
