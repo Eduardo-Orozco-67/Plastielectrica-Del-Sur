@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
 
 /**
  *
@@ -495,25 +494,7 @@ public class Principal {
                                     System.out.print("Ingresar el RFC del empleado: ");
                                     datosEmp.set_RFC(x.nextLine());
                                     System.out.print("Ingresar el tipo de empleado(quincenal/mensual)");
-                                    datosEmp.setTipoEmpleado(x.next());
-                                    
-                                    if(datosEmp.getTipoEmpleado().equals("quincenal") || datosEmp.getTipoEmpleado().equals("Quincenal") || datosEmp.getTipoEmpleado().equals("QUINCENAL"))
-                                    {
-                                        System.out.print("Ingresar faltas: ");
-                                        datosEmp.setFaltas(x.nextInt());
-                                        System.out.print("Ingresar retardos:");
-                                        datosEmp.setRetardos(x.nextInt());
-                                    }
-                                    
-                                    if(datosEmp.getTipoEmpleado().equals("mensual") || datosEmp.getTipoEmpleado().equals("Mensual") || datosEmp.getTipoEmpleado().equals("MENSUAL"))
-                                    {
-                                        System.out.print("Ingresar faltas: ");
-                                        datosEmp.setFaltas(x.nextInt());
-                                        System.out.print("Ingresar retardos:");
-                                        datosEmp.setRetardos(x.nextInt());
-                                        System.out.print("Ingresar las horas extras trabajadas: ");
-                                        datosEmp.setHE(x.nextInt());  
-                                    }
+                                    datosEmp.setTipoEmpleado(x.next());                                  
                                     arrayLEmp.add(datosEmp);
                                     System.out.println("");
                                     System.out.print("¿Deseas ingresar otro empleado?(si/no)");
@@ -622,7 +603,7 @@ public class Principal {
                                         } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para eliminar o no otro articulo
                                     }
                            break;
-                                
+                                                               
                            case "4": //ver todos los empleados
                                 
                                 System.out.println();
