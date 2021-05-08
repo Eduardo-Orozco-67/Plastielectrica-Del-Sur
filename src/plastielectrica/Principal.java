@@ -29,12 +29,13 @@ public class Principal {
         
         //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
-        int  i,ñ,v = 0,t=0, p, g, u, ventas=0;
-        double lleva = 0, sub1, descuento, total = 0;
+        String respuestano,Nnota,cdesno;
+        int  i, ñ, v = 0, t=0, p, g, u, ventas=0, a, za;
+        double lleva , sub1, descuento, total = 0;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
         boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
-        boolean ban4 = false, ban5=false;
+        boolean ban4 = false, ban5=false, Nonoenco=false, banNo=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -46,6 +47,7 @@ public class Principal {
         ArrayList<Nota> lisNota = new ArrayList<>();
         ArrayList<Nota> listNota = new ArrayList<>();
         ArrayList<ArrayList<Nota>> listaNota = new ArrayList<>();
+        ArrayList<Nota> listNotatotal = new ArrayList<>();
         
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
@@ -263,7 +265,7 @@ public class Principal {
 
                             case "5":
                                 
-                                 if (clientes.isEmpty())
+                                if (clientes.isEmpty())
                                 {
                                     System.out.println();
                                     System.out.println("No hay datos registradoas aun");
@@ -981,10 +983,8 @@ public class Principal {
                     do{
                         System.out.println("\n-----Que deseas hacer?-----");
                         System.out.println(" 1.- Nueva Nota");
-                        System.out.println(" 2.- Eliminar Nota");
-                        System.out.println(" 3.- Ver Todas Las Notas");
-                        System.out.println(" 4.- Ver 1 Nota");
-                        System.out.println(" 5.- Regresar");
+                        System.out.println(" 2.- Ver Todas Las Notas");
+                        System.out.println(" 3.- Regresar");
                         System.out.println();
                         System.out.print("Teclee Opcion: ");
                         r4 = x.next();
@@ -1038,6 +1038,7 @@ public class Principal {
                                  
                                  g=0;
                                  lleva=0;
+                                 Nota totalnota = new Nota();
                                  do{  
                                     //objeto que servira como el molde para el llenado de la lista
                                    
@@ -1050,6 +1051,7 @@ public class Principal {
                                     {   
                                         
                                            Nota llenadonota= new Nota();
+                                         
                                            System.out.println("\nIngrese el codigo de identificacion del articulo que desea agregar: ");
                                            nid2 = x.next();
                                            //Inicio de la excepcion 
@@ -1076,8 +1078,7 @@ public class Principal {
                                                    llenadonota.setPrecio(OBH.get(ñ).precio);
                                                    System.out.println("Ingrese la cantidad que lleva");
                                                    llenadonota.setcantidadc(x.nextDouble());
-                                                   OBH.get(ñ).setCantidad((int) (OBH.get(ñ).cantidad - llenadonota.getcantidadc()));
-                                                   sub1=OBH.get(ñ).precio*llenadonota.getcantidadc();
+                                                   sub1=OBH.get(ñ).precio * llenadonota.getcantidadc();
                                                    llenadonota.setsubtotal(sub1);
                                                    lleva=lleva+sub1;
                                                    llenadonota.setsumasubtotal(lleva);
@@ -1085,32 +1086,44 @@ public class Principal {
                                                    {
                                                        descuento=llenadonota.getsumasubtotal()*0.15;
                                                        total=llenadonota.getsumasubtotal() - descuento;
-                                                       llenadonota.settotal(total);
+                                                       totalnota.settotal(total);
+                                                       
                                                    }
+                                                   else{
                                                    if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
                                                    {
                                                        if(llenadonota.getcantidadc()<=10)
                                                        {
                                                          total=llenadonota.getsumasubtotal()/3;
-                                                         llenadonota.settotal(total);
+                                                         totalnota.settotal(total);
+                                                         
                                                        }
                                                        else
                                                        {
                                                            if(llenadonota.getcantidadc()>10 && llenadonota.getcantidadc()<=20)
                                                            {
                                                              total=llenadonota.getsumasubtotal()/6;
-                                                             llenadonota.settotal(total);
+                                                             totalnota.settotal(total);
+                                                             
                                                            }
                                                            else
                                                            {
                                                                 if(llenadonota.getcantidadc()>20)
                                                                 {
                                                                    total=llenadonota.getsumasubtotal()/12;
-                                                                   llenadonota.settotal(total);
+                                                                   totalnota.settotal(total);
+                                                                   
                                                                 }
                                                            }
                                                        }
                                                    }
+                                                   else
+                                                   {
+                                                       total=llenadonota.getsumasubtotal();
+                                                       totalnota.settotal(total);
+                                                   }
+                                                   }
+                                                   
                                                    listaNota.add(new ArrayList<>());
                                                    listaNota.get(t).add(g,llenadonota);
                                                    ventas++;
@@ -1120,9 +1133,10 @@ public class Principal {
                                                 {
                                                   System.out.println("\nArticulo no encontrado.");
                                                 }
+                                                listNotatotal.add(totalnota);
                                       }
-                                    
-                                             System.out.println("\n¿Desea agregar otro articulo?(si/no)");
+                                       
+                                        System.out.println("\n¿Desea agregar otro articulo?(si/no)");
                                          respuesta = x.next();
                                     } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
                                     t=t+1;
@@ -1167,11 +1181,12 @@ public class Principal {
                                     }while (ban5!=true);
 
                                 break;
-                                
-                             case "3"://impresión denotas
+                             
+                            case "2":
+                               
                                 if (listaNota.isEmpty()) 
                                 { //Validar si el arreglo tiene datos
-                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1 nueva nota.");
                                 } 
                                 else
                                 {
@@ -1205,17 +1220,29 @@ public class Principal {
                                               System.out.println("Suma Sub Total: "+ listaNota.get(p).get(i).suma);
                                             }
                                            System.out.println("________________________________________");   
-                                           System.out.println("Gran Total: "+ total);
+                                           if(p==0)
+                                           {
+                                              System.out.println("Gran Total: "+   listNotatotal.get(p).total);
+                                           }
+                                           else
+                                           {
+                                               System.out.println("Gran Total: "+   listNotatotal.get(p+1).total);
+                                           }
                                            System.out.println("Ud fue antendido por: "+ listNota.get(p).Nomemp);
                                            System.out.println("Con Id: "+ listNota.get(p).idemp );
                                            System.out.println("************************************************");
                                         }
                                     } catch (Exception e) {}
                                 }
+                                break;           
+                            
+                            case "3":
                                 break;
+                                
+                            default:
                         }
                     
-                    }while(!"6".equals(r4));
+                    }while(!"3".equals(r4));
                     
                     break;
 
