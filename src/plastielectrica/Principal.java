@@ -1076,6 +1076,7 @@ public class Principal {
                                                    llenadonota.setPrecio(OBH.get(ñ).precio);
                                                    System.out.println("Ingrese la cantidad que lleva");
                                                    llenadonota.setcantidadc(x.nextDouble());
+                                                   OBH.get(ñ).setCantidad((int) (OBH.get(ñ).cantidad - llenadonota.getcantidadc()));
                                                    sub1=OBH.get(ñ).precio*llenadonota.getcantidadc();
                                                    llenadonota.setsubtotal(sub1);
                                                    lleva=lleva+sub1;
@@ -1187,27 +1188,27 @@ public class Principal {
                                             System.out.println("Num de Cliente: " + lisNota.get(p).NumCliente); 
                                             System.out.println("Tipo de Pago: " + lisNota.get(p).TipoCliente); 
                                     
-                                        for (i = 0; i < listaNota.get(p).size(); i++) 
-                                        {//ciclo para imprimir todos los objetos del 2do arraylist(bidimensional)
+                                            for (i = 0; i < listaNota.get(p).size(); i++) 
+                                            {//ciclo para imprimir todos los objetos del 2do arraylist(bidimensional)
                                              
-                                          System.out.println("________________________________________");
-                                          System.out.println("Articulo: " + listaNota.get(p).get(i).articulo);
-                                          System.out.println("Tipo: " + listaNota.get(p).get(i).tipo);
-                                          System.out.println("Codigo de identificación: " + listaNota.get(p).get(i).id);
-                                          System.out.println("Marca: " + listaNota.get(p).get(i).marca);
-                                          System.out.println("Unidad: " + listaNota.get(p).get(i).unidades);
-                                          System.out.println("Cantidad: " + listaNota.get(p).get(i).cantidad + " " + listaNota.get(p).get(i).unidades);
-                                          System.out.println("Garantia: " + listaNota.get(p).get(i).garantia);
-                                          System.out.println("Precio: $" + listaNota.get(p).get(i).precio);
-                                          System.out.println("Cant de Venta" + listaNota.get(p).get(i).cantidade);
-                                          System.out.println("Sub total de articulo: " + listaNota.get(p).get(i).subtotal);
-                                          System.out.println("Suma Sub Total: "+ listaNota.get(p).get(i).suma);
-                                        }
-                                         System.out.println("________________________________________");   
-                                         System.out.println("Gran Total: "+ total);
-                                         System.out.println("Ud fue antendido por: "+ listNota.get(p).Nomemp);
-                                         System.out.println("Con Id: "+ listNota.get(p).idemp );
-                                         System.out.println("************************************************");
+                                              System.out.println("________________________________________");
+                                              System.out.println("Articulo: " + listaNota.get(p).get(i).articulo);
+                                              System.out.println("Tipo: " + listaNota.get(p).get(i).tipo);
+                                              System.out.println("Codigo de identificación: " + listaNota.get(p).get(i).id);
+                                              System.out.println("Marca: " + listaNota.get(p).get(i).marca);
+                                              System.out.println("Unidad: " + listaNota.get(p).get(i).unidades);
+                                              System.out.println("Cantidad: " + listaNota.get(p).get(i).cantidad + " " + listaNota.get(p).get(i).unidades);
+                                              System.out.println("Garantia: " + listaNota.get(p).get(i).garantia);
+                                              System.out.println("Precio: $" + listaNota.get(p).get(i).precio);
+                                              System.out.println("Cant de Venta" + listaNota.get(p).get(i).cantidade);
+                                              System.out.println("Sub total de articulo: " + listaNota.get(p).get(i).subtotal);
+                                              System.out.println("Suma Sub Total: "+ listaNota.get(p).get(i).suma);
+                                            }
+                                           System.out.println("________________________________________");   
+                                           System.out.println("Gran Total: "+ total);
+                                           System.out.println("Ud fue antendido por: "+ listNota.get(p).Nomemp);
+                                           System.out.println("Con Id: "+ listNota.get(p).idemp );
+                                           System.out.println("************************************************");
                                         }
                                     } catch (Exception e) {}
                                 }
