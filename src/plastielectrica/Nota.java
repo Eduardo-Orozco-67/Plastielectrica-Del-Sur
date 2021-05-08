@@ -4,7 +4,7 @@ package plastielectrica;
 
 public class Nota extends Herramientas {
     
-    double subtotal, total;
+    double subtotal, total, suma;
     String numnota;
     String fecha;
     String NumCliente;
@@ -13,6 +13,7 @@ public class Nota extends Herramientas {
     String idemp;
     String NomCliente;
     String Nomemp;
+    double cantidade;
    
     Nota()
     {      
@@ -104,7 +105,51 @@ public class Nota extends Herramientas {
     {
         return Nomemp;
     }
-
+   
+   
+   public void setcantidadc(double cantidade)
+    {
+        this.cantidade= cantidade;
+    }
+    
+   public double getcantidadc()
+    {
+        return cantidade;
+    }
+   
+   
+    public void setsubtotal(double  subtotal)
+    {
+        this.subtotal= subtotal;
+    }
+    
+   public double getsubtotal()
+    {
+        return subtotal;
+    }
+  
+    public void setsumasubtotal(double  suma)
+    {
+        this.suma= suma;
+    }
+    
+   public double getsumasubtotal()
+    {
+        return suma;
+    }
+   
+    public void settotal(double total)
+    {
+        this.total= total;
+    }
+    
+   public double gettotal()
+    {
+        return total;
+    }
+   
+   
+   
    
     @Override
     public void setArticulo(String articulo) {
