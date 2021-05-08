@@ -29,11 +29,12 @@ public class Principal {
         
         //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
-        int  i,ñ,v,t=0, p, g=0, u;
+        int  i,ñ,v = 0,t=0, p, g, u, ventas=0;
+        double lleva = 0, sub1, descuento, total = 0;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
         boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
-        boolean ban4 = false, vno=true, ban5=false;
+        boolean ban4 = false, ban5=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -55,6 +56,7 @@ public class Principal {
         System.out.println("Email de la empresa: plastielec01@gmail.com\n");
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
+        System.out.println("Todos nuestros precios ya tienen IVA");
 
         
         
@@ -979,11 +981,10 @@ public class Principal {
                     do{
                         System.out.println("\n-----Que deseas hacer?-----");
                         System.out.println(" 1.- Nueva Nota");
-                        System.out.println(" 2.- Editar Nota");
-                        System.out.println(" 3.- Eliminar Nota");
-                        System.out.println(" 4.- Ver Todas Las Notas");
-                        System.out.println(" 5.- Ver 1 Nota");
-                        System.out.println(" 6.- Regresar");
+                        System.out.println(" 2.- Eliminar Nota");
+                        System.out.println(" 3.- Ver Todas Las Notas");
+                        System.out.println(" 4.- Ver 1 Nota");
+                        System.out.println(" 5.- Regresar");
                         System.out.println();
                         System.out.print("Teclee Opcion: ");
                         r4 = x.next();
@@ -991,6 +992,7 @@ public class Principal {
                         switch (r4) 
                         {
                             case "1":
+                                
                                  do{
                                  if (clientes.isEmpty())
                                 {
@@ -1035,6 +1037,7 @@ public class Principal {
                                     }while (ban4!=true);
                                  
                                  g=0;
+                                 lleva=0;
                                  do{  
                                     //objeto que servira como el molde para el llenado de la lista
                                    
@@ -1071,9 +1074,45 @@ public class Principal {
                                                    llenadonota.setCantidad(OBH.get(ñ).cantidad);
                                                    llenadonota.setGarantia(OBH.get(ñ).garantia);
                                                    llenadonota.setPrecio(OBH.get(ñ).precio);
+                                                   System.out.println("Ingrese la cantidad que lleva");
+                                                   llenadonota.setcantidadc(x.nextDouble());
+                                                   sub1=OBH.get(ñ).precio*llenadonota.getcantidadc();
+                                                   llenadonota.setsubtotal(sub1);
+                                                   lleva=lleva+sub1;
+                                                   llenadonota.setsumasubtotal(lleva);
+                                                   if(lisNota.get(v).TipoCliente.equals("Descuento")||lisNota.get(v).TipoCliente.equals("descuento")||lisNota.get(v).TipoCliente.equals("DESCUENTO"))
+                                                   {
+                                                       descuento=llenadonota.getsumasubtotal()*0.15;
+                                                       total=llenadonota.getsumasubtotal() - descuento;
+                                                       llenadonota.settotal(total);
+                                                   }
+                                                   if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
+                                                   {
+                                                       if(llenadonota.getcantidadc()<=10)
+                                                       {
+                                                         total=llenadonota.getsumasubtotal()/3;
+                                                         llenadonota.settotal(total);
+                                                       }
+                                                       else
+                                                       {
+                                                           if(llenadonota.getcantidadc()>10 && llenadonota.getcantidadc()<=20)
+                                                           {
+                                                             total=llenadonota.getsumasubtotal()/6;
+                                                             llenadonota.settotal(total);
+                                                           }
+                                                           else
+                                                           {
+                                                                if(llenadonota.getcantidadc()>20)
+                                                                {
+                                                                   total=llenadonota.getsumasubtotal()/12;
+                                                                   llenadonota.settotal(total);
+                                                                }
+                                                           }
+                                                       }
+                                                   }
                                                    listaNota.add(new ArrayList<>());
                                                    listaNota.get(t).add(g,llenadonota);
-                                                   vno=false;
+                                                   ventas++;
                                                    g++;
                                                 }
                                                 else 
@@ -1128,7 +1167,7 @@ public class Principal {
 
                                 break;
                                 
-                             case "4"://impresión de herramientas
+                             case "3"://impresión denotas
                                 if (listaNota.isEmpty()) 
                                 { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
@@ -1138,7 +1177,8 @@ public class Principal {
                                     try
                                     {
                                        for (p = 0;p < lisNota.size(); p++)
-                                        {
+                                        {//ciclo para imprimir los datos de 2 de las 3 listas usadas para nota
+                                            //usamos ciclos for anidados ya que manejamos arraylist bidimensionales()
                                             System.out.println("");
                                             System.out.println("");
                                             System.out.println("************************************************");
@@ -1148,7 +1188,7 @@ public class Principal {
                                             System.out.println("Tipo de Pago: " + lisNota.get(p).TipoCliente); 
                                     
                                         for (i = 0; i < listaNota.get(p).size(); i++) 
-                                        {//ciclo para verificar todos los objetos
+                                        {//ciclo para imprimir todos los objetos del 2do arraylist(bidimensional)
                                              
                                           System.out.println("________________________________________");
                                           System.out.println("Articulo: " + listaNota.get(p).get(i).articulo);
@@ -1159,8 +1199,12 @@ public class Principal {
                                           System.out.println("Cantidad: " + listaNota.get(p).get(i).cantidad + " " + listaNota.get(p).get(i).unidades);
                                           System.out.println("Garantia: " + listaNota.get(p).get(i).garantia);
                                           System.out.println("Precio: $" + listaNota.get(p).get(i).precio);
+                                          System.out.println("Cant de Venta" + listaNota.get(p).get(i).cantidade);
+                                          System.out.println("Sub total de articulo: " + listaNota.get(p).get(i).subtotal);
+                                          System.out.println("Suma Sub Total: "+ listaNota.get(p).get(i).suma);
                                         }
-                                         System.out.println("________________________________________");
+                                         System.out.println("________________________________________");   
+                                         System.out.println("Gran Total: "+ total);
                                          System.out.println("Ud fue antendido por: "+ listNota.get(p).Nomemp);
                                          System.out.println("Con Id: "+ listNota.get(p).idemp );
                                          System.out.println("************************************************");
@@ -1175,6 +1219,8 @@ public class Principal {
                     break;
 
                 case "5":
+                    
+                    do{
                     //submenu de Estadisticas 
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
@@ -1187,8 +1233,11 @@ public class Principal {
                       
                     switch (r5) 
                     {
-                       
-                    }  
+                        case "3":
+                            System.out.println("Se han vendido un total de: " + ventas);
+                            break;
+                    }
+                    }while(!"4".equals(r5));
                     break;
 
                 case "6":
