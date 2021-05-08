@@ -4,8 +4,16 @@ package plastielectrica;
 
 public class Nota extends Herramientas {
     
-    double subtotal, total;
+    double subtotal, total, suma;
+    String numnota;
     String fecha;
+    String NumCliente;
+    String TipoCliente;
+    String ID;
+    String idemp;
+    String NomCliente;
+    String Nomemp;
+    double cantidade;
    
     Nota()
     {      
@@ -18,15 +26,131 @@ public class Nota extends Herramientas {
         this.fecha= fecha;
     }
 
-
-
     public String getfecha() 
     {
         return fecha;
     }
+    
+    public void setnumnota(String numnota) 
+    {
+        this.numnota= numnota;
+    }
+
+    public String getnumnota() 
+    {
+        return numnota;
+    }
 
     
+   public void setNumCliente(String NumCliente)
+    {
+        this.NumCliente= NumCliente;
+    }
     
+   public String getNumCliente()
+    {
+        return NumCliente;
+    }
+   
+   
+    public void setNomCliente(String NomCliente)
+    {
+        this.NomCliente= NomCliente;
+    }
+    
+   public String getNomCliente()
+    {
+        return NomCliente;
+    }
+   
+   
+   public void setTipoCliente(String TipoCliente) 
+    {
+        this.TipoCliente = TipoCliente;
+    }
+   
+   public String getTipoCliente() 
+    {
+        return TipoCliente;
+    }
+   
+   
+   public void set_id(String ID) 
+    {
+        this.ID= ID;
+    }
+   
+   public String get_id() 
+    {
+        return ID;
+    }   
+   
+   
+    public void setidempl(String idemp) 
+    {
+        this.idemp= idemp;
+    }
+
+    public String getidempl() 
+    {
+        return idemp;
+    }
+    
+   public void setNomemp(String Nomemp)
+    {
+        this.Nomemp= Nomemp;
+    }
+    
+   public String getNomemp()
+    {
+        return Nomemp;
+    }
+   
+   
+   public void setcantidadc(double cantidade)
+    {
+        this.cantidade= cantidade;
+    }
+    
+   public double getcantidadc()
+    {
+        return cantidade;
+    }
+   
+   
+    public void setsubtotal(double  subtotal)
+    {
+        this.subtotal= subtotal;
+    }
+    
+   public double getsubtotal()
+    {
+        return subtotal;
+    }
+  
+    public void setsumasubtotal(double  suma)
+    {
+        this.suma= suma;
+    }
+    
+   public double getsumasubtotal()
+    {
+        return suma;
+    }
+   
+    public void settotal(double total)
+    {
+        this.total= total;
+    }
+    
+   public double gettotal()
+    {
+        return total;
+    }
+   
+   
+   
+   
     @Override
     public void setArticulo(String articulo) {
         this.articulo = articulo;
@@ -66,7 +190,6 @@ public class Nota extends Herramientas {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
-    
     
     
 

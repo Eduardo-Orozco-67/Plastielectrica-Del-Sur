@@ -1,10 +1,9 @@
 package plastielectrica;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
+
+// System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
 
 /**
  *
@@ -30,10 +29,13 @@ public class Principal {
         
         //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
-        int  i,ñ,v=0,t=1;
+        String respuestano,Nnota,cdesno;
+        int  i, ñ, v = 0, t=0, p, g, u, ventas=0, a, za;
+        double lleva , sub1, descuento, total = 0;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
         boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
+        boolean ban4 = false, ban5=false, Nonoenco=false, ban6=false, ban7=true;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -42,9 +44,10 @@ public class Principal {
         //arrayist para los clientes
         ArrayList<Cliente> clientes = new ArrayList<>();
         //arrayist para las Notas
-        ArrayList< Nota > lisNota = new ArrayList<>();
-        
-        
+        ArrayList<Nota> lisNota = new ArrayList<>();
+        ArrayList<Nota> listNota = new ArrayList<>();
+        ArrayList<ArrayList<Nota>> listaNota = new ArrayList<>();
+        ArrayList<Nota> listNotatotal = new ArrayList<>();
         
         //INFORMACION DE BIENVENIDA 
         System.out.println("*************************************");
@@ -55,6 +58,7 @@ public class Principal {
         System.out.println("Email de la empresa: plastielec01@gmail.com\n");
         System.out.println("Numero telefonico de la empresa: 9624587596\n");
         System.out.println("Horario de servicio: 8:00 AM - 4:00 PM, de Lunes a Sabado!");
+        System.out.println("Todos nuestros precios ya tienen IVA");
 
         
         
@@ -139,8 +143,7 @@ public class Principal {
                                 if (clientes.isEmpty())
                                 {
                                     System.out.println();
-                                    System.out.println("No hay datos registradoas aun");
-                                    System.out.println("Vaya a opcion 1 anadir");
+                                    System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
                                 }
                                 else 
                                 {
@@ -186,8 +189,7 @@ public class Principal {
                                 if (clientes.isEmpty())//verificamos si la lista no esta vacia
                                 {
                                     System.out.println();
-                                    System.out.println("No hay datos registradoas aun");
-                                    System.out.println("Vaya a opcion 1 anadir");
+                                    System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
                                 }
                                 else 
                                 {
@@ -237,8 +239,7 @@ public class Principal {
                                 if (clientes.isEmpty())
                                 {
                                     System.out.println();
-                                    System.out.println("No hay datos registradoas aun");
-                                    System.out.println("Vaya a opcion 1 anadir");
+                                    System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
                                 }
                                 else 
                                 {
@@ -247,6 +248,7 @@ public class Principal {
                                     {
 
                                        System.out.println();
+                                       System.out.println("______________________________________________________________________________");
                                        System.out.println("Numero de Cliente: " + clientes.get(q).NumCliente);
                                        System.out.println("Nombre: " + clientes.get(q).nombre);
                                        System.out.println("Edad: " + clientes.get(q).edad);
@@ -256,16 +258,16 @@ public class Principal {
                                        System.out.println("RFC: " + clientes.get(q).RFC);
                                        System.out.println("Tipo de Pago: " + clientes.get(q).TipoCliente);
                                     }
+                                    System.out.println("______________________________________________________________________________");
                                 }
                                 break;
 
                             case "5":
                                 
-                                 if (clientes.isEmpty())
+                                if (clientes.isEmpty())
                                 {
                                     System.out.println();
-                                    System.out.println("No hay datos registradoas aun");
-                                    System.out.println("Vaya a opcion 1 anadir");
+                                    System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
                                 }
                                 else 
                                 {
@@ -280,7 +282,7 @@ public class Principal {
                                            {
                                               ban = true; //Cliente encontrado
                                               System.out.println("Cliente encontrado");
-                                              break;
+                                              
                                            }
 
                                            if(ban == true)
@@ -295,12 +297,11 @@ public class Principal {
                                               System.out.println("RFC: " + clientes.get(z).RFC);
                                               System.out.println("Tipo de Pago: " +clientes.get(z).TipoCliente);
                                             }
-
-                                            else
+                                        } 
+                                          if(ban ==false)
                                             {
                                               System.out.println("Cliente no localizado...");
                                             }
-                                        } 
                                       System.out.println("");
                                       System.out.println("¿Desea ver otro Cliente?(Si/No)");
                                       respuesta = x.next();
@@ -314,8 +315,7 @@ public class Principal {
                                  if (clientes.isEmpty())
                                 {
                                     System.out.println();
-                                    System.out.println("No hay datos registradoas aun");
-                                    System.out.println("Vaya a opcion 1 anadir");
+                                    System.out.println("\nNo se han ingresado datos, favor de ir a la opcion 1.");
                                 }
                                 else 
                                 {
@@ -626,6 +626,12 @@ public class Principal {
                            case "4": //ver todos los empleados
                                 
                                 System.out.println();
+                                if (arrayLEmp.isEmpty()) 
+                                  { //Validar si el arreglo tiene datos
+                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                  } 
+                                else
+                                {
                              
                                 for (int j = 0; j < arrayLEmp.size(); j++) 
                                 {
@@ -643,103 +649,144 @@ public class Principal {
                                   System.out.println("");
                                 } 
                                 System.out.println("______________________________________________________________________________");
+                                }
                            break;
 
                            case "5": //ver solo un empleado
-                             
-                                System.out.println();
-                                System.out.print("Ingresar el ID del empleado que desea ver: ");
-                                num = x.next();//lectura de datos                              
+                                if (arrayLEmp.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
+                                   System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                } 
+                                else
+                                {
+                                   System.out.println();
+                                   System.out.print("Ingresar el ID del empleado que desea ver: ");
+                                   num = x.next();//lectura de datos                              
                                
-                                for (int j = 0; j < arrayLEmp.size(); j++) 
-                               {
-                                    if (num.equals(arrayLEmp.get(j).ID)) 
-                                    { //se compara el dato guardado en num con los datos de ID en el arrayList
-                                       System.out.println("");
-                                       System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
-                                       System.out.println("Edad: " + arrayLEmp.get(j).edad);
-                                       System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
-                                       System.out.println("Email: " + arrayLEmp.get(j).email);
-                                       System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
-                                       System.out.println("RFC: " + arrayLEmp.get(j).RFC);
-                                       System.out.println("ID: " + arrayLEmp.get(j).ID);
-                                       System.out.println("Tipo de Empleado: " + arrayLEmp.get(j).tipoEmpleado);
-                                       System.out.println("");
-                                    } 
-                                    else 
-                                    {
-                                       System.out.println("empleado no encontrado");
+                                   for (int j = 0; j < arrayLEmp.size(); j++) 
+                                   {
+                                       if (num.equals(arrayLEmp.get(j).ID)) 
+                                       { //se compara el dato guardado en num con los datos de ID en el arrayList
+                                         System.out.println("");
+                                         System.out.println("Nombre: " + arrayLEmp.get(j).nombre);
+                                         System.out.println("Edad: " + arrayLEmp.get(j).edad);
+                                         System.out.println("Dirección: " + arrayLEmp.get(j).direccion);
+                                         System.out.println("Email: " + arrayLEmp.get(j).email);
+                                         System.out.println("Telefono: " + arrayLEmp.get(j).telefono);
+                                         System.out.println("RFC: " + arrayLEmp.get(j).RFC);
+                                         System.out.println("ID: " + arrayLEmp.get(j).ID);
+                                         System.out.println("Tipo de Empleado: " + arrayLEmp.get(j).tipoEmpleado);
+                                         System.out.println("");
+                                       } 
+                                        else 
+                                        {
+                                          System.out.println("empleado no encontrado");
+                                        }
                                     }
                                 }
                            break;
 
                            case "6": //ver por tipos de contrato
                               
-                                System.out.println();
-                                //Mostrar a los clientes y todos sus datos dependiendo del tipo de pago que los clientes sean
-                                
-                                do
+                                      int w;
+                                 if (arrayLEmp.isEmpty())
                                 {
-                                    System.out.println("Escriba el tipo de contrato los empleados: ");
-                                    System.out.println("Tipos de Empleados \n Quincenal \n Mensual");
-                                    tipeEmpleado=x.next();
-                            
-                                    if(tipeEmpleado.equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL"))
-                                    {
-                                      //Mostrar datos del tipo quincenal 
-                                      System.out.println("Datos de empleados con tipo quincenal");
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
+                                 do{
                                       
-                                      for(int n = 0; n < arrayLEmp.size(); n++)
+                                      System.out.println("");
+                                      System.out.println("Escriba el tipo de empleados que desea visualizar: ");
+                                      System.out.println("Tipos de empleados \n Quincenal \nMensual \n");
+                                      System.out.print("Teclee la busqueda: ");
+                                      tipeEmpleado=x.next();
+                            
+                                       if(tipeEmpleado.equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL"))
                                        {
+                                          //Mostrar datos del tipo empleado quincenal 
+                                          System.out.println("");
+                                          System.out.println("Datos de empleados con contrato QUINCENAL");
+                                          System.out.println("");
+                                          for(w =0; w < arrayLEmp.size(); w++)
+                                          {
                                     
-                                          if((arrayLEmp.get(n).tipoEmpleado).equals("Quincenal")||tipeEmpleado.equals("quincenal")||tipeEmpleado.equals("QUINCENAL"))
-                                           {
-                                              System.out.println(arrayLEmp.get(n).ID); 
-                                              System.out.println("Nombre: " + arrayLEmp.get(n).nombre);
-                                              System.out.println("Edad: " + arrayLEmp.get(n).edad);
-                                              System.out.println("Dirección: " + arrayLEmp.get(n).direccion);
-                                              System.out.println("Email: " + arrayLEmp.get(n).email);
-                                              System.out.println("Telefono: " + arrayLEmp.get(n).telefono);
-                                              System.out.println("RFC: " + arrayLEmp.get(n).RFC);
-                                              System.out.println("Tipo de Pago del cliente: " +arrayLEmp.get(n).tipoEmpleado);
-                                           }
-                                           else
-                                           {
-                                              System.out.println("No se encontraron empleados de tipo quincenal...");
-                                           }
-                                       }//Fin ciclo for
-                                    }//Fin del if de empleados quincenales
-
-                                        if(tipeEmpleado.equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL"))
-                                        {
-                                           //Mostrar datos de tipo cliente Credito
-                                           System.out.println("Datos de clientes con tipo de pago a credito");
-                                           
-                                           for(int m = 0; m< arrayLEmp.size(); m++)
-                                           {
-                                        
-                                               if((arrayLEmp.get(m).tipoEmpleado).equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL"))
+                                              if((arrayLEmp.get(w).tipoEmpleado).equals("Quincenal")||(arrayLEmp.get(w).tipoEmpleado).equals("quincenal")||(arrayLEmp.get(w).tipoEmpleado).equals("QUINCENAL"))
                                                {
-                                                  System.out.println(arrayLEmp.get(m).ID); 
-                                                  System.out.println("Nombre: " + arrayLEmp.get(m).nombre);
-                                                  System.out.println("Edad: " + arrayLEmp.get(m).edad);
-                                                  System.out.println("Dirección: " + arrayLEmp.get(m).direccion);
-                                                  System.out.println("Email: " + arrayLEmp.get(m).email);
-                                                  System.out.println("Telefono: " + arrayLEmp.get(m).telefono);
-                                                  System.out.println("RFC: " + arrayLEmp.get(m).RFC);
-                                                  System.out.println("Tipo de Pago del cliente: " + arrayLEmp.get(m).tipoEmpleado);
+                                                 ban6=true;
+                                                 ban7=false;
                                                }
-                                               else
+                                               
+                                               if (ban6==true)
                                                {
-                                                  System.out.println("No se encontraron clientes con este tipo de pago a credito...");
+                                                    System.out.println("");
+                                                    System.out.println("ID: " + arrayLEmp.get(w).ID);
+                                                    System.out.println("Nombre: " + arrayLEmp.get(w).nombre);
+                                                    System.out.println("Edad: " + arrayLEmp.get(w).edad);
+                                                    System.out.println("Dirección: " + arrayLEmp.get(w).direccion);
+                                                    System.out.println("Email: " + arrayLEmp.get(w).email);
+                                                    System.out.println("Telefono: " + arrayLEmp.get(w).telefono);
+                                                    System.out.println("RFC: " + arrayLEmp.get(w).RFC);
+                                                    System.out.println("Tipo de Empleado: " + arrayLEmp.get(w).tipoEmpleado); 
+                                                    ban6=false;
+                                               }
+                                               
+                                       
+                                           }//Fin ciclo for
+                                           if(ban7==true)
+                                            {
+                                                System.out.println("No se encontraron empleados de tipo de pago QUINCENAL...");
+                                            }
+
+                                       }//Fin del if empleados quincenales
+                                      
+
+                                       if(tipeEmpleado.equals("Mensual")||tipeEmpleado.equals("mensual")||tipeEmpleado.equals("MENSUAL"))
+                                        {
+                                            //mostrar datos de empleados de tipo mensual
+                                            System.out.println("");
+                                            System.out.println("Datos de empleados con tipo de contrato MENSUAL");
+                                            System.out.println("");
+                                            for(w =0; w < arrayLEmp.size(); w++)
+                                            {
+                                    
+                                              if((arrayLEmp.get(w).tipoEmpleado).equals("Mensual")||(arrayLEmp.get(w).tipoEmpleado).equals("mensual")||(arrayLEmp.get(w).tipoEmpleado).equals("MENSUAL"))
+                                               {
+                                                 ban6=true;
+                                                 ban7=false;
+                                               }
+                                               
+                                               if (ban6==true)
+                                               {
+                                                    System.out.println("");
+                                                    System.out.println("ID: " + arrayLEmp.get(w).ID);
+                                                    System.out.println("Nombre: " + arrayLEmp.get(w).nombre);
+                                                    System.out.println("Edad: " + arrayLEmp.get(w).edad);
+                                                    System.out.println("Dirección: " + arrayLEmp.get(w).direccion);
+                                                    System.out.println("Email: " + arrayLEmp.get(w).email);
+                                                    System.out.println("Telefono: " + arrayLEmp.get(w).telefono);
+                                                    System.out.println("RFC: " + arrayLEmp.get(w).RFC);
+                                                    System.out.println("Tipo de Empleado: " + arrayLEmp.get(w).tipoEmpleado); 
+                                                    ban6=false;
                                                }
                                             }   
-                                        }//Fin del if clientes a credito
-
-                                   System.out.println("¿Desea visualizar mas tipos de Cliente?(Si/No)");
-                                   ress = x.next();
-                               
-                                }while(ress.equals("si")||ress.equals("Si")||ress.equals("SI"));  
+                                        }//Fin del if de empleados mensuales
+                        
+                                            
+                                           if(ban7==true)
+                                            {
+                                                System.out.println("No se encontraron empleados de tipo de pago MESUAL...");
+                                            }
+                                           
+                                            System.out.println("");
+                                            System.out.println("¿Desea visualizar mas empleados?(Si/No)");
+                                            System.out.println("");
+                                            respuesta2 = x.next();
+                                        }while(respuesta2.equals("si")||respuesta2.equals("Si")||respuesta2.equals("SI"));
+                                    }//Fin del if 
                            break;                            
 
                            case "7": //salida
@@ -795,15 +842,21 @@ public class Principal {
                                 break;
 
                             case "2":
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
-                                    do {
+                                } 
+                                else 
+                                {
+                                    do 
+                                    {
                                         //Edicion de herramienta
                                         System.out.println("Ingrese el código de identificación dela heramienta a modificar");
                                         nid = x.next();
-                                        for (i = 0; i < OBH.size(); i++) {
-                                            if (nid.equals(OBH.get(i).id)) {
+                                        for (i = 0; i < OBH.size(); i++) 
+                                        {
+                                            if (nid.equals(OBH.get(i).id)) 
+                                            {
                                                 System.out.println("Articulo encontrado");
                                                 System.out.println("El código de identificación no es posible modificarlo: " + OBH.get(i).id);
                                                 System.out.println("Ingrese el nombre de este artículo.");
@@ -835,7 +888,8 @@ public class Principal {
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
                                 } else 
                                 {
-                                    do {
+                                    do 
+                                    {
                                         System.out.println();
                                         System.out.println("Ingrese el código de identificación de la heramienta a eliminar");
                                         nid = x.next();
@@ -865,15 +919,17 @@ public class Principal {
 
                                         System.out.println("¿Desea eliminar otra herramienta?(si/no)");
                                         respuesta = x.next();
-
                                     } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para eliminar o no otro articulo
                                 }
                                 break;
 
                             case "4"://impresión de herramientas
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
+                                } 
+                                else 
+                                {
                                     for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
                                         System.out.println("________________________________________");
                                         System.out.println("Articulo " + OBH.get(i).articulo);
@@ -895,32 +951,36 @@ public class Principal {
                                 } 
                                 else 
                                 {
-                                    do {
+                                    do 
+                                    {
                                         System.out.println("Ingrese el codigo de identificacion de la herramienta que desea ver: ");
                                         nid = x.next();
-                                        try {//Inicio de la excepcion 
-                                            for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
-                                                if ((OBH.get(i).id).equals(nid)) {//comparación de id con nid
-                                                    ind = true;
-                                                    System.out.println("Articulo encontrado");
-                                                    break;
+                                          try 
+                                           {//Inicio de la excepcion 
+                                               for (i = 0; i < OBH.size(); i++)
+                                                {//ciclo para verificar todos los objetos
+                                                   if ((OBH.get(i).id).equals(nid)) 
+                                                   {//comparación de id con nid
+                                                      ind = true;
+                                                      System.out.println("Articulo encontrado");
+                                                      break;
+                                                   }
                                                 }
-                                            }
 
-                                            if (ind == true) {////comparación de nid con su valor de salida
-                                                System.out.println("");
-                                                System.out.println("Articulo " + OBH.get(i).articulo);
-                                                System.out.println("Tipo: " + OBH.get(i).tipo);
-                                                System.out.println("Codigo de identificación: " + OBH.get(i).id);
-                                                System.out.println("Marca: " + OBH.get(i).marca);
-                                                System.out.println("Unidad: " + OBH.get(i).unidades);
-                                                System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
-                                                System.out.println("Garantia: " + OBH.get(i).garantia + " días");
-                                                System.out.println("Precio: $" + OBH.get(i).precio);
-                                            }
-                                        } catch (Exception e) {//fin de la excepcion
-                                            System.out.println("\nArticulo no encontrado.");
-                                        }
+                                                if (ind == true)
+                                                {////comparación de nid con su valor de salida
+                                                  System.out.println("");
+                                                  System.out.println("Articulo " + OBH.get(i).articulo);
+                                                  System.out.println("Tipo: " + OBH.get(i).tipo);
+                                                  System.out.println("Codigo de identificación: " + OBH.get(i).id);
+                                                  System.out.println("Marca: " + OBH.get(i).marca);
+                                                  System.out.println("Unidad: " + OBH.get(i).unidades);
+                                                  System.out.println("Cantidad: " + OBH.get(i).cantidad + " " + OBH.get(i).unidades);
+                                                  System.out.println("Garantia: " + OBH.get(i).garantia + " días");
+                                                  System.out.println("Precio: $" + OBH.get(i).precio);
+                                                }
+                                            } catch (Exception e) {//fin de la excepcion
+                                            System.out.println("\nArticulo no encontrado.");}
 
                                         System.out.println("\n¿Deseas ver otro articulo?(si/no)");
                                         respuesta = x.next();
@@ -929,15 +989,20 @@ public class Principal {
                                 break; 
 
                             case "6": //busqueda de herramientas por tipo 
-                                if (OBH.isEmpty()) { //Validar si el arreglo tiene datos
+                                if (OBH.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
                                     System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
+                                }
+                                else 
+                                {
                                     do {
                                         System.out.println("Ingrese el tipo de herramientas que desea ver ");
                                         tipo = x.next();
-                                        try {//Inicio de la excepcion 
+                                        try 
+                                        {//Inicio de la excepcion 
                                             for (i = 0; i < OBH.size(); i++) {//ciclo para verificar todos los objetos
-                                                if (tipo.equals(OBH.get(i).tipo)) {//comparación del tipo requerido con el registrado
+                                                if (tipo.equals(OBH.get(i).tipo)) 
+                                                {//comparación del tipo requerido con el registrado
                                                     System.out.println("");
                                                     System.out.println("Articulo " + OBH.get(i).articulo);
                                                     System.out.println("Tipo: " + OBH.get(i).tipo);
@@ -950,8 +1015,7 @@ public class Principal {
                                                 }
                                             }
                                         } catch (Exception e) {//fin de la excepcion
-                                            System.out.println("\nTipo no encontrado.");
-                                        }
+                                            System.out.println("\nTipo no encontrado."); }
                                         System.out.println("¿Desea buscar otro tipo de herramientas?");
                                         respuesta = x.next();
                                     } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
@@ -974,11 +1038,8 @@ public class Principal {
                     do{
                         System.out.println("\n-----Que deseas hacer?-----");
                         System.out.println(" 1.- Nueva Nota");
-                        System.out.println(" 2.- Editar Nota");
-                        System.out.println(" 3.- Eliminar Nota");
-                        System.out.println(" 4.- Ver Todas Las Notas");
-                        System.out.println(" 5.- Ver 1 Nota");
-                        System.out.println(" 6.- Regresar");
+                        System.out.println(" 2.- Ver Todas Las Notas");
+                        System.out.println(" 3.- Regresar");
                         System.out.println();
                         System.out.print("Teclee Opcion: ");
                         r4 = x.next();
@@ -986,20 +1047,67 @@ public class Principal {
                         switch (r4) 
                         {
                             case "1":
-
                                 
-                                    
+                                 do{
+                                 if (clientes.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
+                                  
+                                       System.out.println();
+                                       System.out.println("Ingrese el número de cliente: ");
+                                       Ncliente=x.next(); 
+                                       Nota llenadonota1 = new Nota();
+                                       for( v =0; v < clientes.size(); v++)
+                                       {
+                                          if((clientes.get(v).NumCliente).equals(Ncliente))
+                                           {
+                                              ban4 = true; //Cliente encontrado
+                                              System.out.println("Cliente encontrado");
+                                              System.out.println("");
+                                              break;
+                                           }
+                                       }
+                                           if(ban4 == true)
+                                            {
+                                              System.out.println("Ingrese la fecha de hoy");
+                                              x.nextLine();
+                                              llenadonota1.setfecha(x.nextLine());
+                                              System.out.println("Ingrese el Numero de Nota");
+                                              llenadonota1.setnumnota(x.next());
+                                              llenadonota1.setNumCliente(clientes.get(v).NumCliente);
+                                              llenadonota1.setTipoCliente(clientes.get(v).TipoCliente);
+                                              lisNota.add(llenadonota1);
+                                            }
+                                         
+                                          if(ban4 ==false)
+                                            {
+                                              System.out.println("Cliente no localizado...");
+                                            }
+                                    }
+                                    }while (ban4!=true);
+                                 
+                                 g=0;
+                                 lleva=0;
+                                 Nota totalnota = new Nota();
+                                 do{  
                                     //objeto que servira como el molde para el llenado de la lista
+                                   
                                     if (OBH.isEmpty()) 
                                     { //Validar si el arreglo tiene datos
-                                        System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
+                                        System.out.println("\nNo se han ingresado datos sobre articulos favor de ir a la opcion 1.");
                                     } 
+                                    
                                     else 
-                                    {
-                                      do 
-                                       {
-                                           Nota llenadonota = new Nota();
-                                           System.out.println("Ingrese el codigo de identificacion de la herramienta que desea agregar: ");
+                                    {   
+                                        
+                                           Nota llenadonota= new Nota();
+                                         
+                                           System.out.println("\nIngrese el codigo de identificacion del articulo que desea agregar: ");
                                            nid2 = x.next();
                                            //Inicio de la excepcion 
                                                for ( ñ = 0; ñ < OBH.size(); ñ++) 
@@ -1008,13 +1116,13 @@ public class Principal {
                                                    {//comparación de id con nid
                                                       ind2 = true;
                                                       System.out.println("Articulo encontrado");
-                                                      System.out.println(ñ);
                                                       break;
                                                    }
                                                 }   
 
                                                 if (ind2 == true) 
                                                 {////comparación de nid con su valor de salida
+                                                    
                                                    llenadonota.setId(OBH.get(ñ).id);
                                                    llenadonota.setArticulo(OBH.get(ñ).articulo);
                                                    llenadonota.setTipo(OBH.get(ñ).tipo);
@@ -1023,47 +1131,179 @@ public class Principal {
                                                    llenadonota.setCantidad(OBH.get(ñ).cantidad);
                                                    llenadonota.setGarantia(OBH.get(ñ).garantia);
                                                    llenadonota.setPrecio(OBH.get(ñ).precio);
-                                                   lisNota.add(llenadonota);
+                                                   System.out.println("Ingrese la cantidad que lleva");
+                                                   llenadonota.setcantidadc(x.nextDouble());
+                                                   sub1=OBH.get(ñ).precio * llenadonota.getcantidadc();
+                                                   llenadonota.setsubtotal(sub1);
+                                                   lleva=lleva+sub1;
+                                                   llenadonota.setsumasubtotal(lleva);
+                                                   if(lisNota.get(v).TipoCliente.equals("Descuento")||lisNota.get(v).TipoCliente.equals("descuento")||lisNota.get(v).TipoCliente.equals("DESCUENTO"))
+                                                   {
+                                                       descuento=llenadonota.getsumasubtotal()*0.15;
+                                                       total=llenadonota.getsumasubtotal() - descuento;
+                                                       totalnota.settotal(total);
+                                                       
+                                                   }
+                                                   else{
+                                                   if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
+                                                   {
+                                                       if(llenadonota.getcantidadc()<=10)
+                                                       {
+                                                         total=llenadonota.getsumasubtotal()/3;
+                                                         totalnota.settotal(total);
+                                                         
+                                                       }
+                                                       else
+                                                       {
+                                                           if(llenadonota.getcantidadc()>10 && llenadonota.getcantidadc()<=20)
+                                                           {
+                                                             total=llenadonota.getsumasubtotal()/6;
+                                                             totalnota.settotal(total);
+                                                             
+                                                           }
+                                                           else
+                                                           {
+                                                                if(llenadonota.getcantidadc()>20)
+                                                                {
+                                                                   total=llenadonota.getsumasubtotal()/12;
+                                                                   totalnota.settotal(total);
+                                                                   
+                                                                }
+                                                           }
+                                                       }
+                                                   }
+                                                   else
+                                                   {
+                                                       total=llenadonota.getsumasubtotal();
+                                                       totalnota.settotal(total);
+                                                   }
+                                                   }
+                                                   
+                                                   listaNota.add(new ArrayList<>());
+                                                   listaNota.get(t).add(g,llenadonota);
+                                                   ventas++;
+                                                   g++;
                                                 }
                                                 else 
                                                 {
                                                   System.out.println("\nArticulo no encontrado.");
                                                 }
+                                                listNotatotal.add(totalnota);
+                                      }
+                                       
+                                        System.out.println("\n¿Desea agregar otro articulo?(si/no)");
+                                         respuesta = x.next();
+                                    } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
+                                    t=t+1;
+                                    
+                                    
+                                   do{
+                                 if (arrayLEmp.isEmpty())
+                                {
+                                    System.out.println();
+                                    System.out.println("No hay datos registradoas aun");
+                                    System.out.println("Vaya a opcion 1 anadir");
+                                }
+                                else 
+                                {
+                                       System.out.println();
+                                       System.out.print("Ingresar el ID del empleado: ");
+                                       num = x.next();//lectura de datos 
+                                       Nota llenadonota2 = new Nota();
+                                
+                                      for (u = 0; u < arrayLEmp.size(); u++) 
+                                      {
+                                             if(num.equals(arrayLEmp.get(u).ID)) 
+                                           { //se compara el dato guardado en num con los datos de ID en el arrayList
+                                              ban5 = true; //Cliente encontrado
+                                              System.out.println("empleado encontrado");
+                                              System.out.println("");
+                                              break;
+                                           }
+                                       }
+                                          if(ban5==true)
+                                           {
+                                             llenadonota2.setidempl(arrayLEmp.get(u).ID);
+                                             llenadonota2.setNomemp(arrayLEmp.get(u).nombre);
+                                             listNota.add(llenadonota2);
+                                           }
+                                          if(ban5 ==false)
+                                            {
+                                              System.out.println("empleado no encontrado");
+                                            }
+                                    }
 
-                                             System.out.println("\n¿Deseas ver otro articulo?(si/no)");
-                                             respuesta = x.next();
-                                        } while (respuesta.equals("si") || respuesta.equals("Si") || respuesta.equals("SI") || respuesta.equals("sI"));//condición para ver o no otro articulo
-                                     
-                                    }  
+                                    }while (ban5!=true);
 
+                                break;
+                             
+                            case "2":
+                               
+                                if (listaNota.isEmpty()) 
+                                { //Validar si el arreglo tiene datos
+                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1 nueva nota.");
+                                } 
+                                else
+                                {
+                                    try
+                                    {
+                                       for (p = 0;p < lisNota.size(); p++)
+                                        {//ciclo para imprimir los datos de 2 de las 3 listas usadas para nota
+                                            //usamos ciclos for anidados ya que manejamos arraylist bidimensionales()
+                                            System.out.println("");
+                                            System.out.println("");
+                                            System.out.println("************************************************");
+                                            System.out.println("Num de Nota: "+ lisNota.get(p).numnota);
+                                            System.out.println("Fecha: "+ lisNota.get(p).fecha);
+                                            System.out.println("Num de Cliente: " + lisNota.get(p).NumCliente); 
+                                            System.out.println("Tipo de Pago: " + lisNota.get(p).TipoCliente); 
+                                    
+                                            for (i = 0; i < listaNota.get(p).size(); i++) 
+                                            {//ciclo para imprimir todos los objetos del 2do arraylist(bidimensional)
+                                             
+                                              System.out.println("________________________________________");
+                                              System.out.println("Articulo: " + listaNota.get(p).get(i).articulo);
+                                              System.out.println("Tipo: " + listaNota.get(p).get(i).tipo);
+                                              System.out.println("Codigo de identificación: " + listaNota.get(p).get(i).id);
+                                              System.out.println("Marca: " + listaNota.get(p).get(i).marca);
+                                              System.out.println("Unidad: " + listaNota.get(p).get(i).unidades);
+                                              System.out.println("Cantidad: " + listaNota.get(p).get(i).cantidad + " " + listaNota.get(p).get(i).unidades);
+                                              System.out.println("Garantia: " + listaNota.get(p).get(i).garantia);
+                                              System.out.println("Precio: $" + listaNota.get(p).get(i).precio);
+                                              System.out.println("Cant de Venta" + listaNota.get(p).get(i).cantidade);
+                                              System.out.println("Sub total de articulo: " + listaNota.get(p).get(i).subtotal);
+                                              System.out.println("Suma Sub Total: "+ listaNota.get(p).get(i).suma);
+                                            }
+                                           System.out.println("________________________________________");   
+                                           if(p==0)
+                                           {
+                                              System.out.println("Gran Total: "+   listNotatotal.get(p).total);
+                                           }
+                                           else
+                                           {
+                                               System.out.println("Gran Total: "+   listNotatotal.get(p+1).total);
+                                           }
+                                           System.out.println("Ud fue antendido por: "+ listNota.get(p).Nomemp);
+                                           System.out.println("Con Id: "+ listNota.get(p).idemp );
+                                           System.out.println("************************************************");
+                                        }
+                                    } catch (Exception e) {}
+                                }
+                                break;           
+                            
+                            case "3":
                                 break;
                                 
-                             case "4"://impresión de herramientas
-                                if (lisNota.isEmpty()) { //Validar si el arreglo tiene datos
-                                    System.out.println("\nNo se han ingresado datos favor de ir a la opcion 1.");
-                                } else {
-                                    for (i = 0; i < lisNota.size(); i++) {//ciclo para verificar todos los objetos
-                                        System.out.println("________________________________________");
-                                        System.out.println("Articulo " + lisNota.get(i).articulo);
-                                        System.out.println("Tipo: " + lisNota.get(i).tipo);
-                                        System.out.println("Codigo de identificación: " + lisNota.get(i).id);
-                                        System.out.println("Marca: " + lisNota.get(i).marca);
-                                        System.out.println("Unidad: " + lisNota.get(i).unidades);
-                                        System.out.println("Cantidad: " + lisNota.get(i).cantidad + " " + lisNota.get(i).unidades);
-                                        System.out.println("Garantia: " + lisNota.get(i).garantia);
-                                        System.out.println("Precio: $" + lisNota.get(i).precio);
-                                    }
-                                }
-                                break;
-                         
-                         
+                            default:
                         }
                     
-                    }while(!"6".equals(r4));
+                    }while(!"3".equals(r4));
                     
                     break;
 
                 case "5":
+                    
+                    do{
                     //submenu de Estadisticas 
                     System.out.println("\n-----Que deseas hacer?-----");
                     System.out.println(" 1.- Ver Articulo Mas Vendido");
@@ -1076,8 +1316,11 @@ public class Principal {
                       
                     switch (r5) 
                     {
-                       
-                    }  
+                        case "3":
+                            System.out.println("Se han vendido un total de: " + ventas);
+                            break;
+                    }
+                    }while(!"4".equals(r5));
                     break;
 
                 case "6":
