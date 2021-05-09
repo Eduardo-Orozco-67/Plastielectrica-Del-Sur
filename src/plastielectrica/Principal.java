@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author < Francisco Javier Solis Bamaca ---- francisco.solis41@unach.mx >
  *
  * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
- *
+ *       
  */
 
 
@@ -26,9 +26,10 @@ public class Principal {
     @SuppressWarnings("empty-statement")
     public static void main(String[] args) throws IOException {
         
-        //VARIABLES STRING PARA LA TOMA DE DECICIONES O COMPARACIONES DE DATOS
+        //VARIABLES STRING PARA LA TOMA DE DECISIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
         String respuestano,Nnota,cdesno;
+        int min=0, max = 0,ei,ez;
         int  i, ñ, v = 0, t=0, p, g, u, ventas=0, a, za;
         double lleva , sub1, descuento, total = 0;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
@@ -233,7 +234,7 @@ public class Principal {
                                 }
                                 break;
 
-                            case "4":
+                            case "4"://IMPRIMIR DATOS DE LOS CLIENTES
                                 
                                 if (clientes.isEmpty())
                                 {
@@ -759,7 +760,7 @@ public class Principal {
                                             
                                            if(ban7==true)
                                             {
-                                                System.out.println("No se encontraron empleados de tipo de pago MESUAL...");
+                                                System.out.println("No se encontraron empleados de tipo de pago MENSUAL...");
                                             }
                                            
                                             System.out.println("");
@@ -1123,7 +1124,6 @@ public class Principal {
                                                        descuento=llenadonota.getsumasubtotal()*0.15;
                                                        total=llenadonota.getsumasubtotal() - descuento;
                                                        totalnota.settotal(total);
-                                                       
                                                    }
                                                    else{
                                                    if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
@@ -1132,7 +1132,6 @@ public class Principal {
                                                        {
                                                          total=llenadonota.getsumasubtotal()/3;
                                                          totalnota.settotal(total);
-                                                         
                                                        }
                                                        else
                                                        {
@@ -1297,8 +1296,68 @@ public class Principal {
                       
                     switch (r5) 
                     {
-                        case "3":
+                        case "1"://se imprimen los árticulos más vendidos
+                            int ja,ji;
+                      if (OBH.isEmpty())
+                     {//validar si lalista esta vacia
+                         System.out.println("no hay datos ingresados");
+                     }else
+                      {
+                      max = OBH.get(0).cantidad;   
+                      for( ja=1;ja<OBH.size();ja++)
+                      {
+                          if (OBH.get(ja).cantidad>max)
+                          {
+                              max = OBH.get(ja).cantidad;
+                          }
+                      }
+                      }
+                     for(ji=0;ji>OBH.size();ji++)
+                     {
+                       if(OBH.get(ji).cantidad== max)//en el ciclo, se compara si la cantidd es menor
+                       {
+                           //impresión de articulos
+                           System.out.println("Articulo más vendido");
+                           System.out.println(""+OBH.get(ji).articulo+" "+ OBH.get(ji).tipo);
+                           System.out.println(""+OBH.get(ji).marca);
+                           System.out.println(""+OBH.get(ji).precio);
+                           
+                       }
+                     }
+                            break;
+                        case "2"://se imprimen los árticulos menos vendidos  
+                            if (OBH.isEmpty())
+                     {//validar si lalista esta vacia
+                         System.out.println("no hay datos ingresados");
+                     }else
+                      {
+                      min = OBH.get(0).cantidad;   
+                      for( ei=1;ei<OBH.size();ei++)
+                      {
+                          if (min<OBH.get(ei).cantidad)
+                          {
+                              min = OBH.get(ei).cantidad;
+                          }
+                      }
+                      }
+                     for(ez=0;ez<OBH.size();ez++)
+                     {
+                       if(OBH.get(ez).cantidad== min)//en el ciclo, se compara si la cantidd es menor
+                       {
+                           //impresión de articulos
+                           System.out.println("Articulo menos vendido");
+                           System.out.println(""+OBH.get(ez).articulo+" "+ OBH.get(ez).tipo);
+                           System.out.println(""+OBH.get(ez).marca);
+                           System.out.println(""+OBH.get(ez).precio);
+                           
+                       }
+                     }
+                            break;
+                        case "3"://se imprimen el total de ventas
                             System.out.println("Se han vendido un total de: " + ventas);
+                            break;
+                        case "4":
+                            System.out.println("");
                             break;
                     }
                     }while(!"4".equals(r5));
