@@ -17,7 +17,16 @@ import java.util.Scanner;
  * @author < Francisco Javier Solis Bamaca ---- francisco.solis41@unach.mx >
  *
  * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
- *       
+ * 
+ * @version <1.0>
+ *  
+ * Programacion Orientada a Objetos
+ * Profesora: Vannessa Benavides Garcia
+ * 8 de mayo de 2020
+ * 
+ * 
+ * Muchas felicitaciones por su cumple profe, de parte de todos los integrantes
+ * le deseamos un feliz cumpleaños y le mandamos muchas bendiciones
  */
 
 
