@@ -27,15 +27,14 @@ public class Principal {
     public static void main(String[] args) throws IOException {
         
         //VARIABLES STRING PARA LA TOMA DE DECISIONES O COMPARACIONES DE DATOS
-        String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,ress,nid2;
-        String respuestano,Nnota,cdesno;
+        String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,nid2;
         int min=0, max = 0,ei,ez;
-        int  i, ñ, v = 0, t=0, p, g, u, ventas=0, a, za;
-        double lleva , sub1, descuento, total = 0;
+        int  i, ñ, v = 0, t=0, p, g, u, ventas=0;
+        double lleva , sub1, descuento, total ;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
         boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
-        boolean ban4 = false, ban5=false, Nonoenco=false, ban6=false, ban7=true;
+        boolean ban4 = false, ban5=false, ban6=false, ban7=true;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -1297,61 +1296,63 @@ public class Principal {
                     switch (r5) 
                     {
                         case "1"://se imprimen los árticulos más vendidos
-                            int ja,ji;
-                      if (OBH.isEmpty())
-                     {//validar si lalista esta vacia
-                         System.out.println("no hay datos ingresados");
-                     }else
-                      {
-                      max = OBH.get(0).cantidad;   
-                      for( ja=1;ja<OBH.size();ja++)
-                      {
-                          if (OBH.get(ja).cantidad>max)
-                          {
-                              max = OBH.get(ja).cantidad;
-                          }
-                      }
-                      }
-                     for(ji=0;ji>OBH.size();ji++)
-                     {
-                       if(OBH.get(ji).cantidad== max)//en el ciclo, se compara si la cantidd es menor
-                       {
-                           //impresión de articulos
-                           System.out.println("Articulo más vendido");
-                           System.out.println(""+OBH.get(ji).articulo+" "+ OBH.get(ji).tipo);
-                           System.out.println(""+OBH.get(ji).marca);
-                           System.out.println(""+OBH.get(ji).precio);
-                           
-                       }
-                     }
+                          if (OBH.isEmpty())
+                            {//validar si lalista esta vacia
+                             System.out.println("no hay datos ingresados");
+                            }
+                            else
+                            {
+                               max = OBH.get(0).cantidad;
+                               
+                                for( ei=1;ei<OBH.size();ei++)
+                                {
+                                   if (OBH.get(ei).cantidad>max)
+                                   {
+                                       max = OBH.get(ei).cantidad;
+                                   }
+                                }
+                           }
+                           for(ez=0;ez<OBH.size();ez++)
+                           {
+                              if(OBH.get(ez).cantidad == max)//en el ciclo, se compara si la cantidd es menor
+                               {
+                                  //impresión de articulos
+                                  System.out.println("Articulo menos vendido");
+                                  System.out.println(""+OBH.get(ez).articulo+" "+ OBH.get(ez).tipo);
+                                  System.out.println(""+OBH.get(ez).marca);
+                                  System.out.println(""+OBH.get(ez).precio);
+                               }
+                           }
                             break;
+                            
                         case "2"://se imprimen los árticulos menos vendidos  
                             if (OBH.isEmpty())
-                     {//validar si lalista esta vacia
-                         System.out.println("no hay datos ingresados");
-                     }else
-                      {
-                      min = OBH.get(0).cantidad;   
-                      for( ei=1;ei<OBH.size();ei++)
-                      {
-                          if (min<OBH.get(ei).cantidad)
-                          {
-                              min = OBH.get(ei).cantidad;
-                          }
-                      }
-                      }
-                     for(ez=0;ez<OBH.size();ez++)
-                     {
-                       if(OBH.get(ez).cantidad== min)//en el ciclo, se compara si la cantidd es menor
-                       {
-                           //impresión de articulos
-                           System.out.println("Articulo menos vendido");
-                           System.out.println(""+OBH.get(ez).articulo+" "+ OBH.get(ez).tipo);
-                           System.out.println(""+OBH.get(ez).marca);
-                           System.out.println(""+OBH.get(ez).precio);
-                           
-                       }
-                     }
+                            {//validar si lalista esta vacia
+                             System.out.println("no hay datos ingresados");
+                            }
+                            else
+                            {
+                               min = OBH.get(0).cantidad;
+                               
+                                for( ei=1;ei<OBH.size();ei++)
+                                {
+                                   if (OBH.get(ei).cantidad<min)
+                                   {
+                                       min = OBH.get(ei).cantidad;
+                                   }
+                                }
+                           }
+                           for(ez=0;ez<OBH.size();ez++)
+                           {
+                              if(OBH.get(ez).cantidad == min)//en el ciclo, se compara si la cantidd es menor
+                               {
+                                  //impresión de articulos
+                                  System.out.println("Articulo menos vendido");
+                                  System.out.println(""+OBH.get(ez).articulo+" "+ OBH.get(ez).tipo);
+                                  System.out.println(""+OBH.get(ez).marca);
+                                  System.out.println(""+OBH.get(ez).precio);
+                               }
+                           }
                             break;
                         case "3"://se imprimen el total de ventas
                             System.out.println("Se han vendido un total de: " + ventas);

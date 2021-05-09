@@ -9,10 +9,10 @@ public class Empleado extends Persona{
     Empleado()
     {
         super();
-            RFC = "NULL";
-            ID = "NULL";  
-            tipoEmpleado = "NULL";
-        }
+        RFC = "NULL";
+        ID = "NULL";  
+        tipoEmpleado = "NULL";
+    }
     
     //GETTERS
 
