@@ -42,8 +42,8 @@ public class Principal {
         double lleva , sub1, descuento, total ;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
-        boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false;
-        boolean ban4 = false, ban5=false, ban6=false, ban7=true;
+        boolean ban=false, ban2=false, clnoenco=false, ind = false, artel = false, ban3=true, ind2=false, bn=false;
+        boolean ban4 = false, ban5=false, ban6=false, ban7=true, bne=false;
         Scanner x = new Scanner(System.in);
         //arraylist para los articulos
         ArrayList<Herramientas> OBH = new ArrayList<>();
@@ -184,8 +184,18 @@ public class Principal {
                                             clientes.get(y).setRFC(x.next());
                                             System.out.print("Ingrese el Tipo de Pago del Cliente: ");
                                             clientes.get(y).setTipoCliente(x.next());
+                                            
                                         }
+                                         else
+                                         {
+                                             bn=true;
+                                         }
+                                         
                                     }
+                                      if(bn==true)
+                                      {
+                                          System.out.println("Cliente no encontrado");
+                                      }
                                      System.out.println("");
                                      System.out.println("¿Desea Editar otro Cliente?(Si/No)");
                                      respuesta = x.next();
@@ -552,9 +562,13 @@ public class Principal {
                                                 } 
                                                else 
                                                 {
-                                                  System.out.println("empleado no encontrado");
+                                                  bne=true;
                                                 }
                                             }
+                                         if(bne==true)
+                                         {
+                                             System.out.println("Empleado No encontrado");
+                                         }
                                             System.out.println("");
                                             System.out.print("¿Desea modifcar otro empleado ?(si/no)");
                                             respuesta = x.next();
