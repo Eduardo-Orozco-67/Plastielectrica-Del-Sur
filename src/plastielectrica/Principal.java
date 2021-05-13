@@ -37,7 +37,7 @@ public class Principal {
         
         //VARIABLES STRING PARA LA TOMA DE DECISIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,nid2;
-        int min=0, max = 0,ei,ez;
+        int min, max ,ei,ez;
         int  i, ñ, v = 0, t=0, p, g, u, ventas=0;
         double lleva , sub1, descuento, total ;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
@@ -1147,7 +1147,8 @@ public class Principal {
                                                        total=llenadonota.getsumasubtotal() - descuento;
                                                        totalnota.settotal(total);
                                                    }
-                                                   else{
+                                                   else
+                                                   {
                                                    if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
                                                    {
                                                        if(llenadonota.getcantidadc()<=10)
@@ -1334,7 +1335,7 @@ public class Principal {
                                        max = OBH.get(ei).cantidad;
                                    }
                                 }
-                           }
+                           
                            for(ez=0;ez<OBH.size();ez++)
                            {
                               if(OBH.get(ez).cantidad == max)//en el ciclo, se compara si la cantidd es menor
@@ -1346,6 +1347,7 @@ public class Principal {
                                   System.out.println(""+OBH.get(ez).precio);
                                }
                            }
+                            }
                             break;
                             
                         case "2"://se imprimen los árticulos menos vendidos  
@@ -1364,7 +1366,7 @@ public class Principal {
                                        min = OBH.get(ei).cantidad;
                                    }
                                 }
-                           }
+                           
                            for(ez=0;ez<OBH.size();ez++)
                            {
                               if(OBH.get(ez).cantidad == min)//en el ciclo, se compara si la cantidd es menor
@@ -1376,6 +1378,7 @@ public class Principal {
                                   System.out.println(""+OBH.get(ez).precio);
                                }
                            }
+                            }
                             break;
                         case "3"://se imprimen el total de ventas
                             System.out.println("Se han vendido un total de: " + ventas);
