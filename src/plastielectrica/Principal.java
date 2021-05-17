@@ -37,8 +37,8 @@ public class Principal {
         
         //VARIABLES STRING PARA LA TOMA DE DECISIONES O COMPARACIONES DE DATOS
         String respuesta, num, Ncliente, cdes, tipo, nid, elimar, respuesta2, TCliente,tipeEmpleado,nid2;
-        int min=0, max = 0,ei,ez;
-        int  i, ñ, v = 0, t=0, p, g, u, ventas=0;
+        int min, max ,ei,ez;
+        int  i, o, v = 0, t=0, p, g, u, ventas=0;
         double lleva , sub1, descuento, total ;
         //VARIABLES STRING PARA LOS DISTINTOS SWITCH DE MENUS
         String res , r1, r2, r3, r4, r5;
@@ -1114,9 +1114,9 @@ public class Principal {
                                            System.out.println("\nIngrese el codigo de identificacion del articulo que desea agregar: ");
                                            nid2 = x.next();
                                            //Inicio de la excepcion 
-                                               for ( ñ = 0; ñ < OBH.size(); ñ++) 
+                                               for ( o = 0; o < OBH.size(); o++) 
                                                {//ciclo para verificar todos los objetos
-                                                  if ((OBH.get(ñ).id).equals(nid2)) 
+                                                  if ((OBH.get(o).id).equals(nid2)) 
                                                    {//comparación de id con nid
                                                       ind2 = true;
                                                       System.out.println("Articulo encontrado");
@@ -1127,17 +1127,17 @@ public class Principal {
                                                 if (ind2 == true) 
                                                 {////comparación de nid con su valor de salida
                                                     
-                                                   llenadonota.setId(OBH.get(ñ).id);
-                                                   llenadonota.setArticulo(OBH.get(ñ).articulo);
-                                                   llenadonota.setTipo(OBH.get(ñ).tipo);
-                                                   llenadonota.setMarca(OBH.get(ñ).marca);
-                                                   llenadonota.setUnidades(OBH.get(ñ).unidades);
-                                                   llenadonota.setCantidad(OBH.get(ñ).cantidad);
-                                                   llenadonota.setGarantia(OBH.get(ñ).garantia);
-                                                   llenadonota.setPrecio(OBH.get(ñ).precio);
+                                                   llenadonota.setId(OBH.get(o).id);
+                                                   llenadonota.setArticulo(OBH.get(o).articulo);
+                                                   llenadonota.setTipo(OBH.get(o).tipo);
+                                                   llenadonota.setMarca(OBH.get(o).marca);
+                                                   llenadonota.setUnidades(OBH.get(o).unidades);
+                                                   llenadonota.setCantidad(OBH.get(o).cantidad);
+                                                   llenadonota.setGarantia(OBH.get(o).garantia);
+                                                   llenadonota.setPrecio(OBH.get(o).precio);
                                                    System.out.println("Ingrese la cantidad que lleva");
                                                    llenadonota.setcantidadc(x.nextDouble());
-                                                   sub1=OBH.get(ñ).precio * llenadonota.getcantidadc();
+                                                   sub1=OBH.get(o).precio * llenadonota.getcantidadc();
                                                    llenadonota.setsubtotal(sub1);
                                                    lleva=lleva+sub1;
                                                    llenadonota.setsumasubtotal(lleva);
@@ -1147,7 +1147,8 @@ public class Principal {
                                                        total=llenadonota.getsumasubtotal() - descuento;
                                                        totalnota.settotal(total);
                                                    }
-                                                   else{
+                                                   else
+                                                   {
                                                    if(lisNota.get(v).TipoCliente.equals("Credito")||lisNota.get(v).TipoCliente.equals("credito")||lisNota.get(v).TipoCliente.equals("CREDITO"))
                                                    {
                                                        if(llenadonota.getcantidadc()<=10)
@@ -1334,7 +1335,7 @@ public class Principal {
                                        max = OBH.get(ei).cantidad;
                                    }
                                 }
-                           }
+                           
                            for(ez=0;ez<OBH.size();ez++)
                            {
                               if(OBH.get(ez).cantidad == max)//en el ciclo, se compara si la cantidd es menor
@@ -1346,6 +1347,7 @@ public class Principal {
                                   System.out.println(""+OBH.get(ez).precio);
                                }
                            }
+                            }
                             break;
                             
                         case "2"://se imprimen los árticulos menos vendidos  
@@ -1364,7 +1366,7 @@ public class Principal {
                                        min = OBH.get(ei).cantidad;
                                    }
                                 }
-                           }
+                           
                            for(ez=0;ez<OBH.size();ez++)
                            {
                               if(OBH.get(ez).cantidad == min)//en el ciclo, se compara si la cantidd es menor
@@ -1376,6 +1378,7 @@ public class Principal {
                                   System.out.println(""+OBH.get(ez).precio);
                                }
                            }
+                            }
                             break;
                         case "3"://se imprimen el total de ventas
                             System.out.println("Se han vendido un total de: " + ventas);
