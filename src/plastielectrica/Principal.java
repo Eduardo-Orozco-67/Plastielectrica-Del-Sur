@@ -1,7 +1,6 @@
 package plastielectrica;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -18,7 +17,7 @@ import java.util.Scanner;
  *
  * @author < Emilia Zuniga Losada ---- emilia.zuniga49@unach.mx >
  * 
- * @version <1.0>
+ * @version <1.1>
  *  
  * Programacion Orientada a Objetos
  * Profesora: Vannessa Benavides Garcia
