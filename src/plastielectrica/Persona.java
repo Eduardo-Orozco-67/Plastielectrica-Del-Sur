@@ -1,10 +1,8 @@
 
 package plastielectrica;
 
-import java.util.Scanner;
-
 public class Persona {
-    Scanner x = new Scanner(System.in);
+ 
     String nombre;
     int edad; 
     String direccion;

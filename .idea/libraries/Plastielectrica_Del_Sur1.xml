@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Plastielectrica_Del_Sur1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/Plastielectrica_Del_Sur.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
