@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author < Noe Guillen Gerardo ---- noe.guillen22@unach.mx >
  *
- * @author < Jose Eduardo Orozco Cradenas ---- eduardo.orozco66@unach.mx >
+ * @author < Jose Eduardo Orozco Cardenas ---- eduardo.orozco66@unach.mx >
  *
  * @author < Samuel Sanchez Guzman ---- samuel.sanchez85@unach.mx >
  *
