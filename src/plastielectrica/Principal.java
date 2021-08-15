@@ -1122,7 +1122,7 @@ public class Principal {
                                                       break;
                                                    }
                                                 }   
-
+                                                 //aqui ocupamos algo llamado arrays bidimencionales de arraylists
                                                 if (ind2 == true) 
                                                 {////comparación de nid con su valor de salida
                                                     
